@@ -1,0 +1,380 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4619F0032AA7A47ADE51E06E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCF744ADCE4F5E1814AE57D /* libPods.a */; };
+		884649D51C48CE960031AA86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 884649D41C48CE960031AA86 /* main.m */; };
+		884649D81C48CE960031AA86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 884649D71C48CE960031AA86 /* AppDelegate.m */; };
+		884649DE1C48CE960031AA86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884649DC1C48CE960031AA86 /* Main.storyboard */; };
+		884649E01C48CE960031AA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884649DF1C48CE960031AA86 /* Assets.xcassets */; };
+		884649E31C48CE960031AA86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884649E11C48CE960031AA86 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6CE74E494B922BCC8E516B21 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		7B5C11C1B6D6F45991213034 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		884649D01C48CE960031AA86 /* HeartTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		884649D41C48CE960031AA86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		884649D61C48CE960031AA86 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		884649D71C48CE960031AA86 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		884649DD1C48CE960031AA86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		884649DF1C48CE960031AA86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		884649E21C48CE960031AA86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		884649E41C48CE960031AA86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACCF744ADCE4F5E1814AE57D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		884649CD1C48CE960031AA86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4619F0032AA7A47ADE51E06E /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		884649C71C48CE960031AA86 = {
+			isa = PBXGroup;
+			children = (
+				884649D21C48CE960031AA86 /* HeartTravel */,
+				884649D11C48CE960031AA86 /* Products */,
+				8BC6D15666C290D9AF6AFA41 /* Pods */,
+				F6E850C8257BBAF5D8841790 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		884649D11C48CE960031AA86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				884649D01C48CE960031AA86 /* HeartTravel.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		884649D21C48CE960031AA86 /* HeartTravel */ = {
+			isa = PBXGroup;
+			children = (
+				884649D61C48CE960031AA86 /* AppDelegate.h */,
+				884649D71C48CE960031AA86 /* AppDelegate.m */,
+				884649DC1C48CE960031AA86 /* Main.storyboard */,
+				884649DF1C48CE960031AA86 /* Assets.xcassets */,
+				884649E11C48CE960031AA86 /* LaunchScreen.storyboard */,
+				884649E41C48CE960031AA86 /* Info.plist */,
+				884649D31C48CE960031AA86 /* Supporting Files */,
+			);
+			path = HeartTravel;
+			sourceTree = "<group>";
+		};
+		884649D31C48CE960031AA86 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				884649D41C48CE960031AA86 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8BC6D15666C290D9AF6AFA41 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B5C11C1B6D6F45991213034 /* Pods.debug.xcconfig */,
+				6CE74E494B922BCC8E516B21 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F6E850C8257BBAF5D8841790 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACCF744ADCE4F5E1814AE57D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		884649CF1C48CE960031AA86 /* HeartTravel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 884649E71C48CE960031AA86 /* Build configuration list for PBXNativeTarget "HeartTravel" */;
+			buildPhases = (
+				F0ADD33BCB17CEC2BD166642 /* Check Pods Manifest.lock */,
+				884649CC1C48CE960031AA86 /* Sources */,
+				884649CD1C48CE960031AA86 /* Frameworks */,
+				884649CE1C48CE960031AA86 /* Resources */,
+				A904B72122CE19AAD5352A2C /* Embed Pods Frameworks */,
+				9BAFFF3F18EA5D53040973AE /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HeartTravel;
+			productName = HeartTravel;
+			productReference = 884649D01C48CE960031AA86 /* HeartTravel.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		884649C81C48CE960031AA86 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "杨晓伟";
+				TargetAttributes = {
+					884649CF1C48CE960031AA86 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = KGH92SX92C;
+					};
+				};
+			};
+			buildConfigurationList = 884649CB1C48CE960031AA86 /* Build configuration list for PBXProject "HeartTravel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 884649C71C48CE960031AA86;
+			productRefGroup = 884649D11C48CE960031AA86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				884649CF1C48CE960031AA86 /* HeartTravel */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		884649CE1C48CE960031AA86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				884649E31C48CE960031AA86 /* LaunchScreen.storyboard in Resources */,
+				884649E01C48CE960031AA86 /* Assets.xcassets in Resources */,
+				884649DE1C48CE960031AA86 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9BAFFF3F18EA5D53040973AE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A904B72122CE19AAD5352A2C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0ADD33BCB17CEC2BD166642 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		884649CC1C48CE960031AA86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				884649D81C48CE960031AA86 /* AppDelegate.m in Sources */,
+				884649D51C48CE960031AA86 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		884649DC1C48CE960031AA86 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				884649DD1C48CE960031AA86 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		884649E11C48CE960031AA86 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				884649E21C48CE960031AA86 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		884649E51C48CE960031AA86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		884649E61C48CE960031AA86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		884649E81C48CE960031AA86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B5C11C1B6D6F45991213034 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HeartTravel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxw.HeartTravel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		884649E91C48CE960031AA86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CE74E494B922BCC8E516B21 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HeartTravel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxw.HeartTravel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		884649CB1C48CE960031AA86 /* Build configuration list for PBXProject "HeartTravel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				884649E51C48CE960031AA86 /* Debug */,
+				884649E61C48CE960031AA86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		884649E71C48CE960031AA86 /* Build configuration list for PBXNativeTarget "HeartTravel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				884649E81C48CE960031AA86 /* Debug */,
+				884649E91C48CE960031AA86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 884649C81C48CE960031AA86 /* Project object */;
+}
