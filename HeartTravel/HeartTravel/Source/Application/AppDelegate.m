@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-
+#import "HTHomeViewController.h"
+#import "HTLeftMenuViewController.h"
+#import <RESideMenu/UIViewController+RESideMenu.h>
+#import <RESideMenu/RESideMenu.h>
 @interface AppDelegate ()
 
 @end
@@ -16,7 +19,27 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+   
+    
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    
+    // Create content and menu controllers
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[HTHomeViewController alloc] init]];
+    
+    HTLeftMenuViewController *leftMenuViewController = [[HTLeftMenuViewController alloc] init];
+    
+    // Create side menu controller
+    
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc]initWithContentViewController:navigationController leftMenuViewController:leftMenuViewController rightMenuViewController:nil];
+    
+    self.window.rootViewController = sideMenuViewController;
+    
+    
+
     return YES;
 }
 
