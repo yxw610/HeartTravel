@@ -10,8 +10,9 @@
 #import "HTTravelRecordTableViewCell.h"
 #import "HTTravelRecordModel.h"
 #import "HTRecordContentModel.h"
-#import "JSON.h"
+#import "GetDataTools.h"
 
+#define kURL @"http://q.chanyouji.com/api/v1/timelines.json?page=1&per=50"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
@@ -46,25 +47,31 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HTTravelRecordTableViewCell" bundle:nil] forCellReuseIdentifier:HTTravelRecordCellID];
     
-    JSON *js = [JSON new];
+    
     
     __unsafe_unretained typeof(self) weakSelf = self;
     self.cellHeightArray = [NSMutableArray array];
     
-    [js ht_getDataWith:^(NSMutableArray *dataArray, NSMutableArray *cellMarkArray) {
+    [[GetDataTools shareGetDataTools] getDataWithUrlString:kURL data:^(NSDictionary *dataDict) {
         
-        weakSelf.array = dataArray;
-        weakSelf.cellMarkArray = cellMarkArray;
-    
-        for (int i = 0; i < dataArray.count; i++) {
+        NSDictionary *dict = dataDict;
+        weakSelf.array = [NSMutableArray array];
+        weakSelf.cellMarkArray = [NSMutableArray array];
+        
+        for (NSDictionary *tempDict in dict[@"data"]) {
             
-            HTTravelRecordModel *model = dataArray[i];
+            HTTravelRecordModel *recordModel = [HTTravelRecordModel new];
             
-            NSArray *heightArray = [HTTravelRecordTableViewCell caculateHeightForLabelWithModel:model];
+            [recordModel setValuesForKeysWithDictionary:tempDict[@"activity"]];
+            
+            NSArray *heightArray = [HTTravelRecordTableViewCell caculateHeightForLabelWithModel:recordModel];
             
             CGFloat recordContentViewHeight = [heightArray[2] floatValue];
             
-            [self.cellHeightArray addObject:@(recordContentViewHeight)];
+            [weakSelf.cellHeightArray addObject:@(recordContentViewHeight)];
+            
+            [weakSelf.array addObject:recordModel];
+            [weakSelf.cellMarkArray addObject:@"part"];
             
         }
         
