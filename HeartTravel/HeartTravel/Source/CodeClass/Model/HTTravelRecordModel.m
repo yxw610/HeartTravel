@@ -52,7 +52,9 @@
 - (void)setValue:(id)value forKey:(NSString *)key {
     
     // 调用父类的方法
-    [super setValue:value forKey:key];
+    if (value != nil) {
+        [super setValue:value forKey:key];
+    }
     
     if ([key isEqualToString:@"categories"]) {
         

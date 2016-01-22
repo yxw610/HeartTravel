@@ -11,6 +11,9 @@
 #import "HTLoginViewController.h"
 #import "FXBlurView.h"
 #import <Masonry/Masonry.h>
+#import "HTWorldExploreViewController.h"
+#import "HTTravelRecordTableViewController.h"
+
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
 #define kLeftGap kWidth / 4
@@ -102,6 +105,8 @@
     [self.worldButton setTitle:@"世界探索" forState:(UIControlStateNormal)];
     //左对齐
     self.worldButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    //添加响应事件
+    [self.worldButton addTarget:self action:@selector(worldPage:) forControlEvents:(UIControlEventTouchUpInside)];
     
     [self.backImg addSubview:self.worldButton];
     //加约束(上.左.下.右)
@@ -123,6 +128,9 @@
     //左对齐
     self.diaryButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [self.backImg addSubview:self.diaryButton];
+     //添加响应事件
+    [self.diaryButton addTarget:self action:@selector(diaryPage:) forControlEvents:(UIControlEventTouchUpInside)];
+    
     //加约束(上.左.下.右)
 
     [self.diaryButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -184,6 +192,25 @@
     UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
     [self presentViewController:loginNC animated:YES completion:nil];
 }
+
+#pragma  mark---------------世界探索点击事件---------------------
+
+- (void)worldPage:(UIButton *)sender
+{
+    HTWorldExploreViewController *worldVC = [[HTWorldExploreViewController alloc]init];
+    [self.sideMenuViewController setContentViewController:worldVC];
+   
+    
+}
+
+#pragma  mark---------------游记点击事件---------------------
+
+- (void)diaryPage:(UIButton *)sender
+{
+    HTTravelRecordTableViewController *diaryVC = [[HTTravelRecordTableViewController alloc]init];
+    [self.sideMenuViewController setContentViewController:diaryVC];
+}
+
 
 /*
 #pragma mark - Navigation

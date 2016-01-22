@@ -40,7 +40,7 @@
     menu.frame = CGRectMake(0, 20, kScreenWidth, 44);
     [self.view addSubview:menu];
     //滑动图片样式
-    self.carousel.type = iCarouselTypeRotary;
+    self.carousel.type = iCarouselTypeTimeMachine;
     self.wrap = YES;
     //数据解析
     NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:WORD_URL] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
