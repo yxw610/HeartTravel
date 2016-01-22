@@ -23,6 +23,17 @@
 		8868239E1C50C64300A72874 /* HTPhotoContentCarouselFigureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8868239A1C50C64300A72874 /* HTPhotoContentCarouselFigureView.m */; };
 		8868239F1C50C64300A72874 /* HTTravelRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8868239C1C50C64300A72874 /* HTTravelRecordTableViewCell.m */; };
 		886823A01C50C64300A72874 /* HTTravelRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8868239D1C50C64300A72874 /* HTTravelRecordTableViewCell.xib */; };
+		C00628281C521289007B83F9 /* HJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00628231C521289007B83F9 /* HJNavigationController.m */; };
+		C00628291C521289007B83F9 /* HTCityDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00628251C521289007B83F9 /* HTCityDetailsViewController.m */; };
+		C006282A1C521289007B83F9 /* HTCityFieldTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00628271C521289007B83F9 /* HTCityFieldTableViewController.m */; };
+		C00628311C52129C007B83F9 /* HJTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = C006282C1C52129C007B83F9 /* HJTableViewHeader.m */; };
+		C00628321C52129C007B83F9 /* HTCityDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C006282E1C52129C007B83F9 /* HTCityDetailsModel.m */; };
+		C00628331C52129C007B83F9 /* HTPlacesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C00628301C52129C007B83F9 /* HTPlacesModel.m */; };
+		C00628391C5212B5007B83F9 /* HJNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C00628351C5212B5007B83F9 /* HJNavigationBar.m */; };
+		C006283A1C5212B5007B83F9 /* HTCityDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C00628371C5212B5007B83F9 /* HTCityDetailsCell.m */; };
+		C006283B1C5212B5007B83F9 /* HTCityDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C00628381C5212B5007B83F9 /* HTCityDetailsCell.xib */; };
+		C006283D1C521376007B83F9 /* HTiconfont-fanhui.png in Resources */ = {isa = PBXBuildFile; fileRef = C006283C1C521376007B83F9 /* HTiconfont-fanhui.png */; };
+		C00628401C5213F2007B83F9 /* HTPlacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C006283F1C5213F2007B83F9 /* HTPlacesViewController.m */; };
 		C09ED5751C4DE79F0084C08E /* HTCityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C09ED5741C4DE79F0084C08E /* HTCityTableViewController.m */; };
 		C09ED5791C4DE7A80084C08E /* HTWorldExploreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C09ED5771C4DE7A80084C08E /* HTWorldExploreViewController.m */; };
 		C09ED57A1C4DE7A80084C08E /* HTWorldExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C09ED5781C4DE7A80084C08E /* HTWorldExploreViewController.xib */; };
@@ -77,6 +88,26 @@
 		8868239C1C50C64300A72874 /* HTTravelRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTravelRecordTableViewCell.m; sourceTree = "<group>"; };
 		8868239D1C50C64300A72874 /* HTTravelRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTTravelRecordTableViewCell.xib; sourceTree = "<group>"; };
 		ACCF744ADCE4F5E1814AE57D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C00628221C521289007B83F9 /* HJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJNavigationController.h; sourceTree = "<group>"; };
+		C00628231C521289007B83F9 /* HJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJNavigationController.m; sourceTree = "<group>"; };
+		C00628241C521289007B83F9 /* HTCityDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityDetailsViewController.h; sourceTree = "<group>"; };
+		C00628251C521289007B83F9 /* HTCityDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityDetailsViewController.m; sourceTree = "<group>"; };
+		C00628261C521289007B83F9 /* HTCityFieldTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityFieldTableViewController.h; sourceTree = "<group>"; };
+		C00628271C521289007B83F9 /* HTCityFieldTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityFieldTableViewController.m; sourceTree = "<group>"; };
+		C006282B1C52129C007B83F9 /* HJTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJTableViewHeader.h; sourceTree = "<group>"; };
+		C006282C1C52129C007B83F9 /* HJTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJTableViewHeader.m; sourceTree = "<group>"; };
+		C006282D1C52129C007B83F9 /* HTCityDetailsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityDetailsModel.h; sourceTree = "<group>"; };
+		C006282E1C52129C007B83F9 /* HTCityDetailsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityDetailsModel.m; sourceTree = "<group>"; };
+		C006282F1C52129C007B83F9 /* HTPlacesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPlacesModel.h; sourceTree = "<group>"; };
+		C00628301C52129C007B83F9 /* HTPlacesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPlacesModel.m; sourceTree = "<group>"; };
+		C00628341C5212B5007B83F9 /* HJNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJNavigationBar.h; sourceTree = "<group>"; };
+		C00628351C5212B5007B83F9 /* HJNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJNavigationBar.m; sourceTree = "<group>"; };
+		C00628361C5212B5007B83F9 /* HTCityDetailsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityDetailsCell.h; sourceTree = "<group>"; };
+		C00628371C5212B5007B83F9 /* HTCityDetailsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityDetailsCell.m; sourceTree = "<group>"; };
+		C00628381C5212B5007B83F9 /* HTCityDetailsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTCityDetailsCell.xib; sourceTree = "<group>"; };
+		C006283C1C521376007B83F9 /* HTiconfont-fanhui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HTiconfont-fanhui.png"; sourceTree = "<group>"; };
+		C006283E1C5213F2007B83F9 /* HTPlacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTPlacesViewController.h; sourceTree = "<group>"; };
+		C006283F1C5213F2007B83F9 /* HTPlacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTPlacesViewController.m; sourceTree = "<group>"; };
 		C09ED5731C4DE79F0084C08E /* HTCityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityTableViewController.h; sourceTree = "<group>"; };
 		C09ED5741C4DE79F0084C08E /* HTCityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityTableViewController.m; sourceTree = "<group>"; };
 		C09ED5761C4DE7A80084C08E /* HTWorldExploreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTWorldExploreViewController.h; sourceTree = "<group>"; };
@@ -198,6 +229,7 @@
 		CD4A5BEA1C4CC56500371BC8 /* picture */ = {
 			isa = PBXGroup;
 			children = (
+				C006283C1C521376007B83F9 /* HTiconfont-fanhui.png */,
 				CD8635A01C51D6DC003AFF10 /* HTHome_Menu.png */,
 				CD8635A11C51D6DC003AFF10 /* HTLeftMenu_BackImage.jpg */,
 				CD8635A21C51D6DC003AFF10 /* HTLeftMenu_Head.png */,
@@ -252,6 +284,14 @@
 		CDAA82601C48E44100899B49 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C006283E1C5213F2007B83F9 /* HTPlacesViewController.h */,
+				C006283F1C5213F2007B83F9 /* HTPlacesViewController.m */,
+				C00628221C521289007B83F9 /* HJNavigationController.h */,
+				C00628231C521289007B83F9 /* HJNavigationController.m */,
+				C00628241C521289007B83F9 /* HTCityDetailsViewController.h */,
+				C00628251C521289007B83F9 /* HTCityDetailsViewController.m */,
+				C00628261C521289007B83F9 /* HTCityFieldTableViewController.h */,
+				C00628271C521289007B83F9 /* HTCityFieldTableViewController.m */,
 				886823841C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.h */,
 				886823851C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m */,
 				886823861C50C62500A72874 /* HTTravelRecordTableViewController.h */,
@@ -276,6 +316,12 @@
 		CDAA82611C48E44100899B49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C006282B1C52129C007B83F9 /* HJTableViewHeader.h */,
+				C006282C1C52129C007B83F9 /* HJTableViewHeader.m */,
+				C006282D1C52129C007B83F9 /* HTCityDetailsModel.h */,
+				C006282E1C52129C007B83F9 /* HTCityDetailsModel.m */,
+				C006282F1C52129C007B83F9 /* HTPlacesModel.h */,
+				C00628301C52129C007B83F9 /* HTPlacesModel.m */,
 				8868238D1C50C63800A72874 /* HTDistrictModel.h */,
 				8868238E1C50C63800A72874 /* HTDistrictModel.m */,
 				8868238F1C50C63800A72874 /* HTRecordContentModel.h */,
@@ -297,6 +343,11 @@
 		CDAA82621C48E44100899B49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C00628341C5212B5007B83F9 /* HJNavigationBar.h */,
+				C00628351C5212B5007B83F9 /* HJNavigationBar.m */,
+				C00628361C5212B5007B83F9 /* HTCityDetailsCell.h */,
+				C00628371C5212B5007B83F9 /* HTCityDetailsCell.m */,
+				C00628381C5212B5007B83F9 /* HTCityDetailsCell.xib */,
 				886823991C50C64300A72874 /* HTPhotoContentCarouselFigureView.h */,
 				8868239A1C50C64300A72874 /* HTPhotoContentCarouselFigureView.m */,
 				8868239B1C50C64300A72874 /* HTTravelRecordTableViewCell.h */,
@@ -399,8 +450,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD8635A91C51D6DC003AFF10 /* HTLeftMenu_Head.png in Resources */,
+				C006283B1C5212B5007B83F9 /* HTCityDetailsCell.xib in Resources */,
 				884649E31C48CE960031AA86 /* LaunchScreen.storyboard in Resources */,
 				CD8635AA1C51D6DC003AFF10 /* HTLogin_BackImage.jpg in Resources */,
+				C006283D1C521376007B83F9 /* HTiconfont-fanhui.png in Resources */,
 				CD8635AB1C51D6DC003AFF10 /* HTLogin_Password.png in Resources */,
 				C09ED57A1C4DE7A80084C08E /* HTWorldExploreViewController.xib in Resources */,
 				C09ED5851C4DE7C10084C08E /* HTCityCell.xib in Resources */,
@@ -475,22 +528,31 @@
 				C09ED5801C4DE7B80084C08E /* HTWorldExploreModel.m in Sources */,
 				CD4A5BD81C4CC26B00371BC8 /* HTLeftMenuViewController.m in Sources */,
 				8868239E1C50C64300A72874 /* HTPhotoContentCarouselFigureView.m in Sources */,
+				C00628401C5213F2007B83F9 /* HTPlacesViewController.m in Sources */,
 				C09ED58C1C4DE7CD0084C08E /* MXPullDownMenu.m in Sources */,
 				CDAA82691C48E44100899B49 /* AppDelegate.m in Sources */,
 				886823831C50C60800A72874 /* GetDataTools.m in Sources */,
 				C09ED5751C4DE79F0084C08E /* HTCityTableViewController.m in Sources */,
+				C006282A1C521289007B83F9 /* HTCityFieldTableViewController.m in Sources */,
+				C00628331C52129C007B83F9 /* HTPlacesModel.m in Sources */,
 				886823951C50C63800A72874 /* HTDistrictModel.m in Sources */,
 				886823971C50C63800A72874 /* HTTravelRecordModel.m in Sources */,
 				CD4A5BDA1C4CC26B00371BC8 /* HTRegisteViewController.m in Sources */,
 				C09ED57F1C4DE7B80084C08E /* HTCityModel.m in Sources */,
+				C00628321C52129C007B83F9 /* HTCityDetailsModel.m in Sources */,
 				CD4A5BD91C4CC26B00371BC8 /* HTLoginViewController.m in Sources */,
 				886823961C50C63800A72874 /* HTRecordContentModel.m in Sources */,
 				886823981C50C63800A72874 /* HTUserModel.m in Sources */,
+				C00628281C521289007B83F9 /* HJNavigationController.m in Sources */,
 				CD4A5BD71C4CC26B00371BC8 /* HTHomeViewController.m in Sources */,
 				C09ED5791C4DE7A80084C08E /* HTWorldExploreViewController.m in Sources */,
+				C00628391C5212B5007B83F9 /* HJNavigationBar.m in Sources */,
+				C00628311C52129C007B83F9 /* HJTableViewHeader.m in Sources */,
+				C006283A1C5212B5007B83F9 /* HTCityDetailsCell.m in Sources */,
 				8868239F1C50C64300A72874 /* HTTravelRecordTableViewCell.m in Sources */,
 				886823881C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m in Sources */,
 				886823891C50C62500A72874 /* HTTravelRecordTableViewController.m in Sources */,
+				C00628291C521289007B83F9 /* HTCityDetailsViewController.m in Sources */,
 				884649D51C48CE960031AA86 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

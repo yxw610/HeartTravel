@@ -14,14 +14,26 @@
 #import "MXPullDownMenu.h"
 #import "HTCityTableViewController.h"
 #import "HTCityModel.h"
+#import <iCarousel.h>
+#import "GetDataTools.h"
 #define WORD_URL @"http://www.koubeilvxing.com/countrys"
 
-@interface HTWorldExploreViewController ()<MXPullDownMenuDelegate>
-//定义一个属性开关来决定是否无限滑动
+@interface HTWorldExploreViewController ()<MXPullDownMenuDelegate,iCarouselDataSource,iCarouselDelegate>
+/**
+ *  定义一个属性开关来决定是否无限滑动
+ */
 @property (nonatomic, assign) BOOL wrap;
-//定义一个可变数组
+/**
+ *  定义一个可变数组存放大洲的数据
+ */
 @property (nonatomic, strong) NSMutableArray *dataArray;
+/**
+ *  定义一个可变数组存放每个大洲的数据
+ */
 @property (nonatomic, strong) NSMutableArray *dataArr;
+/**
+ *  存放点击下拉菜单的数组
+ */
 @property (nonatomic, strong) NSArray *continentArray;
 
 @end
@@ -30,21 +42,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor whiteColor];
+    self.backImgView.backgroundColor = [UIColor blackColor];
     
     self.dataArray = [NSMutableArray array];
+    
     self.continentArray = [NSArray array];
     self.continentArray = @[ @[@"亚洲",@"欧洲",@"北美洲",@"南美洲",@"非洲",@"大洋洲"]];
     MXPullDownMenu *menu = [[MXPullDownMenu alloc] initWithArray:self.continentArray selectedColor:[UIColor greenColor]];
     menu.delegate = self;
-    menu.frame = CGRectMake(0, 20, kScreenWidth, 44);
+    menu.frame = CGRectMake(0, 20, menu.frame.size.width, menu.frame.size.height);
     [self.view addSubview:menu];
+    
     //滑动图片样式
     self.carousel.type = iCarouselTypeTimeMachine;
+    self.carousel.delegate = self;
+    self.carousel.dataSource = self;
     self.wrap = YES;
-    //数据解析
-    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:WORD_URL] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        NSDictionary *dataDict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    
+    [self getData];
+}
+
+- (void)getData {
+    
+    [[GetDataTools shareGetDataTools] getDataWithUrlString:WORD_URL data:^(NSDictionary *dataDict) {
+        
         for (NSDictionary *dictionary in dataDict[@"continents"]) {
             NSMutableArray *tempArray = [NSMutableArray array];
             for (NSDictionary *dict in dictionary[@"countrys"]) {
@@ -60,34 +83,23 @@
             [self.carousel reloadData];
         });
     }];
-    [dataTask resume];
-}
-
-//设置代理
-- (void)dealloc {
-    self.carousel.delegate = self;
-    self.carousel.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+//图片个数
 - (NSInteger)numberOfItemsInCarousel:(iCarousel *)carousel {
     return self.dataArr.count;
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-    self.carousel = nil;
-}
-
+//给model赋值
 - (UIView *)carousel:(__unused iCarousel *)carousel viewForItemAtIndex:(NSInteger)index reusingView:(UIView *)view
 {
     if (view == nil) {
         view.contentMode = UIViewContentModeCenter;
         view = [[UIView alloc] initWithFrame:CGRectMake(20, 20, 300, 300)];
-        view.backgroundColor = [UIColor yellowColor];
     }
     if (view.subviews.count != 0) {
         for (UIView *subView in view.subviews) {
@@ -96,19 +108,20 @@
     }
     UIImageView *imgView = nil;
     imgView = [[UIImageView alloc] initWithFrame:view.bounds];
-   
+    
     HTWorldExploreModel *model = self.dataArr[index];
-
+    
     NSString *str = [NSString stringWithFormat:@"http://img.koubeilvxing.com/pics%@",model.path];
     [imgView sd_setImageWithURL:[NSURL URLWithString:str]];
     imgView.userInteractionEnabled = YES;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(photoTapped:)];
     [imgView addGestureRecognizer:singleTap];//点击图片事件
-
+    
+    //国家名字
     UILabel *label = nil;
     label = [[UILabel alloc] initWithFrame:CGRectMake(imgView.left ,imgView.bottom , imgView.width, 50)];
     label.text = model.name_cn;
-    label.textColor = [UIColor blackColor];
+    label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     [imgView addSubview:label];
     imgView.tag = 1000 + index;
@@ -116,8 +129,10 @@
     return view;
 }
 
+//添加点击图片的手势
 - (void)photoTapped:(UITapGestureRecognizer *)tap {
     
+    //通过tag值来获得图片在数组中的下标
     UIImageView *imageView = (UIImageView *)tap.view;
     NSInteger index = imageView.tag - 1000;
     
@@ -129,6 +144,7 @@
     [self presentViewController:navC animated:YES completion:nil];
 }
 
+//实现代理方法
 - (CGFloat)carousel:(__unused iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
 {
     //customize carousel display
@@ -175,8 +191,6 @@
     self.dataArr = self.dataArray[row];
     [self.carousel reloadData];
     self.carousel.scrollOffset = 0;
-
+    
 }
-
-
 @end

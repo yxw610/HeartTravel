@@ -16,5 +16,6 @@
 @property (strong,nonatomic) NSString *info_cn;
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *name_cn;
+@property (strong,nonatomic) NSString *ID;
 
 @end
