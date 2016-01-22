@@ -28,6 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    
     self.backImg = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.backImg.image = [UIImage imageNamed:@"HTLeftMenu_BackImage.jpg"];
     self.backImg.userInteractionEnabled = YES;
@@ -198,7 +200,10 @@
 - (void)worldPage:(UIButton *)sender
 {
     HTWorldExploreViewController *worldVC = [[HTWorldExploreViewController alloc]init];
+    //替换当前视图
     [self.sideMenuViewController setContentViewController:worldVC];
+    //隐藏菜单视图
+    [self.sideMenuViewController hideMenuViewController];
    
     
 }
@@ -209,6 +214,11 @@
 {
     HTTravelRecordTableViewController *diaryVC = [[HTTravelRecordTableViewController alloc]init];
     [self.sideMenuViewController setContentViewController:diaryVC];
+    //替换当前视图
+    [self.sideMenuViewController setContentViewController:diaryVC];
+    //隐藏菜单视图
+    [self.sideMenuViewController hideMenuViewController];
+
 }
 
 

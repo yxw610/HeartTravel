@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "HTHomeViewController.h"
+
+
+
+#import "HTWorldExploreViewController.h"
 #import "HTLeftMenuViewController.h"
 #import <RESideMenu/UIViewController+RESideMenu.h>
 #import <RESideMenu/RESideMenu.h>
@@ -28,13 +31,14 @@
     
     
     // Create content and menu controllers
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[HTHomeViewController alloc] init]];
+    
+//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[HTWorldExploreViewController alloc] init]];
     
     HTLeftMenuViewController *leftMenuViewController = [[HTLeftMenuViewController alloc] init];
     
     // Create side menu controller
     
-    RESideMenu *sideMenuViewController = [[RESideMenu alloc]initWithContentViewController:navigationController leftMenuViewController:leftMenuViewController rightMenuViewController:nil];
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc]initWithContentViewController:[HTWorldExploreViewController new] leftMenuViewController:leftMenuViewController rightMenuViewController:nil];
     
     self.window.rootViewController = sideMenuViewController;
     

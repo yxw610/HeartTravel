@@ -16,6 +16,7 @@
 #import "HTCityModel.h"
 #import <iCarousel.h>
 #import "GetDataTools.h"
+#import <RESideMenu/RESideMenu.h>
 #define WORD_URL @"http://www.koubeilvxing.com/countrys"
 
 @interface HTWorldExploreViewController ()<MXPullDownMenuDelegate,iCarouselDataSource,iCarouselDelegate>
@@ -62,6 +63,15 @@
     self.wrap = YES;
     
     [self getData];
+    
+    
+    
+    
+
+}
+//功能按钮的实现.
+- (IBAction)changeLeft:(id)sender {
+    [self.sideMenuViewController presentLeftMenuViewController];
 }
 
 - (void)getData {
