@@ -12,21 +12,18 @@
 		884649DE1C48CE960031AA86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884649DC1C48CE960031AA86 /* Main.storyboard */; };
 		884649E01C48CE960031AA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884649DF1C48CE960031AA86 /* Assets.xcassets */; };
 		884649E31C48CE960031AA86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884649E11C48CE960031AA86 /* LaunchScreen.storyboard */; };
+		CD3B85051C51CEFA003222E3 /* HTLeftMenu_Head.png in Resources */ = {isa = PBXBuildFile; fileRef = CD3B85041C51CEFA003222E3 /* HTLeftMenu_Head.png */; };
 		CD4A5BCE1C4CC1EF00371BC8 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BCD1C4CC1EF00371BC8 /* FXBlurView.m */; };
 		CD4A5BD71C4CC26B00371BC8 /* HTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BD01C4CC26B00371BC8 /* HTHomeViewController.m */; };
 		CD4A5BD81C4CC26B00371BC8 /* HTLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BD21C4CC26B00371BC8 /* HTLeftMenuViewController.m */; };
 		CD4A5BD91C4CC26B00371BC8 /* HTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BD41C4CC26B00371BC8 /* HTLoginViewController.m */; };
 		CD4A5BDA1C4CC26B00371BC8 /* HTRegisteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BD61C4CC26B00371BC8 /* HTRegisteViewController.m */; };
-		CD4A5BF51C4CC56500371BC8 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BEB1C4CC56500371BC8 /* 1.jpg */; };
-		CD4A5BF61C4CC56500371BC8 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BEC1C4CC56500371BC8 /* 2.jpg */; };
-		CD4A5BF71C4CC56500371BC8 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BED1C4CC56500371BC8 /* 3.jpg */; };
-		CD4A5BF81C4CC56500371BC8 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BEE1C4CC56500371BC8 /* 5.jpg */; };
-		CD4A5BF91C4CC56500371BC8 /* iconfont-denglu-2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BEF1C4CC56500371BC8 /* iconfont-denglu-2.png */; };
-		CD4A5BFA1C4CC56500371BC8 /* iconfont-denglu.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BF01C4CC56500371BC8 /* iconfont-denglu.png */; };
-		CD4A5BFB1C4CC56500371BC8 /* iconfont-gongneng-2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BF11C4CC56500371BC8 /* iconfont-gongneng-2.png */; };
-		CD4A5BFC1C4CC56500371BC8 /* iconfont-mima-2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BF21C4CC56500371BC8 /* iconfont-mima-2.png */; };
-		CD4A5BFD1C4CC56500371BC8 /* iconfont-mima-3.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BF31C4CC56500371BC8 /* iconfont-mima-3.png */; };
-		CD4A5BFE1C4CC56500371BC8 /* t.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BF41C4CC56500371BC8 /* t.jpg */; };
+		CD4A5BF51C4CC56500371BC8 /* HTLeftMenu_BackImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BEB1C4CC56500371BC8 /* HTLeftMenu_BackImage.jpg */; };
+		CD4A5BF61C4CC56500371BC8 /* HTLogin_BackImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BEC1C4CC56500371BC8 /* HTLogin_BackImage.jpg */; };
+		CD4A5BF71C4CC56500371BC8 /* HTRegister_BackImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BED1C4CC56500371BC8 /* HTRegister_BackImage.jpg */; };
+		CD4A5BFA1C4CC56500371BC8 /* HTLogin_User.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BF01C4CC56500371BC8 /* HTLogin_User.png */; };
+		CD4A5BFB1C4CC56500371BC8 /* HTHome_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BF11C4CC56500371BC8 /* HTHome_Menu.png */; };
+		CD4A5BFD1C4CC56500371BC8 /* HTLogin_Password.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4A5BF31C4CC56500371BC8 /* HTLogin_Password.png */; };
 		CDAA82691C48E44100899B49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAA825D1C48E44100899B49 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +37,7 @@
 		884649E21C48CE960031AA86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		884649E41C48CE960031AA86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACCF744ADCE4F5E1814AE57D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD3B85041C51CEFA003222E3 /* HTLeftMenu_Head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HTLeftMenu_Head.png; sourceTree = "<group>"; };
 		CD4A5BCC1C4CC1EF00371BC8 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
 		CD4A5BCD1C4CC1EF00371BC8 /* FXBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXBlurView.m; sourceTree = "<group>"; };
 		CD4A5BCF1C4CC26B00371BC8 /* HTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTHomeViewController.h; sourceTree = "<group>"; };
@@ -50,16 +48,12 @@
 		CD4A5BD41C4CC26B00371BC8 /* HTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTLoginViewController.m; sourceTree = "<group>"; };
 		CD4A5BD51C4CC26B00371BC8 /* HTRegisteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTRegisteViewController.h; sourceTree = "<group>"; };
 		CD4A5BD61C4CC26B00371BC8 /* HTRegisteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTRegisteViewController.m; sourceTree = "<group>"; };
-		CD4A5BEB1C4CC56500371BC8 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		CD4A5BEC1C4CC56500371BC8 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
-		CD4A5BED1C4CC56500371BC8 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
-		CD4A5BEE1C4CC56500371BC8 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
-		CD4A5BEF1C4CC56500371BC8 /* iconfont-denglu-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-denglu-2.png"; sourceTree = "<group>"; };
-		CD4A5BF01C4CC56500371BC8 /* iconfont-denglu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-denglu.png"; sourceTree = "<group>"; };
-		CD4A5BF11C4CC56500371BC8 /* iconfont-gongneng-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-gongneng-2.png"; sourceTree = "<group>"; };
-		CD4A5BF21C4CC56500371BC8 /* iconfont-mima-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-mima-2.png"; sourceTree = "<group>"; };
-		CD4A5BF31C4CC56500371BC8 /* iconfont-mima-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-mima-3.png"; sourceTree = "<group>"; };
-		CD4A5BF41C4CC56500371BC8 /* t.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = t.jpg; sourceTree = "<group>"; };
+		CD4A5BEB1C4CC56500371BC8 /* HTLeftMenu_BackImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HTLeftMenu_BackImage.jpg; sourceTree = "<group>"; };
+		CD4A5BEC1C4CC56500371BC8 /* HTLogin_BackImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HTLogin_BackImage.jpg; sourceTree = "<group>"; };
+		CD4A5BED1C4CC56500371BC8 /* HTRegister_BackImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HTRegister_BackImage.jpg; sourceTree = "<group>"; };
+		CD4A5BF01C4CC56500371BC8 /* HTLogin_User.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HTLogin_User.png; sourceTree = "<group>"; };
+		CD4A5BF11C4CC56500371BC8 /* HTHome_Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HTHome_Menu.png; sourceTree = "<group>"; };
+		CD4A5BF31C4CC56500371BC8 /* HTLogin_Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HTLogin_Password.png; sourceTree = "<group>"; };
 		CDAA825C1C48E44100899B49 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CDAA825D1C48E44100899B49 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CDAA82641C48E44100899B49 /* APPHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPHeader.h; sourceTree = "<group>"; };
@@ -132,16 +126,13 @@
 		CD4A5BEA1C4CC56500371BC8 /* picture */ = {
 			isa = PBXGroup;
 			children = (
-				CD4A5BEB1C4CC56500371BC8 /* 1.jpg */,
-				CD4A5BEC1C4CC56500371BC8 /* 2.jpg */,
-				CD4A5BED1C4CC56500371BC8 /* 3.jpg */,
-				CD4A5BEE1C4CC56500371BC8 /* 5.jpg */,
-				CD4A5BEF1C4CC56500371BC8 /* iconfont-denglu-2.png */,
-				CD4A5BF01C4CC56500371BC8 /* iconfont-denglu.png */,
-				CD4A5BF11C4CC56500371BC8 /* iconfont-gongneng-2.png */,
-				CD4A5BF21C4CC56500371BC8 /* iconfont-mima-2.png */,
-				CD4A5BF31C4CC56500371BC8 /* iconfont-mima-3.png */,
-				CD4A5BF41C4CC56500371BC8 /* t.jpg */,
+				CD4A5BF11C4CC56500371BC8 /* HTHome_Menu.png */,
+				CD4A5BEB1C4CC56500371BC8 /* HTLeftMenu_BackImage.jpg */,
+				CD3B85041C51CEFA003222E3 /* HTLeftMenu_Head.png */,
+				CD4A5BEC1C4CC56500371BC8 /* HTLogin_BackImage.jpg */,
+				CD4A5BF01C4CC56500371BC8 /* HTLogin_User.png */,
+				CD4A5BF31C4CC56500371BC8 /* HTLogin_Password.png */,
+				CD4A5BED1C4CC56500371BC8 /* HTRegister_BackImage.jpg */,
 			);
 			path = picture;
 			sourceTree = "<group>";
@@ -303,16 +294,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				884649E31C48CE960031AA86 /* LaunchScreen.storyboard in Resources */,
-				CD4A5BFA1C4CC56500371BC8 /* iconfont-denglu.png in Resources */,
-				CD4A5BF51C4CC56500371BC8 /* 1.jpg in Resources */,
-				CD4A5BFD1C4CC56500371BC8 /* iconfont-mima-3.png in Resources */,
-				CD4A5BFE1C4CC56500371BC8 /* t.jpg in Resources */,
-				CD4A5BF61C4CC56500371BC8 /* 2.jpg in Resources */,
-				CD4A5BFC1C4CC56500371BC8 /* iconfont-mima-2.png in Resources */,
-				CD4A5BF91C4CC56500371BC8 /* iconfont-denglu-2.png in Resources */,
-				CD4A5BF71C4CC56500371BC8 /* 3.jpg in Resources */,
-				CD4A5BF81C4CC56500371BC8 /* 5.jpg in Resources */,
-				CD4A5BFB1C4CC56500371BC8 /* iconfont-gongneng-2.png in Resources */,
+				CD4A5BFA1C4CC56500371BC8 /* HTLogin_User.png in Resources */,
+				CD4A5BF51C4CC56500371BC8 /* HTLeftMenu_BackImage.jpg in Resources */,
+				CD4A5BFD1C4CC56500371BC8 /* HTLogin_Password.png in Resources */,
+				CD4A5BF61C4CC56500371BC8 /* HTLogin_BackImage.jpg in Resources */,
+				CD3B85051C51CEFA003222E3 /* HTLeftMenu_Head.png in Resources */,
+				CD4A5BF71C4CC56500371BC8 /* HTRegister_BackImage.jpg in Resources */,
+				CD4A5BFB1C4CC56500371BC8 /* HTHome_Menu.png in Resources */,
 				884649E01C48CE960031AA86 /* Assets.xcassets in Resources */,
 				884649DE1C48CE960031AA86 /* Main.storyboard in Resources */,
 			);

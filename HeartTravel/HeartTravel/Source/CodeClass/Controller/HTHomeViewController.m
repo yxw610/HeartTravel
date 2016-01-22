@@ -20,7 +20,7 @@
    
     self.view.backgroundColor = [UIColor redColor];
     
-    UIImage *normalImg = [UIImage imageNamed:@"iconfont-gongneng-2"];
+    UIImage *normalImg = [UIImage imageNamed:@"HTHome_Menu"];
     normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
     
     self.navigationItem.leftBarButtonItem =[[UIBarButtonItem alloc]initWithImage:normalImg style:UIBarButtonItemStylePlain target:self action:@selector(changeLeft:)];
