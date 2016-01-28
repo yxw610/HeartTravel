@@ -43,6 +43,30 @@
 		C09ED5851C4DE7C10084C08E /* HTCityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C09ED5831C4DE7C10084C08E /* HTCityCell.xib */; };
 		C09ED58C1C4DE7CD0084C08E /* MXPullDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = C09ED5881C4DE7CD0084C08E /* MXPullDownMenu.m */; };
 		C09ED58D1C4DE7CD0084C08E /* UIView+WLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C09ED58B1C4DE7CD0084C08E /* UIView+WLFrame.m */; };
+		C2215BED1C59C0B800E14162 /* HTCityStrategyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BE41C59C0B800E14162 /* HTCityStrategyViewController.m */; };
+		C2215BEE1C59C0B800E14162 /* HTDestinationStrategyController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BE61C59C0B800E14162 /* HTDestinationStrategyController.m */; };
+		C2215BEF1C59C0B800E14162 /* HTDetailStrategyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BE81C59C0B800E14162 /* HTDetailStrategyViewController.m */; };
+		C2215BF01C59C0B800E14162 /* HTDiscoveryHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BEA1C59C0B800E14162 /* HTDiscoveryHotViewController.m */; };
+		C2215BF11C59C0B800E14162 /* HTStrategyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BEC1C59C0B800E14162 /* HTStrategyTableViewController.m */; };
+		C2215BFE1C59C0CE00E14162 /* HTCityStrategyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BF31C59C0CE00E14162 /* HTCityStrategyModel.m */; };
+		C2215BFF1C59C0CE00E14162 /* HTDestinationStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BF51C59C0CE00E14162 /* HTDestinationStrategy.m */; };
+		C2215C001C59C0CE00E14162 /* HTDetailStrategyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BF71C59C0CE00E14162 /* HTDetailStrategyModel.m */; };
+		C2215C011C59C0CE00E14162 /* HTDiscoveryHot.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BF91C59C0CE00E14162 /* HTDiscoveryHot.m */; };
+		C2215C021C59C0CE00E14162 /* HTStrategyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BFB1C59C0CE00E14162 /* HTStrategyModel.m */; };
+		C2215C031C59C0CE00E14162 /* HTStrategyPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215BFD1C59C0CE00E14162 /* HTStrategyPhoto.m */; };
+		C2215C181C59C15F00E14162 /* HTCityStrategyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215C051C59C15F00E14162 /* HTCityStrategyCell.m */; };
+		C2215C191C59C15F00E14162 /* HTCityStrategyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2215C061C59C15F00E14162 /* HTCityStrategyCell.xib */; };
+		C2215C1A1C59C15F00E14162 /* HTCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215C081C59C15F00E14162 /* HTCollectionReusableView.m */; };
+		C2215C1B1C59C15F00E14162 /* HTDestinationRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215C0A1C59C15F00E14162 /* HTDestinationRecordCell.m */; };
+		C2215C1C1C59C15F00E14162 /* HTDestinationRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2215C0B1C59C15F00E14162 /* HTDestinationRecordCell.xib */; };
+		C2215C1D1C59C15F00E14162 /* HTDestinationStrategyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215C0D1C59C15F00E14162 /* HTDestinationStrategyCell.m */; };
+		C2215C1E1C59C15F00E14162 /* HTDestinationStrategyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2215C0E1C59C15F00E14162 /* HTDestinationStrategyCell.xib */; };
+		C2215C1F1C59C15F00E14162 /* HTDetailStrategyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215C101C59C15F00E14162 /* HTDetailStrategyCell.m */; };
+		C2215C201C59C15F00E14162 /* HTDetailStrategyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2215C111C59C15F00E14162 /* HTDetailStrategyCell.xib */; };
+		C2215C211C59C15F00E14162 /* HTDiscoveryHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215C131C59C15F00E14162 /* HTDiscoveryHotCell.m */; };
+		C2215C221C59C15F00E14162 /* HTDiscoveryHotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2215C141C59C15F00E14162 /* HTDiscoveryHotCell.xib */; };
+		C2215C231C59C15F00E14162 /* HTStrategyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C2215C161C59C15F00E14162 /* HTStrategyTableViewCell.m */; };
+		C2215C241C59C15F00E14162 /* HTStrategyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2215C171C59C15F00E14162 /* HTStrategyTableViewCell.xib */; };
 		CD4A5BD71C4CC26B00371BC8 /* HTHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BD01C4CC26B00371BC8 /* HTHomeViewController.m */; };
 		CD4A5BD81C4CC26B00371BC8 /* HTLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BD21C4CC26B00371BC8 /* HTLeftMenuViewController.m */; };
 		CD4A5BD91C4CC26B00371BC8 /* HTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BD41C4CC26B00371BC8 /* HTLoginViewController.m */; };
@@ -124,6 +148,48 @@
 		C09ED5881C4DE7CD0084C08E /* MXPullDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXPullDownMenu.m; sourceTree = "<group>"; };
 		C09ED58A1C4DE7CD0084C08E /* UIView+WLFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WLFrame.h"; sourceTree = "<group>"; };
 		C09ED58B1C4DE7CD0084C08E /* UIView+WLFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WLFrame.m"; sourceTree = "<group>"; };
+		C2215BE31C59C0B800E14162 /* HTCityStrategyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityStrategyViewController.h; sourceTree = "<group>"; };
+		C2215BE41C59C0B800E14162 /* HTCityStrategyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityStrategyViewController.m; sourceTree = "<group>"; };
+		C2215BE51C59C0B800E14162 /* HTDestinationStrategyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDestinationStrategyController.h; sourceTree = "<group>"; };
+		C2215BE61C59C0B800E14162 /* HTDestinationStrategyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDestinationStrategyController.m; sourceTree = "<group>"; };
+		C2215BE71C59C0B800E14162 /* HTDetailStrategyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDetailStrategyViewController.h; sourceTree = "<group>"; };
+		C2215BE81C59C0B800E14162 /* HTDetailStrategyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDetailStrategyViewController.m; sourceTree = "<group>"; };
+		C2215BE91C59C0B800E14162 /* HTDiscoveryHotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDiscoveryHotViewController.h; sourceTree = "<group>"; };
+		C2215BEA1C59C0B800E14162 /* HTDiscoveryHotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDiscoveryHotViewController.m; sourceTree = "<group>"; };
+		C2215BEB1C59C0B800E14162 /* HTStrategyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTStrategyTableViewController.h; sourceTree = "<group>"; };
+		C2215BEC1C59C0B800E14162 /* HTStrategyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTStrategyTableViewController.m; sourceTree = "<group>"; };
+		C2215BF21C59C0CE00E14162 /* HTCityStrategyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityStrategyModel.h; sourceTree = "<group>"; };
+		C2215BF31C59C0CE00E14162 /* HTCityStrategyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityStrategyModel.m; sourceTree = "<group>"; };
+		C2215BF41C59C0CE00E14162 /* HTDestinationStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDestinationStrategy.h; sourceTree = "<group>"; };
+		C2215BF51C59C0CE00E14162 /* HTDestinationStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDestinationStrategy.m; sourceTree = "<group>"; };
+		C2215BF61C59C0CE00E14162 /* HTDetailStrategyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDetailStrategyModel.h; sourceTree = "<group>"; };
+		C2215BF71C59C0CE00E14162 /* HTDetailStrategyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDetailStrategyModel.m; sourceTree = "<group>"; };
+		C2215BF81C59C0CE00E14162 /* HTDiscoveryHot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDiscoveryHot.h; sourceTree = "<group>"; };
+		C2215BF91C59C0CE00E14162 /* HTDiscoveryHot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDiscoveryHot.m; sourceTree = "<group>"; };
+		C2215BFA1C59C0CE00E14162 /* HTStrategyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTStrategyModel.h; sourceTree = "<group>"; };
+		C2215BFB1C59C0CE00E14162 /* HTStrategyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTStrategyModel.m; sourceTree = "<group>"; };
+		C2215BFC1C59C0CE00E14162 /* HTStrategyPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTStrategyPhoto.h; sourceTree = "<group>"; };
+		C2215BFD1C59C0CE00E14162 /* HTStrategyPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTStrategyPhoto.m; sourceTree = "<group>"; };
+		C2215C041C59C15F00E14162 /* HTCityStrategyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityStrategyCell.h; sourceTree = "<group>"; };
+		C2215C051C59C15F00E14162 /* HTCityStrategyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityStrategyCell.m; sourceTree = "<group>"; };
+		C2215C061C59C15F00E14162 /* HTCityStrategyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTCityStrategyCell.xib; sourceTree = "<group>"; };
+		C2215C071C59C15F00E14162 /* HTCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCollectionReusableView.h; sourceTree = "<group>"; };
+		C2215C081C59C15F00E14162 /* HTCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCollectionReusableView.m; sourceTree = "<group>"; };
+		C2215C091C59C15F00E14162 /* HTDestinationRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDestinationRecordCell.h; sourceTree = "<group>"; };
+		C2215C0A1C59C15F00E14162 /* HTDestinationRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDestinationRecordCell.m; sourceTree = "<group>"; };
+		C2215C0B1C59C15F00E14162 /* HTDestinationRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTDestinationRecordCell.xib; sourceTree = "<group>"; };
+		C2215C0C1C59C15F00E14162 /* HTDestinationStrategyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDestinationStrategyCell.h; sourceTree = "<group>"; };
+		C2215C0D1C59C15F00E14162 /* HTDestinationStrategyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDestinationStrategyCell.m; sourceTree = "<group>"; };
+		C2215C0E1C59C15F00E14162 /* HTDestinationStrategyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTDestinationStrategyCell.xib; sourceTree = "<group>"; };
+		C2215C0F1C59C15F00E14162 /* HTDetailStrategyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDetailStrategyCell.h; sourceTree = "<group>"; };
+		C2215C101C59C15F00E14162 /* HTDetailStrategyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDetailStrategyCell.m; sourceTree = "<group>"; };
+		C2215C111C59C15F00E14162 /* HTDetailStrategyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTDetailStrategyCell.xib; sourceTree = "<group>"; };
+		C2215C121C59C15F00E14162 /* HTDiscoveryHotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDiscoveryHotCell.h; sourceTree = "<group>"; };
+		C2215C131C59C15F00E14162 /* HTDiscoveryHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDiscoveryHotCell.m; sourceTree = "<group>"; };
+		C2215C141C59C15F00E14162 /* HTDiscoveryHotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTDiscoveryHotCell.xib; sourceTree = "<group>"; };
+		C2215C151C59C15F00E14162 /* HTStrategyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTStrategyTableViewCell.h; sourceTree = "<group>"; };
+		C2215C161C59C15F00E14162 /* HTStrategyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTStrategyTableViewCell.m; sourceTree = "<group>"; };
+		C2215C171C59C15F00E14162 /* HTStrategyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTStrategyTableViewCell.xib; sourceTree = "<group>"; };
 		CD4A5BCF1C4CC26B00371BC8 /* HTHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTHomeViewController.h; sourceTree = "<group>"; };
 		CD4A5BD01C4CC26B00371BC8 /* HTHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTHomeViewController.m; sourceTree = "<group>"; };
 		CD4A5BD11C4CC26B00371BC8 /* HTLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTLeftMenuViewController.h; sourceTree = "<group>"; };
@@ -284,6 +350,16 @@
 		CDAA82601C48E44100899B49 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C2215BE31C59C0B800E14162 /* HTCityStrategyViewController.h */,
+				C2215BE41C59C0B800E14162 /* HTCityStrategyViewController.m */,
+				C2215BE51C59C0B800E14162 /* HTDestinationStrategyController.h */,
+				C2215BE61C59C0B800E14162 /* HTDestinationStrategyController.m */,
+				C2215BE71C59C0B800E14162 /* HTDetailStrategyViewController.h */,
+				C2215BE81C59C0B800E14162 /* HTDetailStrategyViewController.m */,
+				C2215BE91C59C0B800E14162 /* HTDiscoveryHotViewController.h */,
+				C2215BEA1C59C0B800E14162 /* HTDiscoveryHotViewController.m */,
+				C2215BEB1C59C0B800E14162 /* HTStrategyTableViewController.h */,
+				C2215BEC1C59C0B800E14162 /* HTStrategyTableViewController.m */,
 				C006283E1C5213F2007B83F9 /* HTPlacesViewController.h */,
 				C006283F1C5213F2007B83F9 /* HTPlacesViewController.m */,
 				C00628221C521289007B83F9 /* HJNavigationController.h */,
@@ -316,6 +392,18 @@
 		CDAA82611C48E44100899B49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C2215BF21C59C0CE00E14162 /* HTCityStrategyModel.h */,
+				C2215BF31C59C0CE00E14162 /* HTCityStrategyModel.m */,
+				C2215BF41C59C0CE00E14162 /* HTDestinationStrategy.h */,
+				C2215BF51C59C0CE00E14162 /* HTDestinationStrategy.m */,
+				C2215BF61C59C0CE00E14162 /* HTDetailStrategyModel.h */,
+				C2215BF71C59C0CE00E14162 /* HTDetailStrategyModel.m */,
+				C2215BF81C59C0CE00E14162 /* HTDiscoveryHot.h */,
+				C2215BF91C59C0CE00E14162 /* HTDiscoveryHot.m */,
+				C2215BFA1C59C0CE00E14162 /* HTStrategyModel.h */,
+				C2215BFB1C59C0CE00E14162 /* HTStrategyModel.m */,
+				C2215BFC1C59C0CE00E14162 /* HTStrategyPhoto.h */,
+				C2215BFD1C59C0CE00E14162 /* HTStrategyPhoto.m */,
 				C006282B1C52129C007B83F9 /* HJTableViewHeader.h */,
 				C006282C1C52129C007B83F9 /* HJTableViewHeader.m */,
 				C006282D1C52129C007B83F9 /* HTCityDetailsModel.h */,
@@ -343,6 +431,26 @@
 		CDAA82621C48E44100899B49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C2215C041C59C15F00E14162 /* HTCityStrategyCell.h */,
+				C2215C051C59C15F00E14162 /* HTCityStrategyCell.m */,
+				C2215C061C59C15F00E14162 /* HTCityStrategyCell.xib */,
+				C2215C071C59C15F00E14162 /* HTCollectionReusableView.h */,
+				C2215C081C59C15F00E14162 /* HTCollectionReusableView.m */,
+				C2215C091C59C15F00E14162 /* HTDestinationRecordCell.h */,
+				C2215C0A1C59C15F00E14162 /* HTDestinationRecordCell.m */,
+				C2215C0B1C59C15F00E14162 /* HTDestinationRecordCell.xib */,
+				C2215C0C1C59C15F00E14162 /* HTDestinationStrategyCell.h */,
+				C2215C0D1C59C15F00E14162 /* HTDestinationStrategyCell.m */,
+				C2215C0E1C59C15F00E14162 /* HTDestinationStrategyCell.xib */,
+				C2215C0F1C59C15F00E14162 /* HTDetailStrategyCell.h */,
+				C2215C101C59C15F00E14162 /* HTDetailStrategyCell.m */,
+				C2215C111C59C15F00E14162 /* HTDetailStrategyCell.xib */,
+				C2215C121C59C15F00E14162 /* HTDiscoveryHotCell.h */,
+				C2215C131C59C15F00E14162 /* HTDiscoveryHotCell.m */,
+				C2215C141C59C15F00E14162 /* HTDiscoveryHotCell.xib */,
+				C2215C151C59C15F00E14162 /* HTStrategyTableViewCell.h */,
+				C2215C161C59C15F00E14162 /* HTStrategyTableViewCell.m */,
+				C2215C171C59C15F00E14162 /* HTStrategyTableViewCell.xib */,
 				C00628341C5212B5007B83F9 /* HJNavigationBar.h */,
 				C00628351C5212B5007B83F9 /* HJNavigationBar.m */,
 				C00628361C5212B5007B83F9 /* HTCityDetailsCell.h */,
@@ -451,6 +559,8 @@
 			files = (
 				CD8635A91C51D6DC003AFF10 /* HTLeftMenu_Head.png in Resources */,
 				C006283B1C5212B5007B83F9 /* HTCityDetailsCell.xib in Resources */,
+				C2215C241C59C15F00E14162 /* HTStrategyTableViewCell.xib in Resources */,
+				C2215C1C1C59C15F00E14162 /* HTDestinationRecordCell.xib in Resources */,
 				884649E31C48CE960031AA86 /* LaunchScreen.storyboard in Resources */,
 				CD8635AA1C51D6DC003AFF10 /* HTLogin_BackImage.jpg in Resources */,
 				C006283D1C521376007B83F9 /* HTiconfont-fanhui.png in Resources */,
@@ -461,9 +571,13 @@
 				886823A01C50C64300A72874 /* HTTravelRecordTableViewCell.xib in Resources */,
 				CD8635A71C51D6DC003AFF10 /* HTHome_Menu.png in Resources */,
 				CD8635AD1C51D6DC003AFF10 /* HTRegister_BackImage.jpg in Resources */,
+				C2215C201C59C15F00E14162 /* HTDetailStrategyCell.xib in Resources */,
+				C2215C221C59C15F00E14162 /* HTDiscoveryHotCell.xib in Resources */,
 				884649E01C48CE960031AA86 /* Assets.xcassets in Resources */,
 				CD8635A81C51D6DC003AFF10 /* HTLeftMenu_BackImage.jpg in Resources */,
+				C2215C1E1C59C15F00E14162 /* HTDestinationStrategyCell.xib in Resources */,
 				884649DE1C48CE960031AA86 /* Main.storyboard in Resources */,
+				C2215C191C59C15F00E14162 /* HTCityStrategyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,33 +639,51 @@
 				8868238C1C50C63200A72874 /* HTCategoryModel.m in Sources */,
 				C09ED5841C4DE7C10084C08E /* HTCityCell.m in Sources */,
 				C09ED58D1C4DE7CD0084C08E /* UIView+WLFrame.m in Sources */,
+				C2215C031C59C0CE00E14162 /* HTStrategyPhoto.m in Sources */,
 				C09ED5801C4DE7B80084C08E /* HTWorldExploreModel.m in Sources */,
 				CD4A5BD81C4CC26B00371BC8 /* HTLeftMenuViewController.m in Sources */,
+				C2215C1D1C59C15F00E14162 /* HTDestinationStrategyCell.m in Sources */,
+				C2215C001C59C0CE00E14162 /* HTDetailStrategyModel.m in Sources */,
 				8868239E1C50C64300A72874 /* HTPhotoContentCarouselFigureView.m in Sources */,
 				C00628401C5213F2007B83F9 /* HTPlacesViewController.m in Sources */,
+				C2215BF01C59C0B800E14162 /* HTDiscoveryHotViewController.m in Sources */,
 				C09ED58C1C4DE7CD0084C08E /* MXPullDownMenu.m in Sources */,
+				C2215BED1C59C0B800E14162 /* HTCityStrategyViewController.m in Sources */,
 				CDAA82691C48E44100899B49 /* AppDelegate.m in Sources */,
 				886823831C50C60800A72874 /* GetDataTools.m in Sources */,
 				C09ED5751C4DE79F0084C08E /* HTCityTableViewController.m in Sources */,
 				C006282A1C521289007B83F9 /* HTCityFieldTableViewController.m in Sources */,
 				C00628331C52129C007B83F9 /* HTPlacesModel.m in Sources */,
+				C2215C231C59C15F00E14162 /* HTStrategyTableViewCell.m in Sources */,
 				886823951C50C63800A72874 /* HTDistrictModel.m in Sources */,
+				C2215C1F1C59C15F00E14162 /* HTDetailStrategyCell.m in Sources */,
 				886823971C50C63800A72874 /* HTTravelRecordModel.m in Sources */,
 				CD4A5BDA1C4CC26B00371BC8 /* HTRegisteViewController.m in Sources */,
+				C2215C1A1C59C15F00E14162 /* HTCollectionReusableView.m in Sources */,
 				C09ED57F1C4DE7B80084C08E /* HTCityModel.m in Sources */,
 				C00628321C52129C007B83F9 /* HTCityDetailsModel.m in Sources */,
+				C2215C1B1C59C15F00E14162 /* HTDestinationRecordCell.m in Sources */,
+				C2215C011C59C0CE00E14162 /* HTDiscoveryHot.m in Sources */,
+				C2215C021C59C0CE00E14162 /* HTStrategyModel.m in Sources */,
 				CD4A5BD91C4CC26B00371BC8 /* HTLoginViewController.m in Sources */,
 				886823961C50C63800A72874 /* HTRecordContentModel.m in Sources */,
 				886823981C50C63800A72874 /* HTUserModel.m in Sources */,
 				C00628281C521289007B83F9 /* HJNavigationController.m in Sources */,
 				CD4A5BD71C4CC26B00371BC8 /* HTHomeViewController.m in Sources */,
 				C09ED5791C4DE7A80084C08E /* HTWorldExploreViewController.m in Sources */,
+				C2215BEE1C59C0B800E14162 /* HTDestinationStrategyController.m in Sources */,
 				C00628391C5212B5007B83F9 /* HJNavigationBar.m in Sources */,
 				C00628311C52129C007B83F9 /* HJTableViewHeader.m in Sources */,
+				C2215C211C59C15F00E14162 /* HTDiscoveryHotCell.m in Sources */,
 				C006283A1C5212B5007B83F9 /* HTCityDetailsCell.m in Sources */,
 				8868239F1C50C64300A72874 /* HTTravelRecordTableViewCell.m in Sources */,
 				886823881C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m in Sources */,
+				C2215BFF1C59C0CE00E14162 /* HTDestinationStrategy.m in Sources */,
 				886823891C50C62500A72874 /* HTTravelRecordTableViewController.m in Sources */,
+				C2215BEF1C59C0B800E14162 /* HTDetailStrategyViewController.m in Sources */,
+				C2215C181C59C15F00E14162 /* HTCityStrategyCell.m in Sources */,
+				C2215BF11C59C0B800E14162 /* HTStrategyTableViewController.m in Sources */,
+				C2215BFE1C59C0CE00E14162 /* HTCityStrategyModel.m in Sources */,
 				C00628291C521289007B83F9 /* HTCityDetailsViewController.m in Sources */,
 				884649D51C48CE960031AA86 /* main.m in Sources */,
 			);
