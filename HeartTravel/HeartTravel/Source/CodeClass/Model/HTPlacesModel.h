@@ -9,18 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface HTPlacesModel : NSObject
-/**
- *  评价
- */
-@property (strong,nonatomic) NSString *name;
-/**
- *  评分
- */
-@property (strong,nonatomic) NSString *score;
-/**
- *  tag
- */
-@property (strong,nonatomic) NSString *tag;
+
 /**
  *  地址
  */
