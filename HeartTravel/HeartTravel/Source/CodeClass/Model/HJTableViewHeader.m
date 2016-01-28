@@ -7,28 +7,35 @@
 //
 
 #import "HJTableViewHeader.h"
+#import "UIView+WLFrame.h"
+//屏幕尺寸
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
 @implementation HJTableViewHeader
 {
-    CGRect  initFrame;
+    CGRect initFrame;
     CGFloat defaultViewHeight;
+    CGRect subViewsFrame;
 }
 
--(void)goodMenWithTableView:(UITableView *)tableView andBackGroundView:(UIView *)view {
+-(void)goodMenWithTableView:(UITableView *)tableView andBackGroundView:(UIView *)view andSubViews:(UIView *)subViews {
     
     _tableView = tableView;
     _bigImageView = view;
+    _scoreView = subViews;
     initFrame = _bigImageView.frame;
     defaultViewHeight  = initFrame.size.height;
-    
-    UIView* heardView = [[UIView alloc]initWithFrame:initFrame];
-    self.tableView.tableHeaderView = heardView;
+    subViewsFrame = _scoreView.frame;
+    UIView* heardView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, _bigImageView.height + _scoreView.height)];
+    [_tableView addSubview:_scoreView];
     [_tableView addSubview:_bigImageView];
+    self.tableView.tableHeaderView = heardView;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    CGRect f     = _bigImageView.frame;
+    CGRect f = _bigImageView.frame;
     f.size.width = _tableView.frame.size.width;
     _bigImageView.frame  = f;
     
