@@ -45,7 +45,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.backImgView.backgroundColor = [UIColor blackColor];
+    self.backImgView.backgroundColor = [UIColor whiteColor];
     
     self.dataArray = [NSMutableArray array];
     
@@ -53,7 +53,7 @@
     self.continentArray = @[ @[@"亚洲",@"欧洲",@"北美洲",@"南美洲",@"非洲",@"大洋洲"]];
     MXPullDownMenu *menu = [[MXPullDownMenu alloc] initWithArray:self.continentArray selectedColor:[UIColor greenColor]];
     menu.delegate = self;
-    menu.frame = CGRectMake(0, 20, menu.frame.size.width, menu.frame.size.height);
+    menu.frame = CGRectMake(0, 64, menu.frame.size.width, menu.frame.size.height);
     [self.view addSubview:menu];
     
     //滑动图片样式
@@ -63,11 +63,6 @@
     self.wrap = YES;
     
     [self getData];
-    
-    
-    
-    
-
 }
 //功能按钮的实现.
 - (IBAction)changeLeft:(id)sender {
@@ -131,7 +126,7 @@
     UILabel *label = nil;
     label = [[UILabel alloc] initWithFrame:CGRectMake(imgView.left ,imgView.bottom , imgView.width, 50)];
     label.text = model.name_cn;
-    label.textColor = [UIColor whiteColor];
+    label.textColor = [UIColor blackColor];
     label.textAlignment = NSTextAlignmentCenter;
     [imgView addSubview:label];
     imgView.tag = 1000 + index;
