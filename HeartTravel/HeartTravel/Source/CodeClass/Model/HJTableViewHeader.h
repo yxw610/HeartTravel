@@ -15,6 +15,7 @@
 @property (nonatomic,strong) UIView *bigImageView;
 @property (nonatomic,strong) UIView *scoreView;
 - (void)goodMenWithTableView:(UITableView *)tableView andBackGroundView:(UIView*)view andSubViews:(UIView *)subViews;
+- (void)goodMenWithTableView:(UITableView*)tableView andBackGroundView:(UIView*)view;
 
 - (void)scrollViewDidScroll:(UIScrollView*)scrollView;
 @end

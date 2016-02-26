@@ -144,13 +144,16 @@
     }];
 
     #pragma mark------------发现------------
-    self.findButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    self.writeButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
         //self.findButton.backgroundColor = [UIColor redColor];
-    [self.findButton setTitle:@"发现" forState:(UIControlStateNormal)];
-    self.findButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    [self.backImg addSubview:self.findButton];
+    [self.writeButton setTitle:@"写游记" forState:(UIControlStateNormal)];
+    self.writeButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     
-    [self.findButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    //添加响应事件
+    [self.writeButton addTarget:self action:@selector(writeAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.backImg addSubview:self.writeButton];
+    
+    [self.writeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.diaryButton.mas_bottom).with.offset(buttonInsets.top);
         make.width.equalTo(@100);
         make.height.equalTo(@40);
@@ -168,7 +171,7 @@
     [self.backImg addSubview:self.myButton];
 
     [self.myButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakSelf.findButton.mas_bottom).with.offset(buttonInsets.top);
+        make.top.equalTo(weakSelf.writeButton.mas_bottom).with.offset(buttonInsets.top);
         make.width.equalTo(@100);
         make.height.equalTo(@40);
         make.left.equalTo(weakSelf.backImg.mas_left).with.offset(buttonInsets.left);
@@ -223,6 +226,12 @@
 
 }
 
+#pragma mark---------------游记点击事件---------------------
+- (void)writeAction:(UIButton *)sender
+{
+    
+#warning 添加写游记
+}
 
 /*
 #pragma mark - Navigation

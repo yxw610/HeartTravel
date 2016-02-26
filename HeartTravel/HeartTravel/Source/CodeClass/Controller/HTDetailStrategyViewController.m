@@ -56,6 +56,7 @@
     _bigImageView.contentMode = UIViewContentModeScaleAspectFill;
     _headView = [[HJTableViewHeader alloc]init];
     [_headView goodMenWithTableView:self.tableView andBackGroundView:_bigImageView];
+
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setNavbarBackgroundHidden:YES];
 }

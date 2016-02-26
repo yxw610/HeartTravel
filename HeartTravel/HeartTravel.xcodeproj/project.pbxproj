@@ -23,6 +23,30 @@
 		8868239E1C50C64300A72874 /* HTPhotoContentCarouselFigureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8868239A1C50C64300A72874 /* HTPhotoContentCarouselFigureView.m */; };
 		8868239F1C50C64300A72874 /* HTTravelRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8868239C1C50C64300A72874 /* HTTravelRecordTableViewCell.m */; };
 		886823A01C50C64300A72874 /* HTTravelRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8868239D1C50C64300A72874 /* HTTravelRecordTableViewCell.xib */; };
+		88D5C4451C80816D00796E3B /* HTCityStrategyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4441C80816D00796E3B /* HTCityStrategyViewController.m */; };
+		88D5C44C1C80817A00796E3B /* HTDestinationStrategyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4471C80817A00796E3B /* HTDestinationStrategyController.m */; };
+		88D5C44D1C80817A00796E3B /* HTDetailStrategyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4491C80817A00796E3B /* HTDetailStrategyViewController.m */; };
+		88D5C44E1C80817A00796E3B /* HTDiscoveryHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C44B1C80817A00796E3B /* HTDiscoveryHotViewController.m */; };
+		88D5C4571C8081B600796E3B /* HTCityStrategyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4501C8081B600796E3B /* HTCityStrategyModel.m */; };
+		88D5C4581C8081B600796E3B /* HTDestinationStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4521C8081B600796E3B /* HTDestinationStrategy.m */; };
+		88D5C4591C8081B600796E3B /* HTDetailStrategyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4541C8081B600796E3B /* HTDetailStrategyModel.m */; };
+		88D5C45A1C8081B600796E3B /* HTDiscoveryHot.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4561C8081B600796E3B /* HTDiscoveryHot.m */; };
+		88D5C46C1C8081C000796E3B /* HTCityStrategyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C45C1C8081C000796E3B /* HTCityStrategyCell.m */; };
+		88D5C46D1C8081C000796E3B /* HTCityStrategyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D5C45D1C8081C000796E3B /* HTCityStrategyCell.xib */; };
+		88D5C46E1C8081C000796E3B /* HTCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C45F1C8081C000796E3B /* HTCollectionReusableView.m */; };
+		88D5C46F1C8081C000796E3B /* HTDestinationRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4611C8081C000796E3B /* HTDestinationRecordCell.m */; };
+		88D5C4701C8081C000796E3B /* HTDestinationRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D5C4621C8081C000796E3B /* HTDestinationRecordCell.xib */; };
+		88D5C4711C8081C000796E3B /* HTDestinationStrategyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4641C8081C000796E3B /* HTDestinationStrategyCell.m */; };
+		88D5C4721C8081C000796E3B /* HTDestinationStrategyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D5C4651C8081C000796E3B /* HTDestinationStrategyCell.xib */; };
+		88D5C4731C8081C000796E3B /* HTDetailStrategyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4671C8081C000796E3B /* HTDetailStrategyCell.m */; };
+		88D5C4741C8081C000796E3B /* HTDetailStrategyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D5C4681C8081C000796E3B /* HTDetailStrategyCell.xib */; };
+		88D5C4751C8081C000796E3B /* HTDiscoveryHotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C46A1C8081C000796E3B /* HTDiscoveryHotCell.m */; };
+		88D5C4761C8081C000796E3B /* HTDiscoveryHotCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D5C46B1C8081C000796E3B /* HTDiscoveryHotCell.xib */; };
+		88D5C47A1C8081C700796E3B /* HTStrategyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4781C8081C700796E3B /* HTStrategyTableViewCell.m */; };
+		88D5C47B1C8081C700796E3B /* HTStrategyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88D5C4791C8081C700796E3B /* HTStrategyTableViewCell.xib */; };
+		88D5C4801C8081E300796E3B /* HTStrategyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C47D1C8081E300796E3B /* HTStrategyModel.m */; };
+		88D5C4811C8081E300796E3B /* HTStrategyPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C47F1C8081E300796E3B /* HTStrategyPhoto.m */; };
+		88D5C4841C80849B00796E3B /* HTStrategyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5C4831C80849B00796E3B /* HTStrategyTableViewController.m */; };
 		C00628281C521289007B83F9 /* HJNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00628231C521289007B83F9 /* HJNavigationController.m */; };
 		C00628291C521289007B83F9 /* HTCityDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00628251C521289007B83F9 /* HTCityDetailsViewController.m */; };
 		C006282A1C521289007B83F9 /* HTCityFieldTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C00628271C521289007B83F9 /* HTCityFieldTableViewController.m */; };
@@ -90,6 +114,48 @@
 		8868239B1C50C64300A72874 /* HTTravelRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTravelRecordTableViewCell.h; sourceTree = "<group>"; };
 		8868239C1C50C64300A72874 /* HTTravelRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTravelRecordTableViewCell.m; sourceTree = "<group>"; };
 		8868239D1C50C64300A72874 /* HTTravelRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTTravelRecordTableViewCell.xib; sourceTree = "<group>"; };
+		88D5C4431C80816D00796E3B /* HTCityStrategyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityStrategyViewController.h; sourceTree = "<group>"; };
+		88D5C4441C80816D00796E3B /* HTCityStrategyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityStrategyViewController.m; sourceTree = "<group>"; };
+		88D5C4461C80817A00796E3B /* HTDestinationStrategyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDestinationStrategyController.h; sourceTree = "<group>"; };
+		88D5C4471C80817A00796E3B /* HTDestinationStrategyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDestinationStrategyController.m; sourceTree = "<group>"; };
+		88D5C4481C80817A00796E3B /* HTDetailStrategyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDetailStrategyViewController.h; sourceTree = "<group>"; };
+		88D5C4491C80817A00796E3B /* HTDetailStrategyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDetailStrategyViewController.m; sourceTree = "<group>"; };
+		88D5C44A1C80817A00796E3B /* HTDiscoveryHotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDiscoveryHotViewController.h; sourceTree = "<group>"; };
+		88D5C44B1C80817A00796E3B /* HTDiscoveryHotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDiscoveryHotViewController.m; sourceTree = "<group>"; };
+		88D5C44F1C8081B600796E3B /* HTCityStrategyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityStrategyModel.h; sourceTree = "<group>"; };
+		88D5C4501C8081B600796E3B /* HTCityStrategyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityStrategyModel.m; sourceTree = "<group>"; };
+		88D5C4511C8081B600796E3B /* HTDestinationStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDestinationStrategy.h; sourceTree = "<group>"; };
+		88D5C4521C8081B600796E3B /* HTDestinationStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDestinationStrategy.m; sourceTree = "<group>"; };
+		88D5C4531C8081B600796E3B /* HTDetailStrategyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDetailStrategyModel.h; sourceTree = "<group>"; };
+		88D5C4541C8081B600796E3B /* HTDetailStrategyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDetailStrategyModel.m; sourceTree = "<group>"; };
+		88D5C4551C8081B600796E3B /* HTDiscoveryHot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDiscoveryHot.h; sourceTree = "<group>"; };
+		88D5C4561C8081B600796E3B /* HTDiscoveryHot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDiscoveryHot.m; sourceTree = "<group>"; };
+		88D5C45B1C8081C000796E3B /* HTCityStrategyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCityStrategyCell.h; sourceTree = "<group>"; };
+		88D5C45C1C8081C000796E3B /* HTCityStrategyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCityStrategyCell.m; sourceTree = "<group>"; };
+		88D5C45D1C8081C000796E3B /* HTCityStrategyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTCityStrategyCell.xib; sourceTree = "<group>"; };
+		88D5C45E1C8081C000796E3B /* HTCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTCollectionReusableView.h; sourceTree = "<group>"; };
+		88D5C45F1C8081C000796E3B /* HTCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTCollectionReusableView.m; sourceTree = "<group>"; };
+		88D5C4601C8081C000796E3B /* HTDestinationRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDestinationRecordCell.h; sourceTree = "<group>"; };
+		88D5C4611C8081C000796E3B /* HTDestinationRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDestinationRecordCell.m; sourceTree = "<group>"; };
+		88D5C4621C8081C000796E3B /* HTDestinationRecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTDestinationRecordCell.xib; sourceTree = "<group>"; };
+		88D5C4631C8081C000796E3B /* HTDestinationStrategyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDestinationStrategyCell.h; sourceTree = "<group>"; };
+		88D5C4641C8081C000796E3B /* HTDestinationStrategyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDestinationStrategyCell.m; sourceTree = "<group>"; };
+		88D5C4651C8081C000796E3B /* HTDestinationStrategyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTDestinationStrategyCell.xib; sourceTree = "<group>"; };
+		88D5C4661C8081C000796E3B /* HTDetailStrategyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDetailStrategyCell.h; sourceTree = "<group>"; };
+		88D5C4671C8081C000796E3B /* HTDetailStrategyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDetailStrategyCell.m; sourceTree = "<group>"; };
+		88D5C4681C8081C000796E3B /* HTDetailStrategyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTDetailStrategyCell.xib; sourceTree = "<group>"; };
+		88D5C4691C8081C000796E3B /* HTDiscoveryHotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDiscoveryHotCell.h; sourceTree = "<group>"; };
+		88D5C46A1C8081C000796E3B /* HTDiscoveryHotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDiscoveryHotCell.m; sourceTree = "<group>"; };
+		88D5C46B1C8081C000796E3B /* HTDiscoveryHotCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTDiscoveryHotCell.xib; sourceTree = "<group>"; };
+		88D5C4771C8081C700796E3B /* HTStrategyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTStrategyTableViewCell.h; sourceTree = "<group>"; };
+		88D5C4781C8081C700796E3B /* HTStrategyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTStrategyTableViewCell.m; sourceTree = "<group>"; };
+		88D5C4791C8081C700796E3B /* HTStrategyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HTStrategyTableViewCell.xib; sourceTree = "<group>"; };
+		88D5C47C1C8081E300796E3B /* HTStrategyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTStrategyModel.h; sourceTree = "<group>"; };
+		88D5C47D1C8081E300796E3B /* HTStrategyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTStrategyModel.m; sourceTree = "<group>"; };
+		88D5C47E1C8081E300796E3B /* HTStrategyPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTStrategyPhoto.h; sourceTree = "<group>"; };
+		88D5C47F1C8081E300796E3B /* HTStrategyPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTStrategyPhoto.m; sourceTree = "<group>"; };
+		88D5C4821C80849B00796E3B /* HTStrategyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTStrategyTableViewController.h; sourceTree = "<group>"; };
+		88D5C4831C80849B00796E3B /* HTStrategyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTStrategyTableViewController.m; sourceTree = "<group>"; };
 		ACCF744ADCE4F5E1814AE57D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00628221C521289007B83F9 /* HJNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJNavigationController.h; sourceTree = "<group>"; };
 		C00628231C521289007B83F9 /* HJNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJNavigationController.m; sourceTree = "<group>"; };
@@ -292,6 +358,16 @@
 		CDAA82601C48E44100899B49 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				88D5C4821C80849B00796E3B /* HTStrategyTableViewController.h */,
+				88D5C4831C80849B00796E3B /* HTStrategyTableViewController.m */,
+				88D5C4461C80817A00796E3B /* HTDestinationStrategyController.h */,
+				88D5C4471C80817A00796E3B /* HTDestinationStrategyController.m */,
+				88D5C4481C80817A00796E3B /* HTDetailStrategyViewController.h */,
+				88D5C4491C80817A00796E3B /* HTDetailStrategyViewController.m */,
+				88D5C44A1C80817A00796E3B /* HTDiscoveryHotViewController.h */,
+				88D5C44B1C80817A00796E3B /* HTDiscoveryHotViewController.m */,
+				88D5C4431C80816D00796E3B /* HTCityStrategyViewController.h */,
+				88D5C4441C80816D00796E3B /* HTCityStrategyViewController.m */,
 				C006283E1C5213F2007B83F9 /* HTPlacesViewController.h */,
 				C006283F1C5213F2007B83F9 /* HTPlacesViewController.m */,
 				C00628221C521289007B83F9 /* HJNavigationController.h */,
@@ -324,6 +400,18 @@
 		CDAA82611C48E44100899B49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				88D5C47C1C8081E300796E3B /* HTStrategyModel.h */,
+				88D5C47D1C8081E300796E3B /* HTStrategyModel.m */,
+				88D5C47E1C8081E300796E3B /* HTStrategyPhoto.h */,
+				88D5C47F1C8081E300796E3B /* HTStrategyPhoto.m */,
+				88D5C44F1C8081B600796E3B /* HTCityStrategyModel.h */,
+				88D5C4501C8081B600796E3B /* HTCityStrategyModel.m */,
+				88D5C4511C8081B600796E3B /* HTDestinationStrategy.h */,
+				88D5C4521C8081B600796E3B /* HTDestinationStrategy.m */,
+				88D5C4531C8081B600796E3B /* HTDetailStrategyModel.h */,
+				88D5C4541C8081B600796E3B /* HTDetailStrategyModel.m */,
+				88D5C4551C8081B600796E3B /* HTDiscoveryHot.h */,
+				88D5C4561C8081B600796E3B /* HTDiscoveryHot.m */,
 				C0F40D951C59C1E300155DEC /* HTScoreModel.h */,
 				C0F40D961C59C1E300155DEC /* HTScoreModel.m */,
 				C006282B1C52129C007B83F9 /* HJTableViewHeader.h */,
@@ -353,6 +441,26 @@
 		CDAA82621C48E44100899B49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				88D5C4771C8081C700796E3B /* HTStrategyTableViewCell.h */,
+				88D5C4781C8081C700796E3B /* HTStrategyTableViewCell.m */,
+				88D5C4791C8081C700796E3B /* HTStrategyTableViewCell.xib */,
+				88D5C45B1C8081C000796E3B /* HTCityStrategyCell.h */,
+				88D5C45C1C8081C000796E3B /* HTCityStrategyCell.m */,
+				88D5C45D1C8081C000796E3B /* HTCityStrategyCell.xib */,
+				88D5C45E1C8081C000796E3B /* HTCollectionReusableView.h */,
+				88D5C45F1C8081C000796E3B /* HTCollectionReusableView.m */,
+				88D5C4601C8081C000796E3B /* HTDestinationRecordCell.h */,
+				88D5C4611C8081C000796E3B /* HTDestinationRecordCell.m */,
+				88D5C4621C8081C000796E3B /* HTDestinationRecordCell.xib */,
+				88D5C4631C8081C000796E3B /* HTDestinationStrategyCell.h */,
+				88D5C4641C8081C000796E3B /* HTDestinationStrategyCell.m */,
+				88D5C4651C8081C000796E3B /* HTDestinationStrategyCell.xib */,
+				88D5C4661C8081C000796E3B /* HTDetailStrategyCell.h */,
+				88D5C4671C8081C000796E3B /* HTDetailStrategyCell.m */,
+				88D5C4681C8081C000796E3B /* HTDetailStrategyCell.xib */,
+				88D5C4691C8081C000796E3B /* HTDiscoveryHotCell.h */,
+				88D5C46A1C8081C000796E3B /* HTDiscoveryHotCell.m */,
+				88D5C46B1C8081C000796E3B /* HTDiscoveryHotCell.xib */,
 				C0F40D981C59C21100155DEC /* HTPlacesCell.h */,
 				C0F40D991C59C21100155DEC /* HTPlacesCell.m */,
 				C0F40D9A1C59C21100155DEC /* HTPlacesCell.xib */,
@@ -469,15 +577,21 @@
 				C006283D1C521376007B83F9 /* HTiconfont-fanhui.png in Resources */,
 				C0F40D9C1C59C21100155DEC /* HTPlacesCell.xib in Resources */,
 				CD8635AB1C51D6DC003AFF10 /* HTLogin_Password.png in Resources */,
+				88D5C4741C8081C000796E3B /* HTDetailStrategyCell.xib in Resources */,
 				C09ED57A1C4DE7A80084C08E /* HTWorldExploreViewController.xib in Resources */,
 				C09ED5851C4DE7C10084C08E /* HTCityCell.xib in Resources */,
 				CD8635AC1C51D6DC003AFF10 /* HTLogin_User.png in Resources */,
 				886823A01C50C64300A72874 /* HTTravelRecordTableViewCell.xib in Resources */,
 				CD8635A71C51D6DC003AFF10 /* HTHome_Menu.png in Resources */,
 				CD8635AD1C51D6DC003AFF10 /* HTRegister_BackImage.jpg in Resources */,
+				88D5C47B1C8081C700796E3B /* HTStrategyTableViewCell.xib in Resources */,
+				88D5C4701C8081C000796E3B /* HTDestinationRecordCell.xib in Resources */,
 				884649E01C48CE960031AA86 /* Assets.xcassets in Resources */,
+				88D5C4721C8081C000796E3B /* HTDestinationStrategyCell.xib in Resources */,
+				88D5C46D1C8081C000796E3B /* HTCityStrategyCell.xib in Resources */,
 				CD8635A81C51D6DC003AFF10 /* HTLeftMenu_BackImage.jpg in Resources */,
 				884649DE1C48CE960031AA86 /* Main.storyboard in Resources */,
+				88D5C4761C8081C000796E3B /* HTDiscoveryHotCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,32 +651,49 @@
 			buildActionMask = 2147483647;
 			files = (
 				8868238C1C50C63200A72874 /* HTCategoryModel.m in Sources */,
+				88D5C4711C8081C000796E3B /* HTDestinationStrategyCell.m in Sources */,
 				C09ED5841C4DE7C10084C08E /* HTCityCell.m in Sources */,
+				88D5C44D1C80817A00796E3B /* HTDetailStrategyViewController.m in Sources */,
 				C09ED58D1C4DE7CD0084C08E /* UIView+WLFrame.m in Sources */,
+				88D5C44C1C80817A00796E3B /* HTDestinationStrategyController.m in Sources */,
 				C09ED5801C4DE7B80084C08E /* HTWorldExploreModel.m in Sources */,
+				88D5C4811C8081E300796E3B /* HTStrategyPhoto.m in Sources */,
+				88D5C4591C8081B600796E3B /* HTDetailStrategyModel.m in Sources */,
 				CD4A5BD81C4CC26B00371BC8 /* HTLeftMenuViewController.m in Sources */,
 				8868239E1C50C64300A72874 /* HTPhotoContentCarouselFigureView.m in Sources */,
 				C00628401C5213F2007B83F9 /* HTPlacesViewController.m in Sources */,
 				C09ED58C1C4DE7CD0084C08E /* MXPullDownMenu.m in Sources */,
+				88D5C46E1C8081C000796E3B /* HTCollectionReusableView.m in Sources */,
 				CDAA82691C48E44100899B49 /* AppDelegate.m in Sources */,
 				886823831C50C60800A72874 /* GetDataTools.m in Sources */,
 				C09ED5751C4DE79F0084C08E /* HTCityTableViewController.m in Sources */,
+				88D5C47A1C8081C700796E3B /* HTStrategyTableViewCell.m in Sources */,
 				C006282A1C521289007B83F9 /* HTCityFieldTableViewController.m in Sources */,
 				C00628331C52129C007B83F9 /* HTPlacesModel.m in Sources */,
 				886823951C50C63800A72874 /* HTDistrictModel.m in Sources */,
+				88D5C46F1C8081C000796E3B /* HTDestinationRecordCell.m in Sources */,
 				886823971C50C63800A72874 /* HTTravelRecordModel.m in Sources */,
 				CD4A5BDA1C4CC26B00371BC8 /* HTRegisteViewController.m in Sources */,
 				C09ED57F1C4DE7B80084C08E /* HTCityModel.m in Sources */,
 				C00628321C52129C007B83F9 /* HTCityDetailsModel.m in Sources */,
+				88D5C4571C8081B600796E3B /* HTCityStrategyModel.m in Sources */,
 				CD4A5BD91C4CC26B00371BC8 /* HTLoginViewController.m in Sources */,
 				886823961C50C63800A72874 /* HTRecordContentModel.m in Sources */,
+				88D5C45A1C8081B600796E3B /* HTDiscoveryHot.m in Sources */,
 				886823981C50C63800A72874 /* HTUserModel.m in Sources */,
+				88D5C4801C8081E300796E3B /* HTStrategyModel.m in Sources */,
+				88D5C4841C80849B00796E3B /* HTStrategyTableViewController.m in Sources */,
 				C00628281C521289007B83F9 /* HJNavigationController.m in Sources */,
+				88D5C4751C8081C000796E3B /* HTDiscoveryHotCell.m in Sources */,
 				CD4A5BD71C4CC26B00371BC8 /* HTHomeViewController.m in Sources */,
+				88D5C4731C8081C000796E3B /* HTDetailStrategyCell.m in Sources */,
+				88D5C46C1C8081C000796E3B /* HTCityStrategyCell.m in Sources */,
 				C09ED5791C4DE7A80084C08E /* HTWorldExploreViewController.m in Sources */,
+				88D5C4581C8081B600796E3B /* HTDestinationStrategy.m in Sources */,
 				C00628391C5212B5007B83F9 /* HJNavigationBar.m in Sources */,
 				C00628311C52129C007B83F9 /* HJTableViewHeader.m in Sources */,
 				C006283A1C5212B5007B83F9 /* HTCityDetailsCell.m in Sources */,
+				88D5C4451C80816D00796E3B /* HTCityStrategyViewController.m in Sources */,
 				C0F40D9B1C59C21100155DEC /* HTPlacesCell.m in Sources */,
 				8868239F1C50C64300A72874 /* HTTravelRecordTableViewCell.m in Sources */,
 				886823881C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m in Sources */,
@@ -570,6 +701,7 @@
 				C00628291C521289007B83F9 /* HTCityDetailsViewController.m in Sources */,
 				884649D51C48CE960031AA86 /* main.m in Sources */,
 				C0F40D971C59C1E300155DEC /* HTScoreModel.m in Sources */,
+				88D5C44E1C80817A00796E3B /* HTDiscoveryHotViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

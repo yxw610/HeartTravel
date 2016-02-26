@@ -15,9 +15,9 @@
  */
 @property(strong,nonatomic)UIButton *diaryButton;
 /**
- *  发现
+ *  写游记
  */
-@property(strong,nonatomic)UIButton *findButton;
+@property(strong,nonatomic)UIButton *writeButton;
 /**
  *  个人中心
  */

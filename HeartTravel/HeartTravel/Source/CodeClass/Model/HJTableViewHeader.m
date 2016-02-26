@@ -33,6 +33,18 @@
     self.tableView.tableHeaderView = heardView;
 }
 
+-(void)goodMenWithTableView:(UITableView *)tableView andBackGroundView:(UIView *)view {
+    
+    _tableView = tableView;
+    _bigImageView = view;
+    initFrame = _bigImageView.frame;
+    defaultViewHeight  = initFrame.size.height;
+    
+    UIView* heardView = [[UIView alloc]initWithFrame:initFrame];
+    self.tableView.tableHeaderView = heardView;
+    [_tableView addSubview:_bigImageView];
+}
+
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     CGRect f = _bigImageView.frame;
