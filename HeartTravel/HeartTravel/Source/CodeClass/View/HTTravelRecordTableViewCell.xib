@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -31,7 +31,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.33255815820000001" green="0.99541666669999995" blue="0.2578363233" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="VUa-rr-Dfv" secondAttribute="bottom" constant="5" id="8jn-L1-EUZ"/>
                             <constraint firstItem="NvY-E2-CsI" firstAttribute="top" secondItem="dc0-Di-jN1" secondAttribute="top" constant="5" id="9Mg-YV-YCC"/>
@@ -70,7 +69,6 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewk-Zh-NhG">
                                 <rect key="frame" x="5" y="152.5" width="80" height="20"/>
-                                <color key="backgroundColor" red="0.16557071501628617" green="1" blue="0.22317736416008582" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="aww-Xa-W8g"/>
                                     <constraint firstAttribute="height" constant="19.5" id="wm6-8v-eZL"/>
@@ -91,7 +89,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="p5u-tJ-ejf" firstAttribute="top" secondItem="NeJ-yS-hb0" secondAttribute="bottom" id="5YT-4i-foN"/>
                             <constraint firstItem="NeJ-yS-hb0" firstAttribute="leading" secondItem="qVR-qY-zPy" secondAttribute="leading" constant="5" id="6ZW-9R-gMr"/>
@@ -113,7 +110,6 @@
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOU-XZ-TKU">
                         <rect key="frame" x="0.0" y="194" width="473" height="118.5"/>
-                        <color key="backgroundColor" red="1" green="0.1221648545" blue="0.26134516959999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="aOU-XZ-TKU" secondAttribute="height" multiplier="4:1" id="DUc-ao-udK"/>
                         </constraints>

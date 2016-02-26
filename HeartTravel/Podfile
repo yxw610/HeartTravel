@@ -7,3 +7,6 @@ pod 'FXBlurView', '~> 1.6.4'
 pod ‘Masonry’
 pod 'MDRadialProgress', '~> 1.3.2'
 pod 'WMPageController', '~> 1.3.5'
+pod 'AVOSCloud'
+pod 'IQActionSheetPickerView', '~> 1.0.2'
+pod 'UzysAssetsPickerController'

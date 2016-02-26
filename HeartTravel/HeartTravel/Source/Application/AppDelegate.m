@@ -14,6 +14,7 @@
 #import "HTLeftMenuViewController.h"
 #import <RESideMenu/UIViewController+RESideMenu.h>
 #import <RESideMenu/RESideMenu.h>
+#import <AVOSCloud.h>
 @interface AppDelegate ()
 
 @end
@@ -30,21 +31,26 @@
     [self.window makeKeyAndVisible];
     
     
-    // Create content and menu controllers
-    
-//    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[HTWorldExploreViewController alloc] init]];
     
     HTLeftMenuViewController *leftMenuViewController = [[HTLeftMenuViewController alloc] init];
     
-    // Create side menu controller
     
     RESideMenu *sideMenuViewController = [[RESideMenu alloc]initWithContentViewController:[HTWorldExploreViewController new] leftMenuViewController:leftMenuViewController rightMenuViewController:nil];
     
     self.window.rootViewController = sideMenuViewController;
     
-    
+    [self setLeanCloudID];
 
     return YES;
+}
+
+// 配置LeanCloud
+- (void)setLeanCloudID {
+    
+    //如果使用美国站点，请加上这行代码 [AVOSCloud useAVCloudUS];
+    [AVOSCloud setApplicationId:@"piMGRX2E0qMN0tEPtslCE2u6-gzGzoHsz"
+                      clientKey:@"ziH0tPvQNV26XJBOWjm4fCuJ"];
+    // 如果想跟踪统计应用的打开情况,后面还可以添加下列代码：[AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
