@@ -11,6 +11,7 @@
 #import "HTTravelRecordModel.h"
 #import "HTRecordContentModel.h"
 #import "GetDataTools.h"
+#import <RESideMenu/RESideMenu.h>
 
 #define kURL @"http://q.chanyouji.com/api/v1/timelines.json?page=1&per=50"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -44,6 +45,9 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.navigationItem.title = @"游记";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"HTHome_Menu"] style:UIBarButtonItemStylePlain target:self action:@selector(leftMenuAction:)];
+    
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HTTravelRecordTableViewCell" bundle:nil] forCellReuseIdentifier:HTTravelRecordCellID];
     
@@ -140,6 +144,11 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     
     return cellHeight;
 
+}
+
+- (void)leftMenuAction:(UIBarButtonItem *)sender {
+    
+    [self.sideMenuViewController presentLeftMenuViewController];
 }
 
 /*

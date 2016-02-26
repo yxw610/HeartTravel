@@ -212,10 +212,12 @@
 
 - (void)diaryPage:(UIButton *)sender
 {
+    
     HTTravelRecordTableViewController *diaryVC = [[HTTravelRecordTableViewController alloc]init];
-    [self.sideMenuViewController setContentViewController:diaryVC];
+    UINavigationController *diaryNC = [[UINavigationController alloc] initWithRootViewController:diaryVC];
+    
     //替换当前视图
-    [self.sideMenuViewController setContentViewController:diaryVC];
+    [self.sideMenuViewController setContentViewController:diaryNC];
     //隐藏菜单视图
     [self.sideMenuViewController hideMenuViewController];
 
