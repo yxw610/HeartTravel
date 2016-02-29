@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4619F0032AA7A47ADE51E06E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACCF744ADCE4F5E1814AE57D /* libPods.a */; };
+		880BC7081C8096DA00579A67 /* HTNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 880BC7071C8096DA00579A67 /* HTNavigationBar.m */; };
+		880BC70B1C8096E300579A67 /* HTDistrictSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880BC70A1C8096E300579A67 /* HTDistrictSearchViewController.m */; };
+		880BC7101C8096EC00579A67 /* HTWriteTravelRecordDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880BC70D1C8096EC00579A67 /* HTWriteTravelRecordDatePickerViewController.m */; };
+		880BC7111C8096EC00579A67 /* HTWriteTravelRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880BC70F1C8096EC00579A67 /* HTWriteTravelRecordTableViewController.m */; };
+		880BC7141C8096F800579A67 /* HTDistrictSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 880BC7131C8096F800579A67 /* HTDistrictSearchModel.m */; };
+		880BC7171C80979500579A67 /* HTRecordContentEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 880BC7161C80979500579A67 /* HTRecordContentEditViewController.m */; };
+		8819E8251C84243C006CCA3F /* NSObject+AutoEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 8819E8241C84243C006CCA3F /* NSObject+AutoEncode.m */; };
 		884649D51C48CE960031AA86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 884649D41C48CE960031AA86 /* main.m */; };
 		884649DE1C48CE960031AA86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884649DC1C48CE960031AA86 /* Main.storyboard */; };
 		884649E01C48CE960031AA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884649DF1C48CE960031AA86 /* Assets.xcassets */; };
@@ -87,6 +94,20 @@
 /* Begin PBXFileReference section */
 		6CE74E494B922BCC8E516B21 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7B5C11C1B6D6F45991213034 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		880BC7061C8096DA00579A67 /* HTNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTNavigationBar.h; sourceTree = "<group>"; };
+		880BC7071C8096DA00579A67 /* HTNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTNavigationBar.m; sourceTree = "<group>"; };
+		880BC7091C8096E300579A67 /* HTDistrictSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDistrictSearchViewController.h; sourceTree = "<group>"; };
+		880BC70A1C8096E300579A67 /* HTDistrictSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDistrictSearchViewController.m; sourceTree = "<group>"; };
+		880BC70C1C8096EC00579A67 /* HTWriteTravelRecordDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTWriteTravelRecordDatePickerViewController.h; sourceTree = "<group>"; };
+		880BC70D1C8096EC00579A67 /* HTWriteTravelRecordDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTWriteTravelRecordDatePickerViewController.m; sourceTree = "<group>"; };
+		880BC70E1C8096EC00579A67 /* HTWriteTravelRecordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTWriteTravelRecordTableViewController.h; sourceTree = "<group>"; };
+		880BC70F1C8096EC00579A67 /* HTWriteTravelRecordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTWriteTravelRecordTableViewController.m; sourceTree = "<group>"; };
+		880BC7121C8096F800579A67 /* HTDistrictSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTDistrictSearchModel.h; sourceTree = "<group>"; };
+		880BC7131C8096F800579A67 /* HTDistrictSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTDistrictSearchModel.m; sourceTree = "<group>"; };
+		880BC7151C80979500579A67 /* HTRecordContentEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTRecordContentEditViewController.h; sourceTree = "<group>"; };
+		880BC7161C80979500579A67 /* HTRecordContentEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTRecordContentEditViewController.m; sourceTree = "<group>"; };
+		8819E8231C84243C006CCA3F /* NSObject+AutoEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+AutoEncode.h"; sourceTree = "<group>"; };
+		8819E8241C84243C006CCA3F /* NSObject+AutoEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+AutoEncode.m"; sourceTree = "<group>"; };
 		884649D01C48CE960031AA86 /* HeartTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeartTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		884649D41C48CE960031AA86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		884649DD1C48CE960031AA86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -339,6 +360,10 @@
 		CDAA825E1C48E44100899B49 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				8819E8231C84243C006CCA3F /* NSObject+AutoEncode.h */,
+				8819E8241C84243C006CCA3F /* NSObject+AutoEncode.m */,
+				880BC7061C8096DA00579A67 /* HTNavigationBar.h */,
+				880BC7071C8096DA00579A67 /* HTNavigationBar.m */,
 				886823811C50C60800A72874 /* GetDataTools.h */,
 				886823821C50C60800A72874 /* GetDataTools.m */,
 			);
@@ -358,6 +383,14 @@
 		CDAA82601C48E44100899B49 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				880BC7151C80979500579A67 /* HTRecordContentEditViewController.h */,
+				880BC7161C80979500579A67 /* HTRecordContentEditViewController.m */,
+				880BC70C1C8096EC00579A67 /* HTWriteTravelRecordDatePickerViewController.h */,
+				880BC70D1C8096EC00579A67 /* HTWriteTravelRecordDatePickerViewController.m */,
+				880BC70E1C8096EC00579A67 /* HTWriteTravelRecordTableViewController.h */,
+				880BC70F1C8096EC00579A67 /* HTWriteTravelRecordTableViewController.m */,
+				880BC7091C8096E300579A67 /* HTDistrictSearchViewController.h */,
+				880BC70A1C8096E300579A67 /* HTDistrictSearchViewController.m */,
 				88D5C4821C80849B00796E3B /* HTStrategyTableViewController.h */,
 				88D5C4831C80849B00796E3B /* HTStrategyTableViewController.m */,
 				88D5C4461C80817A00796E3B /* HTDestinationStrategyController.h */,
@@ -400,6 +433,8 @@
 		CDAA82611C48E44100899B49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				880BC7121C8096F800579A67 /* HTDistrictSearchModel.h */,
+				880BC7131C8096F800579A67 /* HTDistrictSearchModel.m */,
 				88D5C47C1C8081E300796E3B /* HTStrategyModel.h */,
 				88D5C47D1C8081E300796E3B /* HTStrategyModel.m */,
 				88D5C47E1C8081E300796E3B /* HTStrategyPhoto.h */,
@@ -655,6 +690,7 @@
 				C09ED5841C4DE7C10084C08E /* HTCityCell.m in Sources */,
 				88D5C44D1C80817A00796E3B /* HTDetailStrategyViewController.m in Sources */,
 				C09ED58D1C4DE7CD0084C08E /* UIView+WLFrame.m in Sources */,
+				880BC7171C80979500579A67 /* HTRecordContentEditViewController.m in Sources */,
 				88D5C44C1C80817A00796E3B /* HTDestinationStrategyController.m in Sources */,
 				C09ED5801C4DE7B80084C08E /* HTWorldExploreModel.m in Sources */,
 				88D5C4811C8081E300796E3B /* HTStrategyPhoto.m in Sources */,
@@ -682,9 +718,13 @@
 				88D5C45A1C8081B600796E3B /* HTDiscoveryHot.m in Sources */,
 				886823981C50C63800A72874 /* HTUserModel.m in Sources */,
 				88D5C4801C8081E300796E3B /* HTStrategyModel.m in Sources */,
+				880BC70B1C8096E300579A67 /* HTDistrictSearchViewController.m in Sources */,
 				88D5C4841C80849B00796E3B /* HTStrategyTableViewController.m in Sources */,
 				C00628281C521289007B83F9 /* HJNavigationController.m in Sources */,
+				880BC7101C8096EC00579A67 /* HTWriteTravelRecordDatePickerViewController.m in Sources */,
+				880BC7081C8096DA00579A67 /* HTNavigationBar.m in Sources */,
 				88D5C4751C8081C000796E3B /* HTDiscoveryHotCell.m in Sources */,
+				880BC7141C8096F800579A67 /* HTDistrictSearchModel.m in Sources */,
 				CD4A5BD71C4CC26B00371BC8 /* HTHomeViewController.m in Sources */,
 				88D5C4731C8081C000796E3B /* HTDetailStrategyCell.m in Sources */,
 				88D5C46C1C8081C000796E3B /* HTCityStrategyCell.m in Sources */,
@@ -693,6 +733,7 @@
 				C00628391C5212B5007B83F9 /* HJNavigationBar.m in Sources */,
 				C00628311C52129C007B83F9 /* HJTableViewHeader.m in Sources */,
 				C006283A1C5212B5007B83F9 /* HTCityDetailsCell.m in Sources */,
+				880BC7111C8096EC00579A67 /* HTWriteTravelRecordTableViewController.m in Sources */,
 				88D5C4451C80816D00796E3B /* HTCityStrategyViewController.m in Sources */,
 				C0F40D9B1C59C21100155DEC /* HTPlacesCell.m in Sources */,
 				8868239F1C50C64300A72874 /* HTTravelRecordTableViewCell.m in Sources */,
@@ -701,6 +742,7 @@
 				C00628291C521289007B83F9 /* HTCityDetailsViewController.m in Sources */,
 				884649D51C48CE960031AA86 /* main.m in Sources */,
 				C0F40D971C59C1E300155DEC /* HTScoreModel.m in Sources */,
+				8819E8251C84243C006CCA3F /* NSObject+AutoEncode.m in Sources */,
 				88D5C44E1C80817A00796E3B /* HTDiscoveryHotViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -814,10 +856,13 @@
 			baseConfigurationReference = 7B5C11C1B6D6F45991213034 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = HeartTravel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxw.HeartTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -826,10 +871,14 @@
 			baseConfigurationReference = 6CE74E494B922BCC8E516B21 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = HeartTravel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yxw.HeartTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

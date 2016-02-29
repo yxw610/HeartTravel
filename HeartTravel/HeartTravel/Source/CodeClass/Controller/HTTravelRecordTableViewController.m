@@ -13,6 +13,7 @@
 #import "GetDataTools.h"
 #import <RESideMenu/RESideMenu.h>
 #import "HTDiscoveryHotViewController.h"
+#import "AVOSCloud/AVOSCloud.h"
 
 #define kURL @"http://q.chanyouji.com/api/v1/timelines.json?page=1&per=50"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -52,12 +53,11 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发现" style:UIBarButtonItemStylePlain target:self action:@selector(discoveryHotViewAction:)];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HTTravelRecordTableViewCell" bundle:nil] forCellReuseIdentifier:HTTravelRecordCellID];
-    
-    
+
     
     __unsafe_unretained typeof(self) weakSelf = self;
     self.cellHeightArray = [NSMutableArray array];
-    
+
     [[GetDataTools shareGetDataTools] getDataWithUrlString:kURL data:^(NSDictionary *dataDict) {
         
         NSDictionary *dict = dataDict;
@@ -81,12 +81,63 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
             
         }
         
+        [weakSelf getLeanCloudData];
+        
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            [self.tableView reloadData];
+//        });
+    }];
+    
+}
+
+- (void)getLeanCloudData {
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"TravelRecord"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        NSArray<AVObject *> *models = objects;
+        for (AVObject *travelRecord in models) {
+
+            HTTravelRecordModel *model = [[HTTravelRecordModel alloc] init];
+            
+//            NSMutableDictionary *dataDictionary = [travelRecord dictionaryForObject];
+            
+            model.topic = travelRecord[@"topic"];
+            model.desc = travelRecord[@"desc"];
+            model.contents_count = [travelRecord[@"content_count"] integerValue];
+            NSLog(@"%@",model.topic);
+            
+            NSMutableArray *contents = [NSMutableArray array];
+            contents = travelRecord[@"contents"];
+            NSMutableArray *modelContents = [NSMutableArray array];
+            
+            for (NSData *data in contents) {
+                
+                HTRecordContentModel *recordContentModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                
+                [modelContents addObject:recordContentModel];
+            }
+            model.contents = modelContents;
+            
+            NSArray *heightArray = [HTTravelRecordTableViewCell caculateHeightForLabelWithModel:model];
+            
+            CGFloat recordContentViewHeight = [heightArray[2] floatValue];
+            
+            [self.cellHeightArray addObject:@(recordContentViewHeight)];
+            [self.cellMarkArray addObject:@"part"];
+            [self.array addObject:model];
+            
+        }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.tableView reloadData];
         });
     }];
+
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
