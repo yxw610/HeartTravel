@@ -14,6 +14,7 @@
 #import "HTPhotoContentCarouselFigureView.h"
 #import "HTTravelRecordTableViewController.h"
 #import "HTTravelRecordPhotoCarouselViewController.h"
+#import "HTDistrictModel.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -112,6 +113,21 @@
     
     self.recordTopicLabel.text = model.topic;
     self.recordContentLabel.text = model.desc;
+    
+    HTDistrictModel *districtModel = model.districts[0];
+    NSMutableString *districtString = [NSMutableString stringWithFormat:@"%@",districtModel.name];
+    
+    if (model.districts.count > 0) {
+        
+        for (int i = 1; i < model.districts.count; i++ ) {
+            
+            HTDistrictModel *tempModel = model.districts[i];
+            [districtString appendFormat:@",%@",tempModel.name];
+        }
+        
+        self.districts.text = districtString;
+    }
+   
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -19,6 +19,9 @@
 #import "AVOSCloud.h"
 #import "HTTravelRecordModel.h"
 #import "HTRecordContentModel.h"
+#import "HTDistrictModel.h"
+#import <RESideMenu/RESideMenu.h>
+#import "HTTravelRecordTableViewController.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -539,8 +542,13 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
     [travelRecord setObject:contents forKey:@"contents"];
     [travelRecord setObject:@(self.districtSearchModel.district_id) forKey:@"district_id"];
     
+    HTDistrictModel *districtModel = [[HTDistrictModel alloc] init];
+    districtModel.district_id = self.districtSearchModel.district_id;
+    districtModel.name = self.districtSearchModel.name;
+    
+    NSData *districtData = [NSKeyedArchiver archivedDataWithRootObject:districtModel];
     NSMutableArray *districts = [NSMutableArray array];
-    [districts addObject:self.districtSearchModel.name];
+    [districts addObject:districtData];
     
     [travelRecord setObject:districts forKey:@"districts"];
 #warning 缺user信息
@@ -558,11 +566,17 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
 - (void)showSuccessAlert {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"发布成功" preferredStyle:UIAlertControllerStyleAlert];
-    
-    [self presentViewController:alert animated:YES completion:^{
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         
         
+        HTTravelRecordTableViewController *diaryVC = [[HTTravelRecordTableViewController alloc]init];
+        UINavigationController *diaryNC = [[UINavigationController alloc] initWithRootViewController:diaryVC];
+        
+        //替换当前视图
+        [self.sideMenuViewController setContentViewController:diaryNC];
     }];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
     
 }
 

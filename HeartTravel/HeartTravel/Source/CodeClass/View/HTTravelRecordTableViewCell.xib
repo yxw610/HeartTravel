@@ -50,9 +50,20 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DmV-19-ocr">
                         <rect key="frame" x="0.0" y="624" width="473" height="30"/>
-                        <color key="backgroundColor" red="1" green="0.20755653160000001" blue="0.932133035" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCx-ip-ZEI">
+                                <rect key="frame" x="5" y="0.0" width="463" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="QHu-Iq-0JW"/>
+                            <constraint firstItem="tCx-ip-ZEI" firstAttribute="leading" secondItem="DmV-19-ocr" secondAttribute="leading" constant="5" id="aCI-nB-kG7"/>
+                            <constraint firstAttribute="trailing" secondItem="tCx-ip-ZEI" secondAttribute="trailing" constant="5" id="hsr-HU-ZR0"/>
+                            <constraint firstAttribute="bottom" secondItem="tCx-ip-ZEI" secondAttribute="bottom" id="pdZ-GS-KtT"/>
+                            <constraint firstItem="tCx-ip-ZEI" firstAttribute="top" secondItem="DmV-19-ocr" secondAttribute="top" id="uIj-U0-xHe"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qVR-qY-zPy">
@@ -68,7 +79,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ewk-Zh-NhG">
-                                <rect key="frame" x="5" y="152.5" width="80" height="20"/>
+                                <rect key="frame" x="5" y="152" width="80" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="aww-Xa-W8g"/>
                                     <constraint firstAttribute="height" constant="19.5" id="wm6-8v-eZL"/>
@@ -138,6 +149,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="carouselView" destination="aOU-XZ-TKU" id="qqJ-xt-5eF"/>
+                <outlet property="districts" destination="tCx-ip-ZEI" id="T6k-1S-oT6"/>
                 <outlet property="markCarouselView" destination="DmV-19-ocr" id="7a7-wJ-3Hi"/>
                 <outlet property="recordContentLabel" destination="p5u-tJ-ejf" id="tCp-dE-bhA"/>
                 <outlet property="recordContentLabelConstraintToRecordContentViewBottom" destination="NrY-QY-Kk9" id="aJM-jr-cpS"/>

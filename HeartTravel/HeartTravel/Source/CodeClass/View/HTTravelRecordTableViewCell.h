@@ -63,6 +63,11 @@
 @property (strong, nonatomic) HTTravelRecordModel *model;
 
 /**
+ *  地区
+ */
+@property (weak, nonatomic) IBOutlet UILabel *districts;
+
+/**
  *  计算文本的高度
  *
  *  @param model 需要计算的model
