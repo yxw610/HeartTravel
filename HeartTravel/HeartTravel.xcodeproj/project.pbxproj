@@ -81,6 +81,19 @@
 		CD4A5BD81C4CC26B00371BC8 /* HTLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BD21C4CC26B00371BC8 /* HTLeftMenuViewController.m */; };
 		CD4A5BD91C4CC26B00371BC8 /* HTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BD41C4CC26B00371BC8 /* HTLoginViewController.m */; };
 		CD4A5BDA1C4CC26B00371BC8 /* HTRegisteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4A5BD61C4CC26B00371BC8 /* HTRegisteViewController.m */; };
+		CD8456D71C85276500331469 /* HTTurnInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8456D61C85276500331469 /* HTTurnInfoViewController.m */; };
+		CD8456DA1C85296500331469 /* HTMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8456D91C85296500331469 /* HTMyViewController.m */; };
+		CD8456DD1C852A1800331469 /* QYTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8456DC1C852A1800331469 /* QYTableViewHeader.m */; };
+		CD8456E81C852C1C00331469 /* iconfont-iconfanhui-2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8456DE1C852C1C00331469 /* iconfont-iconfanhui-2.png */; };
+		CD8456E91C852C1C00331469 /* iconfont-queren.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8456DF1C852C1C00331469 /* iconfont-queren.png */; };
+		CD8456EA1C852C1C00331469 /* iconfont-unie64d.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8456E01C852C1C00331469 /* iconfont-unie64d.png */; };
+		CD8456EB1C852C1C00331469 /* writeTravelRecord_Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8456E11C852C1C00331469 /* writeTravelRecord_Camera.png */; };
+		CD8456EC1C852C1C00331469 /* writeTravelRecord_Camera1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8456E21C852C1C00331469 /* writeTravelRecord_Camera1.png */; };
+		CD8456ED1C852C1C00331469 /* writeTravelRecord_Date.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8456E31C852C1C00331469 /* writeTravelRecord_Date.png */; };
+		CD8456EE1C852C1C00331469 /* writeTravelRecord_Date1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8456E41C852C1C00331469 /* writeTravelRecord_Date1.png */; };
+		CD8456EF1C852C1C00331469 /* writeTravelRecord_Map.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8456E51C852C1C00331469 /* writeTravelRecord_Map.png */; };
+		CD8456F01C852C1C00331469 /* writeTravelRecord_Mark.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8456E61C852C1C00331469 /* writeTravelRecord_Mark.png */; };
+		CD8456F11C852C1C00331469 /* writeTravelRecord_Mark1.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8456E71C852C1C00331469 /* writeTravelRecord_Mark1.png */; };
 		CD8635A71C51D6DC003AFF10 /* HTHome_Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8635A01C51D6DC003AFF10 /* HTHome_Menu.png */; };
 		CD8635A81C51D6DC003AFF10 /* HTLeftMenu_BackImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD8635A11C51D6DC003AFF10 /* HTLeftMenu_BackImage.jpg */; };
 		CD8635A91C51D6DC003AFF10 /* HTLeftMenu_Head.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8635A21C51D6DC003AFF10 /* HTLeftMenu_Head.png */; };
@@ -227,6 +240,22 @@
 		CD4A5BD41C4CC26B00371BC8 /* HTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTLoginViewController.m; sourceTree = "<group>"; };
 		CD4A5BD51C4CC26B00371BC8 /* HTRegisteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTRegisteViewController.h; sourceTree = "<group>"; };
 		CD4A5BD61C4CC26B00371BC8 /* HTRegisteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTRegisteViewController.m; sourceTree = "<group>"; };
+		CD8456D51C85276500331469 /* HTTurnInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTurnInfoViewController.h; sourceTree = "<group>"; };
+		CD8456D61C85276500331469 /* HTTurnInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTurnInfoViewController.m; sourceTree = "<group>"; };
+		CD8456D81C85296500331469 /* HTMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMyViewController.h; sourceTree = "<group>"; };
+		CD8456D91C85296500331469 /* HTMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMyViewController.m; sourceTree = "<group>"; };
+		CD8456DB1C852A1800331469 /* QYTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYTableViewHeader.h; sourceTree = "<group>"; };
+		CD8456DC1C852A1800331469 /* QYTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYTableViewHeader.m; sourceTree = "<group>"; };
+		CD8456DE1C852C1C00331469 /* iconfont-iconfanhui-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-iconfanhui-2.png"; sourceTree = "<group>"; };
+		CD8456DF1C852C1C00331469 /* iconfont-queren.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-queren.png"; sourceTree = "<group>"; };
+		CD8456E01C852C1C00331469 /* iconfont-unie64d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconfont-unie64d.png"; sourceTree = "<group>"; };
+		CD8456E11C852C1C00331469 /* writeTravelRecord_Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writeTravelRecord_Camera.png; sourceTree = "<group>"; };
+		CD8456E21C852C1C00331469 /* writeTravelRecord_Camera1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writeTravelRecord_Camera1.png; sourceTree = "<group>"; };
+		CD8456E31C852C1C00331469 /* writeTravelRecord_Date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writeTravelRecord_Date.png; sourceTree = "<group>"; };
+		CD8456E41C852C1C00331469 /* writeTravelRecord_Date1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writeTravelRecord_Date1.png; sourceTree = "<group>"; };
+		CD8456E51C852C1C00331469 /* writeTravelRecord_Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writeTravelRecord_Map.png; sourceTree = "<group>"; };
+		CD8456E61C852C1C00331469 /* writeTravelRecord_Mark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writeTravelRecord_Mark.png; sourceTree = "<group>"; };
+		CD8456E71C852C1C00331469 /* writeTravelRecord_Mark1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writeTravelRecord_Mark1.png; sourceTree = "<group>"; };
 		CD8635A01C51D6DC003AFF10 /* HTHome_Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HTHome_Menu.png; sourceTree = "<group>"; };
 		CD8635A11C51D6DC003AFF10 /* HTLeftMenu_BackImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HTLeftMenu_BackImage.jpg; sourceTree = "<group>"; };
 		CD8635A21C51D6DC003AFF10 /* HTLeftMenu_Head.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HTLeftMenu_Head.png; sourceTree = "<group>"; };
@@ -324,6 +353,16 @@
 		CD4A5BEA1C4CC56500371BC8 /* picture */ = {
 			isa = PBXGroup;
 			children = (
+				CD8456DE1C852C1C00331469 /* iconfont-iconfanhui-2.png */,
+				CD8456DF1C852C1C00331469 /* iconfont-queren.png */,
+				CD8456E01C852C1C00331469 /* iconfont-unie64d.png */,
+				CD8456E11C852C1C00331469 /* writeTravelRecord_Camera.png */,
+				CD8456E21C852C1C00331469 /* writeTravelRecord_Camera1.png */,
+				CD8456E31C852C1C00331469 /* writeTravelRecord_Date.png */,
+				CD8456E41C852C1C00331469 /* writeTravelRecord_Date1.png */,
+				CD8456E51C852C1C00331469 /* writeTravelRecord_Map.png */,
+				CD8456E61C852C1C00331469 /* writeTravelRecord_Mark.png */,
+				CD8456E71C852C1C00331469 /* writeTravelRecord_Mark1.png */,
 				C006283C1C521376007B83F9 /* HTiconfont-fanhui.png */,
 				CD8635A01C51D6DC003AFF10 /* HTHome_Menu.png */,
 				CD8635A11C51D6DC003AFF10 /* HTLeftMenu_BackImage.jpg */,
@@ -360,6 +399,8 @@
 		CDAA825E1C48E44100899B49 /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				CD8456DB1C852A1800331469 /* QYTableViewHeader.h */,
+				CD8456DC1C852A1800331469 /* QYTableViewHeader.m */,
 				8819E8231C84243C006CCA3F /* NSObject+AutoEncode.h */,
 				8819E8241C84243C006CCA3F /* NSObject+AutoEncode.m */,
 				880BC7061C8096DA00579A67 /* HTNavigationBar.h */,
@@ -426,6 +467,10 @@
 				CD4A5BD41C4CC26B00371BC8 /* HTLoginViewController.m */,
 				CD4A5BD51C4CC26B00371BC8 /* HTRegisteViewController.h */,
 				CD4A5BD61C4CC26B00371BC8 /* HTRegisteViewController.m */,
+				CD8456D81C85296500331469 /* HTMyViewController.h */,
+				CD8456D91C85296500331469 /* HTMyViewController.m */,
+				CD8456D51C85276500331469 /* HTTurnInfoViewController.h */,
+				CD8456D61C85276500331469 /* HTTurnInfoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -606,14 +651,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD8635A91C51D6DC003AFF10 /* HTLeftMenu_Head.png in Resources */,
+				CD8456F11C852C1C00331469 /* writeTravelRecord_Mark1.png in Resources */,
 				C006283B1C5212B5007B83F9 /* HTCityDetailsCell.xib in Resources */,
 				884649E31C48CE960031AA86 /* LaunchScreen.storyboard in Resources */,
 				CD8635AA1C51D6DC003AFF10 /* HTLogin_BackImage.jpg in Resources */,
 				C006283D1C521376007B83F9 /* HTiconfont-fanhui.png in Resources */,
 				C0F40D9C1C59C21100155DEC /* HTPlacesCell.xib in Resources */,
+				CD8456E81C852C1C00331469 /* iconfont-iconfanhui-2.png in Resources */,
 				CD8635AB1C51D6DC003AFF10 /* HTLogin_Password.png in Resources */,
 				88D5C4741C8081C000796E3B /* HTDetailStrategyCell.xib in Resources */,
 				C09ED57A1C4DE7A80084C08E /* HTWorldExploreViewController.xib in Resources */,
+				CD8456EA1C852C1C00331469 /* iconfont-unie64d.png in Resources */,
 				C09ED5851C4DE7C10084C08E /* HTCityCell.xib in Resources */,
 				CD8635AC1C51D6DC003AFF10 /* HTLogin_User.png in Resources */,
 				886823A01C50C64300A72874 /* HTTravelRecordTableViewCell.xib in Resources */,
@@ -622,9 +670,16 @@
 				88D5C47B1C8081C700796E3B /* HTStrategyTableViewCell.xib in Resources */,
 				88D5C4701C8081C000796E3B /* HTDestinationRecordCell.xib in Resources */,
 				884649E01C48CE960031AA86 /* Assets.xcassets in Resources */,
+				CD8456EF1C852C1C00331469 /* writeTravelRecord_Map.png in Resources */,
+				CD8456EB1C852C1C00331469 /* writeTravelRecord_Camera.png in Resources */,
 				88D5C4721C8081C000796E3B /* HTDestinationStrategyCell.xib in Resources */,
+				CD8456EE1C852C1C00331469 /* writeTravelRecord_Date1.png in Resources */,
+				CD8456EC1C852C1C00331469 /* writeTravelRecord_Camera1.png in Resources */,
+				CD8456ED1C852C1C00331469 /* writeTravelRecord_Date.png in Resources */,
+				CD8456E91C852C1C00331469 /* iconfont-queren.png in Resources */,
 				88D5C46D1C8081C000796E3B /* HTCityStrategyCell.xib in Resources */,
 				CD8635A81C51D6DC003AFF10 /* HTLeftMenu_BackImage.jpg in Resources */,
+				CD8456F01C852C1C00331469 /* writeTravelRecord_Mark.png in Resources */,
 				884649DE1C48CE960031AA86 /* Main.storyboard in Resources */,
 				88D5C4761C8081C000796E3B /* HTDiscoveryHotCell.xib in Resources */,
 			);
@@ -716,6 +771,7 @@
 				CD4A5BD91C4CC26B00371BC8 /* HTLoginViewController.m in Sources */,
 				886823961C50C63800A72874 /* HTRecordContentModel.m in Sources */,
 				88D5C45A1C8081B600796E3B /* HTDiscoveryHot.m in Sources */,
+				CD8456DA1C85296500331469 /* HTMyViewController.m in Sources */,
 				886823981C50C63800A72874 /* HTUserModel.m in Sources */,
 				88D5C4801C8081E300796E3B /* HTStrategyModel.m in Sources */,
 				880BC70B1C8096E300579A67 /* HTDistrictSearchViewController.m in Sources */,
@@ -730,6 +786,7 @@
 				88D5C46C1C8081C000796E3B /* HTCityStrategyCell.m in Sources */,
 				C09ED5791C4DE7A80084C08E /* HTWorldExploreViewController.m in Sources */,
 				88D5C4581C8081B600796E3B /* HTDestinationStrategy.m in Sources */,
+				CD8456DD1C852A1800331469 /* QYTableViewHeader.m in Sources */,
 				C00628391C5212B5007B83F9 /* HJNavigationBar.m in Sources */,
 				C00628311C52129C007B83F9 /* HJTableViewHeader.m in Sources */,
 				C006283A1C5212B5007B83F9 /* HTCityDetailsCell.m in Sources */,
@@ -738,6 +795,7 @@
 				C0F40D9B1C59C21100155DEC /* HTPlacesCell.m in Sources */,
 				8868239F1C50C64300A72874 /* HTTravelRecordTableViewCell.m in Sources */,
 				886823881C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m in Sources */,
+				CD8456D71C85276500331469 /* HTTurnInfoViewController.m in Sources */,
 				886823891C50C62500A72874 /* HTTravelRecordTableViewController.m in Sources */,
 				C00628291C521289007B83F9 /* HTCityDetailsViewController.m in Sources */,
 				884649D51C48CE960031AA86 /* main.m in Sources */,

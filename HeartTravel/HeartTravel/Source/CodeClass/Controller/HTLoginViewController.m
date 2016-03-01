@@ -10,6 +10,8 @@
 #import "HTRegisteViewController.h"
 #import "FXBlurView.h"
 #import <Masonry/Masonry.h>
+#import <RESideMenu/RESideMenu.h>
+
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -53,7 +55,12 @@
         make.edges.equalTo(weakSelf.backImg).insets(defaultInsets);
     }];
     
+#pragma mark-----------------导航栏左按钮(返回)--------------
+    UIImage * normalImg = [UIImage imageNamed:@"iconfont-iconfanhui-2"];
+    normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:normalImg style:(UIBarButtonItemStylePlain) target:self action:@selector(leftAction:)];
+
 #pragma mark----------------用户----------------
     
     //用户名图
@@ -184,6 +191,11 @@
         make.height.equalTo(@40);
     }];
 }
+#pragma mark--------------左按钮的点击事件----------------
+- (void)leftAction:(UIBarButtonItem *)sender
+{
+    [self.sideMenuViewController presentLeftMenuViewController];
+}
 
 
 //登陆的点击事件
@@ -211,6 +223,7 @@
 
 }
 
+
 //注册的点击事件
 - (void)registerAction:(UIButton *)sender
 {
@@ -222,6 +235,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

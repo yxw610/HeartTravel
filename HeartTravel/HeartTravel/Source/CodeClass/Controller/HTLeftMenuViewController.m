@@ -14,6 +14,8 @@
 #import "HTWorldExploreViewController.h"
 #import "HTTravelRecordTableViewController.h"
 #import "HTWriteTravelRecordTableViewController.h"
+#import <AVOSCloud.h>
+#import "HTMyViewController.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -168,15 +170,21 @@
   
     //self.myButton.backgroundColor = [UIColor redColor];
     [self.myButton setTitle:@"个人中心" forState:(UIControlStateNormal)];
+    
     self.myButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    //添加点击事件
+    [ self.myButton addTarget:self action:@selector(MyPageAction:) forControlEvents:(UIControlEventTouchUpInside)];
+
     [self.backImg addSubview:self.myButton];
 
+    //加约束
     [self.myButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.writeButton.mas_bottom).with.offset(buttonInsets.top);
         make.width.equalTo(@100);
         make.height.equalTo(@40);
         make.left.equalTo(weakSelf.backImg.mas_left).with.offset(buttonInsets.left);
     }];
+    
     
     
 }
@@ -238,6 +246,51 @@
     [self.sideMenuViewController setContentViewController:HTWriteTravelRecordNC];
     //隐藏菜单视图
     [self.sideMenuViewController hideMenuViewController];
+}
+#pragma mark------------个人中心的点击事件---------------
+- (void)MyPageAction:(UIButton *)sender
+{
+    AVUser *currUser = [AVUser currentUser];
+    if (currUser.username == nil) {
+        HTLoginViewController *loginVC = [[HTLoginViewController alloc]init];
+        UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+        
+        [self presentViewController:loginNC animated:YES completion:nil];
+        
+        NSLog(@"8888");
+    }else
+    {
+        
+        AVQuery *query = [AVQuery queryWithClassName:@"UserInfo"];
+        [query whereKey:@"username" equalTo:[AVUser currentUser].username];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            if (!error) {
+                
+                HTMyViewController *myVC = [[HTMyViewController alloc]init];
+                UINavigationController *myNC = [[UINavigationController alloc]initWithRootViewController:myVC];
+                AVObject *object = [objects firstObject];
+                [self.sideMenuViewController setContentViewController:myNC];
+                [self.sideMenuViewController hideMenuViewController];
+                //            [object fetchIfNeededInBackgroundWithBlock:^(AVObject *object, NSError *error) {
+                //
+                //            }];
+                
+            }else
+            {
+                //输出错误信息
+                NSLog(@"Error: %@ %@", error, [error userInfo]);
+            }
+            
+        }];
+        
+        //    HTMyViewController *myVC = [[HTMyViewController alloc]init];
+        //
+        //    UINavigationController *myNC = [[UINavigationController alloc]initWithRootViewController:myVC];
+        //
+        //    [self.sideMenuViewController setContentViewController:myNC];
+        //    [self.sideMenuViewController hideMenuViewController];
+        
+    }
 }
 
 /*
