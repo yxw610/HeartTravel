@@ -82,4 +82,9 @@
  */
 @property (strong, nonatomic) HTUserModel *userInfo;
 
+/**
+ *  分组
+ */
+@property (assign, nonatomic) NSInteger groupNum;
+
 @end

@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -43,9 +44,31 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57w-tc-qF2">
                         <rect key="frame" x="0.0" y="654" width="473" height="40"/>
-                        <color key="backgroundColor" red="0.16557071500000001" green="1" blue="0.22317736420000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dianzan-no.png" translatesAutoresizingMaskIntoConstraints="NO" id="d4B-0b-1qx">
+                                <rect key="frame" x="204" y="4" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="d4B-0b-1qx" secondAttribute="height" id="3NW-vA-8b0"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQf-JA-GEQ">
+                                <rect key="frame" x="244" y="4" width="105" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="105" id="2S8-4z-jWX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="6Rv-ro-CTt"/>
+                            <constraint firstItem="QQf-JA-GEQ" firstAttribute="leading" secondItem="d4B-0b-1qx" secondAttribute="trailing" constant="7.5" id="FIh-NU-dKf"/>
+                            <constraint firstItem="QQf-JA-GEQ" firstAttribute="top" secondItem="57w-tc-qF2" secondAttribute="top" constant="4" id="IPN-sT-7QH"/>
+                            <constraint firstAttribute="bottom" secondItem="d4B-0b-1qx" secondAttribute="bottom" constant="4" id="hj9-Dk-Oqk"/>
+                            <constraint firstAttribute="trailing" secondItem="d4B-0b-1qx" secondAttribute="trailing" multiplier="2" id="vI4-hM-rZ1"/>
+                            <constraint firstAttribute="bottom" secondItem="QQf-JA-GEQ" secondAttribute="bottom" constant="4" id="vMl-rS-Kua"/>
+                            <constraint firstItem="d4B-0b-1qx" firstAttribute="top" secondItem="57w-tc-qF2" secondAttribute="top" constant="4" id="xdY-0P-H8A"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DmV-19-ocr">
@@ -150,6 +173,8 @@
             <connections>
                 <outlet property="carouselView" destination="aOU-XZ-TKU" id="qqJ-xt-5eF"/>
                 <outlet property="districts" destination="tCx-ip-ZEI" id="T6k-1S-oT6"/>
+                <outlet property="favoriteCountLabel" destination="QQf-JA-GEQ" id="TNl-vU-tpw"/>
+                <outlet property="favoriteImgView" destination="d4B-0b-1qx" id="ySs-PM-bg2"/>
                 <outlet property="markCarouselView" destination="DmV-19-ocr" id="7a7-wJ-3Hi"/>
                 <outlet property="recordContentLabel" destination="p5u-tJ-ejf" id="tCp-dE-bhA"/>
                 <outlet property="recordContentLabelConstraintToRecordContentViewBottom" destination="NrY-QY-Kk9" id="aJM-jr-cpS"/>
@@ -166,4 +191,7 @@
             <point key="canvasLocation" x="423.5" y="405.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="dianzan-no.png" width="32" height="32"/>
+    </resources>
 </document>

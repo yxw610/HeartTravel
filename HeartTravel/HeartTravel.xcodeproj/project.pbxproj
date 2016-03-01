@@ -21,6 +21,9 @@
 		884649E31C48CE960031AA86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884649E11C48CE960031AA86 /* LaunchScreen.storyboard */; };
 		884A57061C8530FF0068F85F /* GetUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A57051C8530FF0068F85F /* GetUser.m */; };
 		884A57081C8564D20068F85F /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 884A57071C8564D20068F85F /* 9.jpg */; };
+		884A570B1C857FF90068F85F /* dianzan-no.png in Resources */ = {isa = PBXBuildFile; fileRef = 884A57091C857FF90068F85F /* dianzan-no.png */; };
+		884A570C1C857FF90068F85F /* dianzan-yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 884A570A1C857FF90068F85F /* dianzan-yes.png */; };
+		884A57121C85BEC40068F85F /* HTFavoriteRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A57111C85BEC40068F85F /* HTFavoriteRecordTableViewController.m */; };
 		886823831C50C60800A72874 /* GetDataTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 886823821C50C60800A72874 /* GetDataTools.m */; };
 		886823881C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886823851C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m */; };
 		886823891C50C62500A72874 /* HTTravelRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886823871C50C62500A72874 /* HTTravelRecordTableViewController.m */; };
@@ -132,6 +135,10 @@
 		884A57041C8530FF0068F85F /* GetUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUser.h; sourceTree = "<group>"; };
 		884A57051C8530FF0068F85F /* GetUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUser.m; sourceTree = "<group>"; };
 		884A57071C8564D20068F85F /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		884A57091C857FF90068F85F /* dianzan-no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dianzan-no.png"; sourceTree = "<group>"; };
+		884A570A1C857FF90068F85F /* dianzan-yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dianzan-yes.png"; sourceTree = "<group>"; };
+		884A57101C85BEC40068F85F /* HTFavoriteRecordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTFavoriteRecordTableViewController.h; sourceTree = "<group>"; };
+		884A57111C85BEC40068F85F /* HTFavoriteRecordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTFavoriteRecordTableViewController.m; sourceTree = "<group>"; };
 		886823811C50C60800A72874 /* GetDataTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDataTools.h; sourceTree = "<group>"; };
 		886823821C50C60800A72874 /* GetDataTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDataTools.m; sourceTree = "<group>"; };
 		886823841C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTravelRecordPhotoCarouselViewController.h; sourceTree = "<group>"; };
@@ -358,6 +365,8 @@
 		CD4A5BEA1C4CC56500371BC8 /* picture */ = {
 			isa = PBXGroup;
 			children = (
+				884A57091C857FF90068F85F /* dianzan-no.png */,
+				884A570A1C857FF90068F85F /* dianzan-yes.png */,
 				884A57071C8564D20068F85F /* 9.jpg */,
 				CD8456DE1C852C1C00331469 /* iconfont-iconfanhui-2.png */,
 				CD8456DF1C852C1C00331469 /* iconfont-queren.png */,
@@ -479,6 +488,8 @@
 				CD8456D91C85296500331469 /* HTMyViewController.m */,
 				CD8456D51C85276500331469 /* HTTurnInfoViewController.h */,
 				CD8456D61C85276500331469 /* HTTurnInfoViewController.m */,
+				884A57101C85BEC40068F85F /* HTFavoriteRecordTableViewController.h */,
+				884A57111C85BEC40068F85F /* HTFavoriteRecordTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -684,12 +695,14 @@
 				88D5C4721C8081C000796E3B /* HTDestinationStrategyCell.xib in Resources */,
 				CD8456EE1C852C1C00331469 /* writeTravelRecord_Date1.png in Resources */,
 				CD8456EC1C852C1C00331469 /* writeTravelRecord_Camera1.png in Resources */,
+				884A570C1C857FF90068F85F /* dianzan-yes.png in Resources */,
 				CD8456ED1C852C1C00331469 /* writeTravelRecord_Date.png in Resources */,
 				CD8456E91C852C1C00331469 /* iconfont-queren.png in Resources */,
 				88D5C46D1C8081C000796E3B /* HTCityStrategyCell.xib in Resources */,
 				CD8635A81C51D6DC003AFF10 /* HTLeftMenu_BackImage.jpg in Resources */,
 				CD8456F01C852C1C00331469 /* writeTravelRecord_Mark.png in Resources */,
 				884649DE1C48CE960031AA86 /* Main.storyboard in Resources */,
+				884A570B1C857FF90068F85F /* dianzan-no.png in Resources */,
 				88D5C4761C8081C000796E3B /* HTDiscoveryHotCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -783,6 +796,7 @@
 				88D5C45A1C8081B600796E3B /* HTDiscoveryHot.m in Sources */,
 				CD8456DA1C85296500331469 /* HTMyViewController.m in Sources */,
 				886823981C50C63800A72874 /* HTUserModel.m in Sources */,
+				884A57121C85BEC40068F85F /* HTFavoriteRecordTableViewController.m in Sources */,
 				88D5C4801C8081E300796E3B /* HTStrategyModel.m in Sources */,
 				880BC70B1C8096E300579A67 /* HTDistrictSearchViewController.m in Sources */,
 				88D5C4841C80849B00796E3B /* HTStrategyTableViewController.m in Sources */,

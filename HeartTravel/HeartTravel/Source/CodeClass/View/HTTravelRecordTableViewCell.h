@@ -68,6 +68,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *districts;
 
 /**
+ *  喜爱
+ */
+@property (weak, nonatomic) IBOutlet UIImageView *favoriteImgView;
+
+/**
+ *  喜爱人数
+ */
+@property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
+
+/**
  *  计算文本的高度
  *
  *  @param model 需要计算的model

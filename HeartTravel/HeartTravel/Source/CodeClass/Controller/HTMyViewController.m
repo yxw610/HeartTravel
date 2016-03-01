@@ -16,6 +16,7 @@
 #import "HTLoginViewController.h"
 #import "GetUser.h"
 #import "UIImageView+WebCache.h"
+#import "HTFavoriteRecordTableViewController.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -128,7 +129,10 @@
         [self.navigationController pushViewController:turnVC animated:YES];
         
     } else if(indexPath.row == 1){
-        NSLog(@"2");
+
+        HTFavoriteRecordTableViewController *favoriteRecordTVC = [[HTFavoriteRecordTableViewController alloc] initWithStyle:(UITableViewStylePlain)];
+        [self.navigationController pushViewController:favoriteRecordTVC animated:YES];
+    
     }else
     {
        
@@ -186,20 +190,6 @@
     [self.sideMenuViewController presentLeftMenuViewController];
 
 }
-
-
-//撤销方法
-//- (void)cancelAtion:(UIButton *)sender
-//{
-//    
-//   [AVUser logOut];
-//   //AVUser *currentUser = [AVUser currentUser];
-//   // NSLog(@"****%@",currentUser.username);
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//    
-//    
-//}
-
 
 
 - (void)didReceiveMemoryWarning {

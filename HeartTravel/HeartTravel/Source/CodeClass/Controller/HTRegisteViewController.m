@@ -9,7 +9,7 @@
 #import "HTRegisteViewController.h"
 #import "FXBlurView.h"
 #import <Masonry/Masonry.h>
-
+#import <AVOSCloud/AVOSCloud.h>
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -24,10 +24,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"注册";
-    // self.navigationController.navigationBarHidden = YES;
+     self.title = @"注册";
+   // self.navigationController.navigationBarHidden = YES;
     self.backImg = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.backImg.image = [UIImage imageNamed:@"HTRegister_BackImage.jpg"];
+    self.backImg.image = [UIImage imageNamed:@"3.jpg"];
     self.backImg.userInteractionEnabled = YES;
     [self.view addSubview:self.backImg];
     //加约束
@@ -39,9 +39,9 @@
         
     }];
     
+
     
-    
-    //    //背景图模糊效果
+//    //背景图模糊效果
     FXBlurView *fxView = [[FXBlurView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     fxView.dynamic = NO;
     fxView.blurRadius = 15;
@@ -52,7 +52,7 @@
         
         make.edges.equalTo(weakSelf.backImg).insets(defaultInsets);
     }];
-    
+
     //用户名
     self.useField = [[UITextField alloc]init];
     
@@ -74,7 +74,7 @@
         
         make.height.equalTo(@40);
     }];
-    
+
     
     //输入密码
     self.pssField = [[UITextField alloc]init];
@@ -96,7 +96,7 @@
         make.height.equalTo(@40);
     }];
     
-    
+
     
     
     //再次输入密码
@@ -119,7 +119,7 @@
         
         make.height.equalTo(@40);
     }];
-    
+
     //注册按钮
     self.regButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
     self.regButton.backgroundColor = [UIColor grayColor];
@@ -128,7 +128,7 @@
     self.regButton.layer.masksToBounds = YES;
     [self.regButton addTarget:self action:@selector(regButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.backImg addSubview:self.regButton];
-    
+
     UIEdgeInsets regInsets = UIEdgeInsetsMake( 2* kGap, 1.5 *kGap  , 0, 1.5 * kGap  );
     
     [self.regButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -141,44 +141,90 @@
         
         make.height.equalTo(@40);
     }];
+
     
-}
+   }
+
+       
+
+
+
 
 
 - (void)regButton:(UIButton *)sender
 {
-//    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"温馨提示" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
-    
     if ([_useField.text isEqualToString:@""] || [_pssField.text isEqualToString:@""] || [_againField.text isEqualToString:@""])
     {
         alertController.message = @"不能为空";
+        [alertController addAction:defaultAction];
+        [alertController addAction:cancelAction];
         
+        [self presentViewController:alertController animated:YES completion:nil];
     }else if(![_pssField.text  isEqualToString:_againField.text])
     {
         alertController.message = @"不符";
+        [alertController addAction:defaultAction];
+        [alertController addAction:cancelAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
     }else
     {
-        alertController.message = @"恭喜您注册成功";
-        
-        __unsafe_unretained typeof(self) weakSelf = self;
-        
-        defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            [weakSelf.navigationController popViewControllerAnimated:YES];
-        }];
-    }
-    
-    [alertController addAction:defaultAction];
-    [alertController addAction:cancelAction];
-    
-    [self presentViewController:alertController animated:YES completion:nil];
-    
+        AVUser *user = [AVUser user];
+        user.username =  _useField.text;
+        user.password =  _pssField.text;
+        user.email = _useField.text;
+       
+        if ([self isValidateEmail:user.email]) {
+            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    
+                        AVObject *object = [[AVObject alloc]initWithClassName:@"UserInfo"];
+                        [object setObject:_useField.text forKey:@"username"];
+                    NSData *imgFile = UIImagePNGRepresentation([UIImage imageNamed:@"iconfont-unie64d"]);
+                    AVFile * file = [AVFile fileWithName:@"avatar.png" data:imgFile];
+                    [object setObject:file forKey:@"avatar"];
+                   
+                        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                            if (succeeded) {
+                                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"注册成功" preferredStyle:UIAlertControllerStyleAlert];
+                                __unsafe_unretained typeof(self) weakSelf = self;
+                                
+                                UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
+                                
+                                [weakSelf.navigationController popViewControllerAnimated:YES];
+                                [alert addAction:defaultAction];
+                                [self presentViewController:alert animated:YES completion:nil];
 
+                            }
+                    }];
+                    
+                }else
+                {
+                    NSLog(@"%@", error);
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"注册失败" preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
+                    //                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                    
+                    [alert addAction:defaultAction];
+                    
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
+            }];
+        }
+    }
 }
+
+
+-(BOOL)isValidateEmail:(NSString *)email {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:email];
+}
+
 
 
 - (void)didReceiveMemoryWarning {
