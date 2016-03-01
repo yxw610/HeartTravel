@@ -10,6 +10,8 @@
 #import <Masonry/Masonry.h>
 #import <AVOSCloud/AVOSCloud.h>
 #import "HTUserModel.h"
+#import "GetUser.h"
+#import "UIImageView+WebCache.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -22,30 +24,17 @@
 
 
 
-@interface HTTurnInfoViewController ()<UITableViewDelegate,
-UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface HTTurnInfoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
-@property (nonatomic,strong)UITableView *tableView;
+
 @property (nonatomic,strong)UIImageView *headImg;
 
-//@property (nonatomic,strong) HTTurnInfoTableViewCell *cell;
 @end
 
 @implementation HTTurnInfoViewController
 
-//- (UITableView *)tableView
-//{
-//    if (!_tableView) {
-//        _tableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:(UITableViewStylePlain)];
-//        _tableView.delegate = self;
-//        _tableView.dataSource = self;
-//    }
-//    return  _tableView;
-//}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //       [self getTableView];
     
     UIImage * normalImg = [UIImage imageNamed:@"iconfont-iconfanhui-2"];
     normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
@@ -67,9 +56,18 @@ UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDele
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 64,kWidth, kBackH)];
     headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"9.jpg"]];
  
+    // 用户信息
+    GetUser *userInfo = [GetUser shareGetUser];
     
     _headImg = [[UIImageView alloc]initWithFrame:CGRectMake(kWidth / 2.45, kBackH /4.5, kHeadWidth, kHeadHeight)];
-    _headImg.image = [UIImage imageNamed:@"iconfont-unie64d"];
+    
+    if ([userInfo.photo_url isEqualToString:@""] || userInfo.photo_url == nil) {
+        
+        _headImg.image=[UIImage imageNamed:@"iconfont-unie64d"];
+    } else {
+        
+        [_headImg sd_setImageWithURL:[NSURL URLWithString:userInfo.photo_url] placeholderImage:[UIImage imageNamed:@"HTLeftMenu_Head"]];
+    }
     _headImg.layer.cornerRadius = 35;
     _headImg.layer.masksToBounds = YES;
     _headImg.userInteractionEnabled = YES;
@@ -116,6 +114,7 @@ UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDele
 //   
 //    AVObject *userPost = [AVObject objectWithClassName:@"UserInfo"];
 //    [userPost setObject:@"My trip to Dubai!" forKey:@"content"];
+#warning 错误
 //    [userPost setObject:imageFile            forKey:@"avatar"];
 //    [userPost saveInBackground];
 //    

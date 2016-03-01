@@ -16,6 +16,7 @@
 #import "AVOSCloud/AVOSCloud.h"
 #import "HTDistrictModel.h"
 #import "MJRefresh.h"
+#import "HTUserModel.h"
 
 #define kURL @"http://q.chanyouji.com/api/v1/timelines.json?page=1&per=50"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -158,13 +159,22 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
                 
                 HTTravelRecordModel *model = [[HTTravelRecordModel alloc] init];
                 
-                //            NSMutableDictionary *dataDictionary = [travelRecord dictionaryForObject];
-                
                 model.topic = travelRecord[@"topic"];
                 model.desc = travelRecord[@"desc"];
                 model.contents_count = [travelRecord[@"content_count"] integerValue];
-//                NSLog(@"%@",model.topic);
                 
+                // 用户信息
+                AVQuery *userQuery = [AVQuery queryWithClassName:@"UserInfo"];
+                [userQuery whereKey:@"user_id" equalTo:travelRecord[@"user_id"]];
+                NSArray *userArray = [userQuery findObjects];
+                AVObject *userInfo = [userArray firstObject];
+                HTUserModel *userModel = [[HTUserModel alloc] init];
+                userModel.user_id = [userInfo[@"user_id"] integerValue];
+                userModel.gender = [userInfo[@"gender"] integerValue];
+                userModel.name = userInfo[@"name"];
+                userModel.photo_url = userInfo[@"photo_url"];
+                model.userInfo = userModel;
+
                 NSMutableArray *contents = [NSMutableArray array];
                 contents = travelRecord[@"contents"];
                 NSMutableArray *modelContents = [NSMutableArray array];

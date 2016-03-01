@@ -19,6 +19,8 @@
 		884649DE1C48CE960031AA86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884649DC1C48CE960031AA86 /* Main.storyboard */; };
 		884649E01C48CE960031AA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884649DF1C48CE960031AA86 /* Assets.xcassets */; };
 		884649E31C48CE960031AA86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884649E11C48CE960031AA86 /* LaunchScreen.storyboard */; };
+		884A57061C8530FF0068F85F /* GetUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A57051C8530FF0068F85F /* GetUser.m */; };
+		884A57081C8564D20068F85F /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 884A57071C8564D20068F85F /* 9.jpg */; };
 		886823831C50C60800A72874 /* GetDataTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 886823821C50C60800A72874 /* GetDataTools.m */; };
 		886823881C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886823851C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m */; };
 		886823891C50C62500A72874 /* HTTravelRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886823871C50C62500A72874 /* HTTravelRecordTableViewController.m */; };
@@ -127,6 +129,9 @@
 		884649DF1C48CE960031AA86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		884649E21C48CE960031AA86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		884649E41C48CE960031AA86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		884A57041C8530FF0068F85F /* GetUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUser.h; sourceTree = "<group>"; };
+		884A57051C8530FF0068F85F /* GetUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUser.m; sourceTree = "<group>"; };
+		884A57071C8564D20068F85F /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
 		886823811C50C60800A72874 /* GetDataTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDataTools.h; sourceTree = "<group>"; };
 		886823821C50C60800A72874 /* GetDataTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDataTools.m; sourceTree = "<group>"; };
 		886823841C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTravelRecordPhotoCarouselViewController.h; sourceTree = "<group>"; };
@@ -353,6 +358,7 @@
 		CD4A5BEA1C4CC56500371BC8 /* picture */ = {
 			isa = PBXGroup;
 			children = (
+				884A57071C8564D20068F85F /* 9.jpg */,
 				CD8456DE1C852C1C00331469 /* iconfont-iconfanhui-2.png */,
 				CD8456DF1C852C1C00331469 /* iconfont-queren.png */,
 				CD8456E01C852C1C00331469 /* iconfont-unie64d.png */,
@@ -367,8 +373,8 @@
 				CD8635A01C51D6DC003AFF10 /* HTHome_Menu.png */,
 				CD8635A11C51D6DC003AFF10 /* HTLeftMenu_BackImage.jpg */,
 				CD8635A21C51D6DC003AFF10 /* HTLeftMenu_Head.png */,
-				CD8635A31C51D6DC003AFF10 /* HTLogin_BackImage.jpg */,
 				CD8635A41C51D6DC003AFF10 /* HTLogin_Password.png */,
+				CD8635A31C51D6DC003AFF10 /* HTLogin_BackImage.jpg */,
 				CD8635A51C51D6DC003AFF10 /* HTLogin_User.png */,
 				CD8635A61C51D6DC003AFF10 /* HTRegister_BackImage.jpg */,
 			);
@@ -407,6 +413,8 @@
 				880BC7071C8096DA00579A67 /* HTNavigationBar.m */,
 				886823811C50C60800A72874 /* GetDataTools.h */,
 				886823821C50C60800A72874 /* GetDataTools.m */,
+				884A57041C8530FF0068F85F /* GetUser.h */,
+				884A57051C8530FF0068F85F /* GetUser.m */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -650,6 +658,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				884A57081C8564D20068F85F /* 9.jpg in Resources */,
 				CD8635A91C51D6DC003AFF10 /* HTLeftMenu_Head.png in Resources */,
 				CD8456F11C852C1C00331469 /* writeTravelRecord_Mark1.png in Resources */,
 				C006283B1C5212B5007B83F9 /* HTCityDetailsCell.xib in Resources */,
@@ -757,6 +766,7 @@
 				88D5C46E1C8081C000796E3B /* HTCollectionReusableView.m in Sources */,
 				CDAA82691C48E44100899B49 /* AppDelegate.m in Sources */,
 				886823831C50C60800A72874 /* GetDataTools.m in Sources */,
+				884A57061C8530FF0068F85F /* GetUser.m in Sources */,
 				C09ED5751C4DE79F0084C08E /* HTCityTableViewController.m in Sources */,
 				88D5C47A1C8081C700796E3B /* HTStrategyTableViewCell.m in Sources */,
 				C006282A1C521289007B83F9 /* HTCityFieldTableViewController.m in Sources */,

@@ -10,7 +10,14 @@
 #import "HTRegisteViewController.h"
 #import "FXBlurView.h"
 #import <Masonry/Masonry.h>
-#import <RESideMenu/RESideMenu.h>
+#import <AVOSCloud/AVOSCloud.h>
+#import "HTHomeViewController.h"
+#import "HTLeftMenuViewController.h"
+#import "HTUserModel.h"
+#import "HTLeftMenuViewController.h"
+#import "GetUser.h"
+#import "UIImageView+WebCache.h"
+
 
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
@@ -20,7 +27,7 @@
 
 
 @interface HTLoginViewController ()
-
+@property (nonatomic,strong)HTLeftMenuViewController *leftMenu;
 @end
 
 @implementation HTLoginViewController
@@ -43,7 +50,7 @@
     }];
     
     
-    //背景图模糊效果
+     //背景图模糊效果
     FXBlurView *fxView = [[FXBlurView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     fxView.dynamic = NO;
     fxView.blurRadius = 15;
@@ -54,7 +61,7 @@
         
         make.edges.equalTo(weakSelf.backImg).insets(defaultInsets);
     }];
-    
+
 #pragma mark-----------------导航栏左按钮(返回)--------------
     UIImage * normalImg = [UIImage imageNamed:@"iconfont-iconfanhui-2"];
     normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
@@ -65,7 +72,7 @@
     
     //用户名图
     self.useImg = [[UIImageView alloc]init];
-    self.useImg.image = [UIImage imageNamed:@"HTLogin_User"];
+    self.useImg.image = [UIImage imageNamed:@"iconfont-denglu"];
     [self.backImg addSubview:self.useImg];
     //加约束
     UIEdgeInsets useImgInsets = UIEdgeInsetsMake(190,  1.5 *kGap, 0, 0);
@@ -78,11 +85,11 @@
         make.height.equalTo(@30);
     }];
     
-    
+
     //输入用户名
     self.UseTextField = [[UITextField alloc]init];
     //self.textField1.backgroundColor = [UIColor redColor];
-    self.UseTextField.placeholder = @"username";
+    self.UseTextField.placeholder = @"e_mail";
     self.UseTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.UseTextField.font = [UIFont systemFontOfSize:20];
     [self.backImg addSubview:self.UseTextField];
@@ -95,15 +102,15 @@
         make.top.equalTo(weakSelf.backImg.mas_top).with.offset(useTextInsets.top);
         make.left.equalTo(weakSelf.useImg.mas_right).with.offset(useTextInsets.left);
         make.right.equalTo(weakSelf.backImg.mas_right).with.offset(-useTextInsets.right);
-        
+     
         make.height.equalTo(@40);
     }];
     
-    
+
 #pragma mark------------------密码------------------
     //密码图
     self.pssImg = [[UIImageView alloc]init];
-    self.pssImg.image = [UIImage imageNamed:@"HTLogin_Password"];
+    self.pssImg.image = [UIImage imageNamed:@"iconfont-mima-3"];
     [self.backImg addSubview:self.pssImg];
     
     //加约束
@@ -117,7 +124,7 @@
         make.height.equalTo(@30);
     }];
     
-    
+
     //输入密码
     self.pssTextField = [[UITextField alloc]init];
     // self.textField2.backgroundColor = [UIColor redColor];
@@ -139,12 +146,12 @@
         make.height.equalTo(@40);
     }];
     
-    
+
     
 #pragma mark------------------登陆按钮------------------
     //登陆按钮
     self.loginButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    
+                        
     self.loginButton.backgroundColor = [UIColor grayColor];
     self.loginButton.layer.cornerRadius = 10;
     self.loginButton.layer.masksToBounds = YES;
@@ -166,8 +173,8 @@
         make.height.equalTo(@40);
     }];
     
-    
-#pragma mark------------------注册按钮------------------
+
+ #pragma mark------------------注册按钮------------------
     //注册按钮
     self.registerButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
     self.registerButton.backgroundColor = [UIColor grayColor];
@@ -178,11 +185,11 @@
     [self.registerButton addTarget:self action:@selector(registerAction:) forControlEvents:UIControlEventTouchUpInside];
     
     self.backImg.backgroundColor = [UIColor whiteColor];
-    
+
     UIEdgeInsets registerInsets = UIEdgeInsetsMake( 1.5* kGap, kGap * 1.5, 0, kGap* 1.5);
     
     [self.registerButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        
+       
         make.top.equalTo(weakSelf.loginButton.mas_bottom).with.offset(registerInsets.top);
         
         make.left.equalTo(weakSelf.backImg.mas_left).with.offset(registerInsets.left);
@@ -190,11 +197,10 @@
         
         make.height.equalTo(@40);
     }];
-}
-#pragma mark--------------左按钮的点击事件----------------
-- (void)leftAction:(UIBarButtonItem *)sender
-{
-    [self.sideMenuViewController presentLeftMenuViewController];
+
+    
+    
+    
 }
 
 
@@ -210,18 +216,51 @@
     if ([_UseTextField.text isEqualToString:@""] || [_pssTextField.text isEqualToString:@""])
     {
         alertController.message = @"不能为空";
+        [alertController addAction:defaultAction];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+
     }else
     {
-        alertController.message = @"恭喜您登陆成功";
+       
+        [AVUser logInWithUsernameInBackground: _UseTextField.text password:_pssTextField.text block:^(AVUser *user, NSError *error) {
+            
+            if (user != nil) {
+                
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"登陆成功" preferredStyle:UIAlertControllerStyleAlert];
+                  //__unsafe_unretained typeof(self) weakSelf = self;
+                
+                UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                    [self.delegate changeState];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                    
+                }];
+               
+                
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+                [alert addAction:defaultAction];
+                [alert addAction:cancelAction];
+              [self presentViewController:alert animated:YES completion:nil];
+            
+            } else {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"登陆失败" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
+
+                [alert addAction:defaultAction];
+             
+                
+                [self presentViewController:alert animated:YES completion:nil];
+
+            }
+        }];
     }
     
-    [alertController addAction:defaultAction];
-    [alertController addAction:cancelAction];
     
-    [self presentViewController:alertController animated:YES completion:nil];
-
 
 }
+
+
 
 
 //注册的点击事件
@@ -237,7 +276,12 @@
 }
 
 
+#pragma mark-------------左按钮--------------
+- (void)leftAction:(UIBarButtonItem *)sender
+{
 
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 /*
 #pragma mark - Navigation
 

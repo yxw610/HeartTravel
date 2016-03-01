@@ -8,13 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol PassValueDelegate <NSObject>
+@protocol HTMyViewControllerDelegate <NSObject>
 
+- (void)changeLoginState;
 
 @end
 
 
 @interface HTMyViewController : UIViewController
 
+/**
+ *  代理
+ */
+@property(weak,nonatomic)id<HTMyViewControllerDelegate> delegate;
 
 @end

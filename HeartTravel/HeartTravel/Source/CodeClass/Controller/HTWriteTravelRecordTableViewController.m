@@ -22,6 +22,7 @@
 #import "HTDistrictModel.h"
 #import <RESideMenu/RESideMenu.h>
 #import "HTTravelRecordTableViewController.h"
+#import "GetUser.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -501,6 +502,7 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
 #pragma mark --Button响应事件--
 - (void)cancelAction:(UIButton *)sender {
     
+    [self.sideMenuViewController presentLeftMenuViewController];
 }
 
 - (void)commitAction:(UIButton *)sender {
@@ -551,8 +553,9 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
     [districts addObject:districtData];
     
     [travelRecord setObject:districts forKey:@"districts"];
-#warning 缺user信息
-    
+
+    GetUser *user = [GetUser shareGetUser];
+    [travelRecord setObject:@(user.user_id) forKey:@"user_id"];
     [travelRecord saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (succeeded) {
@@ -593,5 +596,6 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
     UIGraphicsEndImageContext();
     return newImage;
 }
+
 
 @end
