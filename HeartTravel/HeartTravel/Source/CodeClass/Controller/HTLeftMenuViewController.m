@@ -13,6 +13,7 @@
 #import <Masonry/Masonry.h>
 #import "HTWorldExploreViewController.h"
 #import "HTTravelRecordTableViewController.h"
+#import "HTWriteTravelRecordTableViewController.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -226,11 +227,17 @@
 
 }
 
-#pragma mark---------------游记点击事件---------------------
+#pragma mark---------------写游记点击事件---------------------
 - (void)writeAction:(UIButton *)sender
 {
     
-#warning 添加写游记
+    HTWriteTravelRecordTableViewController *HTWriteTravelRecordTVC = [[HTWriteTravelRecordTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    UINavigationController *HTWriteTravelRecordNC = [[UINavigationController alloc] initWithRootViewController:HTWriteTravelRecordTVC];
+    
+    //替换当前视图
+    [self.sideMenuViewController setContentViewController:HTWriteTravelRecordNC];
+    //隐藏菜单视图
+    [self.sideMenuViewController hideMenuViewController];
 }
 
 /*

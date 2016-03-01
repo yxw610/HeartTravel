@@ -13,6 +13,9 @@
 #import "GetDataTools.h"
 #import <RESideMenu/RESideMenu.h>
 #import "HTDiscoveryHotViewController.h"
+#import "AVOSCloud/AVOSCloud.h"
+#import "HTDistrictModel.h"
+#import "MJRefresh.h"
 
 #define kURL @"http://q.chanyouji.com/api/v1/timelines.json?page=1&per=50"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -25,6 +28,7 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
 @property (strong, nonatomic) NSMutableArray *array;
 @property (strong, nonatomic) NSMutableArray *cellMarkArray;
 @property (strong, nonatomic) NSMutableArray *cellHeightArray;
+@property (assign, nonatomic) NSInteger loadNum;
 
 @end
 
@@ -37,6 +41,7 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     if (self) {
         
         self.cellHeightArray = [NSMutableArray array];
+        self.loadNum = 1;
     }
     
     return self;
@@ -52,17 +57,61 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发现" style:UIBarButtonItemStylePlain target:self action:@selector(discoveryHotViewAction:)];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HTTravelRecordTableViewCell" bundle:nil] forCellReuseIdentifier:HTTravelRecordCellID];
+
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshAction)];
+    [self.tableView.mj_header beginRefreshing];
     
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefreshAction)];
     
+}
+
+- (void)headerRefreshAction {
+    
+    self.loadNum = 1;
     
     __unsafe_unretained typeof(self) weakSelf = self;
-    self.cellHeightArray = [NSMutableArray array];
-    
+
     [[GetDataTools shareGetDataTools] getDataWithUrlString:kURL data:^(NSDictionary *dataDict) {
         
         NSDictionary *dict = dataDict;
         weakSelf.array = [NSMutableArray array];
         weakSelf.cellMarkArray = [NSMutableArray array];
+        weakSelf.cellHeightArray = [NSMutableArray array];
+        
+        for (NSDictionary *tempDict in dict[@"data"]) {
+            
+            HTTravelRecordModel *recordModel = [HTTravelRecordModel new];
+            
+            [recordModel setValuesForKeysWithDictionary:tempDict[@"activity"]];
+            
+            NSArray *heightArray = [HTTravelRecordTableViewCell caculateHeightForLabelWithModel:recordModel];
+            
+            CGFloat recordContentViewHeight = [heightArray[2] floatValue];
+            
+            [weakSelf.cellHeightArray addObject:@(recordContentViewHeight)];
+            
+            [weakSelf.array addObject:recordModel];
+            [weakSelf.cellMarkArray addObject:@"part"];
+            
+        }
+
+        [weakSelf getLeanCloudData];
+        
+    }];
+}
+
+- (void)footerRefreshAction {
+    
+    self.loadNum += 1;
+    
+    __unsafe_unretained typeof(self) weakSelf = self;
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://q.chanyouji.com/api/v1/timelines.json?page=%ld&per=50",self.loadNum];
+    NSLog(@"%@",urlString);
+    
+    [[GetDataTools shareGetDataTools] getDataWithUrlString:urlString data:^(NSDictionary *dataDict) {
+        
+        NSDictionary *dict = dataDict;
         
         for (NSDictionary *tempDict in dict[@"data"]) {
             
@@ -84,9 +133,92 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
         dispatch_async(dispatch_get_main_queue(), ^{
             
             [self.tableView reloadData];
+            [self.tableView.mj_footer endRefreshing];
+        });
+        
+    }];
+    
+}
+
+- (void)getLeanCloudData {
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"TravelRecord"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        NSArray<AVObject *> *models = objects;
+        if (models.count > 0) {
+            
+            NSMutableArray *array = [NSMutableArray array];
+            NSMutableArray *cellHeightArray = [NSMutableArray array];
+            NSMutableArray *cellMarkArray = [NSMutableArray array];
+            
+            for (NSInteger i = models.count - 1; i >= 0; i--) {
+                
+                AVObject *travelRecord = models[i];
+                
+                HTTravelRecordModel *model = [[HTTravelRecordModel alloc] init];
+                
+                //            NSMutableDictionary *dataDictionary = [travelRecord dictionaryForObject];
+                
+                model.topic = travelRecord[@"topic"];
+                model.desc = travelRecord[@"desc"];
+                model.contents_count = [travelRecord[@"content_count"] integerValue];
+//                NSLog(@"%@",model.topic);
+                
+                NSMutableArray *contents = [NSMutableArray array];
+                contents = travelRecord[@"contents"];
+                NSMutableArray *modelContents = [NSMutableArray array];
+                
+                for (NSData *data in contents) {
+                    
+                    HTRecordContentModel *recordContentModel = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                    
+                    [modelContents addObject:recordContentModel];
+                }
+                model.contents = modelContents;
+                
+                NSMutableArray *districts = travelRecord[@"districts"];
+                NSMutableArray *districtsArray = [NSMutableArray array];
+                
+                for (NSData *districtData in districts) {
+                    
+                    HTDistrictModel *districtModel = [NSKeyedUnarchiver unarchiveObjectWithData:districtData];
+                    
+                    [districtsArray addObject:districtModel];
+                }
+                model.districts = districtsArray;
+                
+                NSArray *heightArray = [HTTravelRecordTableViewCell caculateHeightForLabelWithModel:model];
+                
+                CGFloat recordContentViewHeight = [heightArray[2] floatValue];
+                
+                
+                
+                
+                [cellHeightArray addObject:@(recordContentViewHeight)];
+                [cellMarkArray addObject:@"part"];
+                [array addObject:model];
+                
+                
+            }
+            
+            [array addObjectsFromArray:self.array];
+            [cellHeightArray addObjectsFromArray:self.cellHeightArray];
+            [cellMarkArray addObjectsFromArray:self.cellMarkArray];
+            self.array = array;
+            self.cellHeightArray = cellHeightArray;
+            self.cellMarkArray = cellMarkArray;
+        }
+       
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self.tableView reloadData];
+            [self.tableView.mj_header endRefreshing];
         });
     }];
+
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

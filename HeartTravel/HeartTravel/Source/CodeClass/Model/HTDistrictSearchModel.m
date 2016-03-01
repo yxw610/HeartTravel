@@ -1,14 +1,14 @@
 //
-//  HTRecordContentModel.m
-//  HTTravelRecord
+//  HTDistrictSearchModel.m
+//  WriteRecord
 //
-//  Created by 杨晓伟 on 16/1/15.
+//  Created by 杨晓伟 on 16/1/27.
 //  Copyright © 2016年 杨晓伟. All rights reserved.
 //
 
-#import "HTRecordContentModel.h"
+#import "HTDistrictSearchModel.h"
 
-@implementation HTRecordContentModel
+@implementation HTDistrictSearchModel
 
 /**
  *  重写：赋值时，如果key值不匹配时自动调用的方法
@@ -18,23 +18,15 @@
  */
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     
-    
-    if ([key isEqualToString:@"id"]) {
-        
-        [self setValue:value forKey:@"photo_id"];
-    }
-    
 #warning 测试成功时，就可以去掉该打印
-//    NSLog(@"====%@",key);
+    //    NSLog(@"====%@",key);
 }
 
 
 #warning 测试成功时，就可以去掉
 - (NSString *)description {
     
-    return [NSString stringWithFormat:@"recordContent is %@",_caption];
+    return [NSString stringWithFormat:@"districtModel is %@",_name];
 }
-
-
 
 @end
