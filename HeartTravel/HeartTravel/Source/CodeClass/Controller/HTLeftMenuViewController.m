@@ -16,6 +16,8 @@
 #import "HTWriteTravelRecordTableViewController.h"
 #import <AVOSCloud.h>
 #import "HTMyViewController.h"
+#import "GetUser.h"
+#import "UIImageView+WebCache.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -23,7 +25,7 @@
 #define kButtonGap kHeight / 20
 
 
-@interface HTLeftMenuViewController ()
+@interface HTLeftMenuViewController () <HTLoginViewControllerDelegate,HTMyViewControllerDelegate>
 
 @end
 
@@ -58,6 +60,9 @@
         
         make.edges.equalTo(weakSelf.backImg).insets(defaultInsets);
     }];
+    
+    GetUser *currentUser = [GetUser shareGetUser];
+    
 #pragma mark -------------------头像------------------
     self.headImg = [[UIImageView alloc]init];
     self.headImg.image = [UIImage imageNamed:@"HTLeftMenu_Head"];
@@ -85,7 +90,13 @@
     self.nameButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
     
     //self.nameButton.backgroundColor = [UIColor redColor];
-    [self.nameButton setTitle:@"未登录" forState:(UIControlStateNormal)];
+    if (currentUser == nil) {
+        [self.nameButton setTitle:@"未登录" forState:(UIControlStateNormal)];
+    } else {
+        [self.nameButton setTitle:currentUser.name forState:(UIControlStateNormal)];
+        [self.headImg sd_setImageWithURL:[NSURL URLWithString:currentUser.photo_url]];
+    }
+    
     
     [self.nameButton addTarget:self action:@selector(pageAction:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.backImg addSubview:self.nameButton];
@@ -192,7 +203,9 @@
 - (void)pageAction:(UIButton *)sender
 {
     HTLoginViewController *loginVC = [[HTLoginViewController alloc]init];
- UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+    loginVC.delegate = self;
+    UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+    
     [self presentViewController:loginNC animated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
@@ -202,9 +215,17 @@
 //轻拍手势
 - (void)tapAction:(UITapGestureRecognizer *)tap
 {
-    HTLoginViewController *loginVC = [[HTLoginViewController alloc]init];
-    UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
-    [self presentViewController:loginNC animated:YES completion:nil];
+    AVUser *currUser = [AVUser currentUser];
+    if (currUser == nil) {
+        HTLoginViewController *loginVC = [[HTLoginViewController alloc]init];
+        loginVC.delegate = self;
+        UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+        [self presentViewController:loginNC animated:YES completion:nil];
+    } else {
+        
+        [self MyPageAction:nil];
+    }
+    
 }
 
 #pragma  mark---------------世界探索点击事件---------------------
@@ -238,59 +259,88 @@
 #pragma mark---------------写游记点击事件---------------------
 - (void)writeAction:(UIButton *)sender
 {
+    AVUser *currUser = [AVUser currentUser];
+    if (currUser == nil) {
+        
+        HTLoginViewController *loginVC = [[HTLoginViewController alloc]init];
+        loginVC.delegate = self;
+        UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+        
+        [self presentViewController:loginNC animated:YES completion:nil];
+        
+    } else {
+        
+        HTWriteTravelRecordTableViewController *HTWriteTravelRecordTVC = [[HTWriteTravelRecordTableViewController alloc] initWithStyle:UITableViewStylePlain];
+        UINavigationController *HTWriteTravelRecordNC = [[UINavigationController alloc] initWithRootViewController:HTWriteTravelRecordTVC];
+        
+        //替换当前视图
+        [self.sideMenuViewController setContentViewController:HTWriteTravelRecordNC];
+        //隐藏菜单视图
+        [self.sideMenuViewController hideMenuViewController];
+    }
     
-    HTWriteTravelRecordTableViewController *HTWriteTravelRecordTVC = [[HTWriteTravelRecordTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    UINavigationController *HTWriteTravelRecordNC = [[UINavigationController alloc] initWithRootViewController:HTWriteTravelRecordTVC];
-    
-    //替换当前视图
-    [self.sideMenuViewController setContentViewController:HTWriteTravelRecordNC];
-    //隐藏菜单视图
-    [self.sideMenuViewController hideMenuViewController];
 }
 #pragma mark------------个人中心的点击事件---------------
 - (void)MyPageAction:(UIButton *)sender
 {
     AVUser *currUser = [AVUser currentUser];
     if (currUser.username == nil) {
+       
+        
         HTLoginViewController *loginVC = [[HTLoginViewController alloc]init];
+        loginVC.delegate = self;
         UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
         
         [self presentViewController:loginNC animated:YES completion:nil];
-        
-        NSLog(@"8888");
     }else
     {
         
-        AVQuery *query = [AVQuery queryWithClassName:@"UserInfo"];
-        [query whereKey:@"username" equalTo:[AVUser currentUser].username];
-        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-            if (!error) {
-                
-                HTMyViewController *myVC = [[HTMyViewController alloc]init];
-                UINavigationController *myNC = [[UINavigationController alloc]initWithRootViewController:myVC];
-                AVObject *object = [objects firstObject];
-                [self.sideMenuViewController setContentViewController:myNC];
-                [self.sideMenuViewController hideMenuViewController];
-                //            [object fetchIfNeededInBackgroundWithBlock:^(AVObject *object, NSError *error) {
-                //
-                //            }];
-                
-            }else
-            {
-                //输出错误信息
-                NSLog(@"Error: %@ %@", error, [error userInfo]);
-            }
-            
-        }];
-        
-        //    HTMyViewController *myVC = [[HTMyViewController alloc]init];
-        //
-        //    UINavigationController *myNC = [[UINavigationController alloc]initWithRootViewController:myVC];
-        //
-        //    [self.sideMenuViewController setContentViewController:myNC];
-        //    [self.sideMenuViewController hideMenuViewController];
-        
+        HTMyViewController *myVC = [[HTMyViewController alloc]init];
+        myVC.delegate = self;
+        UINavigationController *myNC = [[UINavigationController alloc]initWithRootViewController:myVC];
+        [self.sideMenuViewController setContentViewController:myNC];
+        [self.sideMenuViewController hideMenuViewController];
     }
+}
+
+#pragma ------------登录代理-------------------
+- (void)changeState {
+    
+        GetUser *currentUser = [GetUser shareGetUser];
+        if ([currentUser.photo_url isEqualToString:@""] || currentUser.photo_url == nil) {
+
+            self.headImg.image = [UIImage imageNamed:@"iconfont-unie64d"];
+        } else {
+
+            NSLog(@"%@",currentUser.photo_url);
+            
+            [self.headImg sd_setImageWithURL:[NSURL URLWithString:currentUser.photo_url] placeholderImage:[UIImage imageNamed:@"iconfont-unie64d"]];
+        }
+        [self.nameButton setTitle:currentUser.name forState:UIControlStateNormal];
+}
+
+- (void)changeLoginState {
+    
+    GetUser *currentUser = [GetUser shareGetUser];
+   
+    if (currentUser == nil) {
+        
+        self.headImg.image = [UIImage imageNamed:@"HTLeftMenu_Head"];
+        [self.nameButton setTitle:@"未登录" forState:UIControlStateNormal];
+    } else {
+        
+        if ([currentUser.photo_url isEqualToString:@""] || currentUser.photo_url == nil) {
+            
+            self.headImg.image = [UIImage imageNamed:@"iconfont-unie64d"];
+        } else {
+            
+            NSLog(@"%@",currentUser.photo_url);
+            
+            [self.headImg sd_setImageWithURL:[NSURL URLWithString:currentUser.photo_url] placeholderImage:[UIImage imageNamed:@"iconfont-unie64d"]];
+        }
+        [self.nameButton setTitle:currentUser.name forState:UIControlStateNormal];
+    }
+    
 }
 
 /*

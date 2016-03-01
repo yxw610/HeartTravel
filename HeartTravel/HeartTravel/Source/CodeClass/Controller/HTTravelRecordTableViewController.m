@@ -16,6 +16,8 @@
 #import "AVOSCloud/AVOSCloud.h"
 #import "HTDistrictModel.h"
 #import "MJRefresh.h"
+#import "HTUserModel.h"
+#import "HTRecordContentModel.h"
 
 #define kURL @"http://q.chanyouji.com/api/v1/timelines.json?page=1&per=50"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -83,6 +85,9 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
             HTTravelRecordModel *recordModel = [HTTravelRecordModel new];
             
             [recordModel setValuesForKeysWithDictionary:tempDict[@"activity"]];
+            recordModel.groupNum = 0;
+            
+            [self updateURLRecord:recordModel];
             
             NSArray *heightArray = [HTTravelRecordTableViewCell caculateHeightForLabelWithModel:recordModel];
             
@@ -98,6 +103,49 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
         [weakSelf getLeanCloudData];
         
     }];
+}
+
+- (void)updateURLRecord:(HTTravelRecordModel *)model {
+    
+    AVQuery *recordQuery = [AVQuery queryWithClassName:@"URLRecord"];
+    [recordQuery whereKey:@"user_id" equalTo:@(model.model_id)];
+    [recordQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (objects.count == 0) {
+            
+            AVObject *record = [AVObject objectWithClassName:@"URLRecord"];
+            record[@"comments_count"] = @(model.comments_count);
+            record[@"contents_count"] = @(model.contents_count);
+            NSMutableArray *array = [NSMutableArray array];
+            for (HTRecordContentModel *content in model.contents) {
+                
+                NSData *contentData = [NSKeyedArchiver archivedDataWithRootObject:content];
+                [array addObject:contentData];
+            }
+            record[@"contents"] = array;
+            record[@"created_at"] = model.created_at;
+            record[@"desc"] = model.desc;
+            record[@"district_id"] = @(model.district_id);
+            
+            NSMutableArray *districtArray = [NSMutableArray array];
+            for (int i = 0; i < model.districts.count; i++) {
+                
+                HTDistrictModel *district = model.districts[i];
+                NSData *districtData = [NSKeyedArchiver archivedDataWithRootObject:district];
+                [districtArray addObject:districtData];
+            }
+            record[@"districts"] = districtArray;
+            
+            record[@"favorites_count"] = @(model.favorites_count);
+            record[@"model_id"] = @(model.model_id);
+            record[@"likes_count"] = @(model.likes_count);
+            record[@"topic"] = model.topic;
+            record[@"user_id"] = @(model.userInfo.user_id);
+            
+            [record saveInBackground];
+        }
+    }];
+    
 }
 
 - (void)footerRefreshAction {
@@ -158,13 +206,22 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
                 
                 HTTravelRecordModel *model = [[HTTravelRecordModel alloc] init];
                 
-                //            NSMutableDictionary *dataDictionary = [travelRecord dictionaryForObject];
-                
                 model.topic = travelRecord[@"topic"];
                 model.desc = travelRecord[@"desc"];
                 model.contents_count = [travelRecord[@"content_count"] integerValue];
-//                NSLog(@"%@",model.topic);
                 
+                // 用户信息
+                AVQuery *userQuery = [AVQuery queryWithClassName:@"UserInfo"];
+                [userQuery whereKey:@"user_id" equalTo:travelRecord[@"user_id"]];
+                NSArray *userArray = [userQuery findObjects];
+                AVObject *userInfo = [userArray firstObject];
+                HTUserModel *userModel = [[HTUserModel alloc] init];
+                userModel.user_id = [userInfo[@"user_id"] integerValue];
+                userModel.gender = [userInfo[@"gender"] integerValue];
+                userModel.name = userInfo[@"name"];
+                userModel.photo_url = userInfo[@"photo_url"];
+                model.userInfo = userModel;
+
                 NSMutableArray *contents = [NSMutableArray array];
                 contents = travelRecord[@"contents"];
                 NSMutableArray *modelContents = [NSMutableArray array];
@@ -187,6 +244,8 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
                     [districtsArray addObject:districtModel];
                 }
                 model.districts = districtsArray;
+                model.model_id = [travelRecord[@"model_id"] integerValue];
+                model.groupNum = 1;
                 
                 NSArray *heightArray = [HTTravelRecordTableViewCell caculateHeightForLabelWithModel:model];
                 

@@ -23,7 +23,7 @@
 /**
  *  级别
  */
-@property (assign, nonatomic) NSInteger level;
+//@property (assign, nonatomic) NSInteger level;
 
 /**
  *  用户名

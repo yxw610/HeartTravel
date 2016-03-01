@@ -10,6 +10,8 @@
 #import <Masonry/Masonry.h>
 #import <AVOSCloud/AVOSCloud.h>
 #import "HTUserModel.h"
+#import "GetUser.h"
+#import "UIImageView+WebCache.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -22,30 +24,17 @@
 
 
 
-@interface HTTurnInfoViewController ()<UITableViewDelegate,
-UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface HTTurnInfoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
-@property (nonatomic,strong)UITableView *tableView;
+
 @property (nonatomic,strong)UIImageView *headImg;
 
-//@property (nonatomic,strong) HTTurnInfoTableViewCell *cell;
 @end
 
 @implementation HTTurnInfoViewController
 
-//- (UITableView *)tableView
-//{
-//    if (!_tableView) {
-//        _tableView = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds style:(UITableViewStylePlain)];
-//        _tableView.delegate = self;
-//        _tableView.dataSource = self;
-//    }
-//    return  _tableView;
-//}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //       [self getTableView];
     
     UIImage * normalImg = [UIImage imageNamed:@"iconfont-iconfanhui-2"];
     normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
@@ -67,9 +56,18 @@ UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDele
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 64,kWidth, kBackH)];
     headerView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"9.jpg"]];
  
+    // 用户信息
+    GetUser *userInfo = [GetUser shareGetUser];
     
     _headImg = [[UIImageView alloc]initWithFrame:CGRectMake(kWidth / 2.45, kBackH /4.5, kHeadWidth, kHeadHeight)];
-    _headImg.image = [UIImage imageNamed:@"iconfont-unie64d"];
+    
+    if ([userInfo.photo_url isEqualToString:@""] || userInfo.photo_url == nil) {
+        
+        _headImg.image=[UIImage imageNamed:@"iconfont-unie64d"];
+    } else {
+        
+        [_headImg sd_setImageWithURL:[NSURL URLWithString:userInfo.photo_url] placeholderImage:[UIImage imageNamed:@"HTLeftMenu_Head"]];
+    }
     _headImg.layer.cornerRadius = 35;
     _headImg.layer.masksToBounds = YES;
     _headImg.userInteractionEnabled = YES;
@@ -110,65 +108,28 @@ UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDele
 - (void)rightAction:(UIBarButtonItem *)sender
 {
     
-//    
-//    NSData *imageData = UIImagePNGRepresentation(_headImg.image);
-//    AVFile *imageFile = [AVFile fileWithName:@"image.png" data:imageData];
-//   
-//    AVObject *userPost = [AVObject objectWithClassName:@"UserInfo"];
-//    [userPost setObject:@"My trip to Dubai!" forKey:@"content"];
-//    [userPost setObject:imageFile            forKey:@"avatar"];
-//    [userPost saveInBackground];
-//    
-//    if (_nameText.text.length !=0) {
-//        AVUser *currentuser = [AVUser currentUser];
-//        [currentuser objectForKey:@"user_id"];
-//        AVObject *userInfo = [AVObject objectWithClassName:@"UserInfo"];
-//        [userInfo setObject:@"用户ID" forKey:@"user_id"];
-//        [userInfo setObject:_nameText.text forKey:@"name"];
-//        [userInfo setObject:_genderText.text forKey:@"gender"];
-//         [userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//             [self.navigationController popViewControllerAnimated:YES];
-//
-//         }];
-//        
-//           }else
-//    {
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"昵称不能为空" preferredStyle:(UIAlertControllerStyleAlert)];
-//        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:nil];
-//        [alert addAction:action];
-//        [self presentViewController:alert animated:YES completion:nil];
-//    }
-//  
-//
-    
-   //    AVObject *userInfo = [AVObject objectWithClassName:@"UserInfo"];
-//            [userInfo setObject:_nameText.text forKey:@"name"];
-//            [userInfo setObject:_genderText.text forKey:@"gender"];
-//    [userInfo saveInBackground];
-    
     
     AVQuery * querry = [AVQuery queryWithClassName:@"UserInfo"];
     [querry whereKey:@"username" equalTo:[AVUser currentUser].username];
     [querry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        
-        
-        
+
         
         AVObject *object = [objects firstObject];
         [object setObject:_nameText.text forKey:@"name"];
         [object setObject:_genderText.text forKey:@"gender"];
-        NSLog(@"8888888%@",object);
         
         NSData * data = UIImagePNGRepresentation(_headImg.image);
         AVFile * file =[AVFile fileWithName:@"avatar.png" data:data];
-        [object setObject:file forKey:@"avatar"];
+        if ([file save]) {
+            [object setObject:file.url forKey:@"photo_url"];
+        }
+        
         
         [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
               {
             if (succeeded) {
-                NSLog(@"说出答案");
                 
+                [self showSuccessAlert];
               }
         }];
         
@@ -176,6 +137,18 @@ UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDele
     }];
 }
 
+- (void)showSuccessAlert {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"修改成功" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 
 - (void)leftAction:(UIBarButtonItem *)sender
 {
@@ -236,16 +209,6 @@ UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDele
             //打开相册选择照片
             picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             [self presentViewController:picker animated:YES completion:nil];
-            
-            
-//            NSData *imageData = UIImagePNGRepresentation(_headImg.image);
-//            AVFile *imageFile = [AVFile fileWithName:@"image.png" data:imageData];
-//            [imageFile save];
-//            
-//            AVObject *userPost = [AVObject objectWithClassName:@"Post"];
-//            [userPost setObject:@"My trip to Dubai!" forKey:@"content"];
-//            [userPost setObject:imageFile            forKey:@"attached"];
-//            [userPost save];
    
 
 
@@ -275,7 +238,9 @@ UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDele
     //图片存入相册
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     
-    _headImg.image = info[UIImagePickerControllerEditedImage];
+    UIImage *headerImg = info[UIImagePickerControllerEditedImage];
+    headerImg = [self imageCompressForWidth:headerImg targetWidth:100];
+    _headImg.image = headerImg;
     [self dismissViewControllerAnimated:YES completion:nil];
     
     
@@ -291,6 +256,21 @@ UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDele
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// 压缩图片
+- (UIImage *)imageCompressForWidth:(UIImage *)sourceImage targetWidth:(CGFloat)defineWidth
+{
+    CGSize imageSize = sourceImage.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    CGFloat targetWidth = defineWidth;
+    CGFloat targetHeight = (targetWidth / width) * height;
+    UIGraphicsBeginImageContext(CGSizeMake(targetWidth, targetHeight));
+    [sourceImage drawInRect:CGRectMake(0,0,targetWidth, targetHeight)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 /*

@@ -14,6 +14,9 @@
 #import "HTHomeViewController.h"
 #import "HTRegisteViewController.h"
 #import "HTLoginViewController.h"
+#import "GetUser.h"
+#import "UIImageView+WebCache.h"
+#import "HTFavoriteRecordTableViewController.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -44,22 +47,32 @@
 
     [self getTableView];
     
-    UIImage *normalImg = [UIImage imageNamed:@"iconfont-gongneng-2"];
+    UIImage *normalImg = [UIImage imageNamed:@"HTHome_Menu"];
     normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:normalImg style:(UIBarButtonItemStylePlain) target:self action:@selector(leftAction:)];
-
 
     
     //头部背景图
     _bigImageView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0,kWidth, kBackH)];
     _bigImageView.image = [UIImage imageNamed:@"9.jpg"];
      _bigImageView.clipsToBounds=YES;
+    _bigImageView.userInteractionEnabled = YES;
     _bigImageView.contentMode = UIViewContentModeScaleAspectFill;
+    
+    // 用户信息
+    GetUser *userInfo = [GetUser shareGetUser];
     //头像
     
     _smallView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 70, 70)];
-    _smallView.image=[UIImage imageNamed:@"iconfont-unie64d"];
+    if ([userInfo.photo_url isEqualToString:@""] || userInfo.photo_url == nil) {
+        
+        _smallView.image=[UIImage imageNamed:@"iconfont-unie64d"];
+    } else {
+        
+        [_smallView sd_setImageWithURL:[NSURL URLWithString:userInfo.photo_url] placeholderImage:[UIImage imageNamed:@"HTLeftMenu_Head"]];
+    }
+   
     _smallView.center=CGPointMake(_bigImageView.center.x, _bigImageView.center.y);
     _smallView.clipsToBounds=YES;
    _smallView.contentMode=UIViewContentModeScaleAspectFill;
@@ -116,7 +129,10 @@
         [self.navigationController pushViewController:turnVC animated:YES];
         
     } else if(indexPath.row == 1){
-        NSLog(@"2");
+
+        HTFavoriteRecordTableViewController *favoriteRecordTVC = [[HTFavoriteRecordTableViewController alloc] initWithStyle:(UITableViewStylePlain)];
+        [self.navigationController pushViewController:favoriteRecordTVC animated:YES];
+    
     }else
     {
        
@@ -125,14 +141,14 @@
             
             //判断它是否登陆
             AVUser *currentUser = [AVUser currentUser];
-                                if (currentUser != nil) {
+            if (currentUser != nil) {
             
-                                    [AVUser logOut];
-            
-            [self.sideMenuViewController presentLeftMenuViewController];
-                                    //消息中心
-                                    [[NSNotificationCenter defaultCenter] postNotificationName:@"changeState" object:nil];
-                                }
+                [AVUser logOut];
+
+                [self.delegate changeLoginState];
+                [self.sideMenuViewController presentLeftMenuViewController];
+                                    
+            }
 
         }];
     
@@ -142,7 +158,6 @@
         
           [self presentViewController:alert animated:YES completion:nil];
 
-        NSLog(@"6");
     }
     
     
@@ -171,23 +186,10 @@
 #pragma mark--------------左按钮的点击事件----------------
 - (void)leftAction:(UIBarButtonItem *)sender
 {
+  
     [self.sideMenuViewController presentLeftMenuViewController];
 
 }
-
-
-//撤销方法
-//- (void)cancelAtion:(UIButton *)sender
-//{
-//    
-//   [AVUser logOut];
-//   //AVUser *currentUser = [AVUser currentUser];
-//   // NSLog(@"****%@",currentUser.username);
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//    
-//    
-//}
-
 
 
 - (void)didReceiveMemoryWarning {

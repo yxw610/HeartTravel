@@ -15,10 +15,16 @@
 #import "HTTravelRecordTableViewController.h"
 #import "HTTravelRecordPhotoCarouselViewController.h"
 #import "HTDistrictModel.h"
+#import "HTLoginViewController.h"
+#import <AVOSCloud.h>
+#import "GetUser.h"
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 #define kRecordContentViewHeight (kScreenWidth * 3 / 8)
+
+#define kFavoriteRecord @"FavoriteRecord"
+#define kFavoriteInfo @"FavoriteInfo"
 
 @interface HTTravelRecordTableViewCell ()
 
@@ -91,6 +97,10 @@
             [view removeFromSuperview];
         }
     }
+    
+    UITapGestureRecognizer *favoriteTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(favoriteOrNoAction:)];
+    self.favoriteImgView.userInteractionEnabled = YES;
+    [self.favoriteImgView addGestureRecognizer:favoriteTap];
 
     
     [self drawScrollViewWithImages:imageArray];
@@ -117,6 +127,8 @@
     HTDistrictModel *districtModel = model.districts[0];
     NSMutableString *districtString = [NSMutableString stringWithFormat:@"%@",districtModel.name];
     
+    GetUser *user = [GetUser shareGetUser];
+    
     if (model.districts.count > 0) {
         
         for (int i = 1; i < model.districts.count; i++ ) {
@@ -126,6 +138,55 @@
         }
         
         self.districts.text = districtString;
+    }
+    
+    if (model.groupNum == 0) {
+        
+        AVQuery *query = [AVQuery queryWithClassName:@"URLRecord"];
+        [query whereKey:@"model_id" equalTo:@(model.model_id)];
+        NSArray *array = [query findObjects];
+        AVObject *record = [array firstObject];
+        self.favoriteCountLabel.text = [record[@"favorites_count"] stringValue];
+        
+        AVQuery *favoriteQuery = [AVQuery queryWithClassName:kFavoriteRecord];
+        [favoriteQuery whereKey:@"model_id" equalTo:@(model.model_id)];
+        [favoriteQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            for (AVObject *object in objects) {
+                
+                if ([object[@"user_id"] integerValue] == user.user_id) {
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-yes"];
+                    });
+                }
+            }
+        }];
+        
+    } else {
+        
+        AVQuery *query = [AVQuery queryWithClassName:@"TravelRecord"];
+        [query whereKey:@"model_id" equalTo:@(model.model_id)];
+        NSArray *array = [query findObjects];
+        AVObject *record = [array firstObject];
+        self.favoriteCountLabel.text = [record[@"favorites_count"] stringValue];
+        
+        AVQuery *favoriteQuery = [AVQuery queryWithClassName:kFavoriteInfo];
+        [favoriteQuery whereKey:@"model_id" equalTo:@(model.model_id)];
+        [favoriteQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            for (AVObject *object in objects) {
+                
+                if ([object[@"user_id"] integerValue] == user.user_id) {
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-yes"];
+                    });
+                }
+            }
+        }];
     }
    
 }
@@ -253,4 +314,204 @@
     
     [viewController presentViewController:carouselViewController animated:YES completion:nil];
 }
+
+/**
+ *  点赞
+ *
+ *  @param tap tap手势
+ */
+- (void)favoriteOrNoAction:(UITapGestureRecognizer *)tap {
+
+    NSLog(@"favoriteOrNoAction");
+    
+    AVUser *user = [AVUser currentUser];
+    if (user == nil) {
+        
+        
+    } else {
+        
+        GetUser *user = [GetUser shareGetUser];
+        if (self.model.groupNum == 0) {
+            
+            AVQuery *query = [AVQuery queryWithClassName:kFavoriteRecord];
+            [query whereKey:@"user_id" equalTo:@(user.user_id)];
+            
+            __unsafe_unretained typeof(self) weakSelf = self;
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                
+                if (objects.count == 0) {
+                    
+                    [weakSelf addFavoriteCount:kFavoriteRecord];
+                } else {
+                    
+                    NSInteger i = 0;
+                    
+                    for (AVObject *object in objects) {
+                        
+                        if ([object[@"model_id"] integerValue] == self.model.model_id) {
+                            
+                            i = 1;
+                            [weakSelf removeFavoriteCount:kFavoriteRecord];
+                        }
+                    }
+                    if (i == 0) {
+                        [weakSelf addFavoriteCount:kFavoriteRecord];
+                    }
+                }
+            }];
+
+        } else {
+            
+            AVQuery *query = [AVQuery queryWithClassName:kFavoriteInfo];
+            [query whereKey:@"user_id" equalTo:@(user.user_id)];
+            __unsafe_unretained typeof(self) weakSelf = self;
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                
+                if (objects.count == 0) {
+                    
+                    [weakSelf addFavoriteCount:kFavoriteInfo];
+                } else {
+                    
+                    NSInteger i = 0;
+                    
+                    for (AVObject *object in objects) {
+                        
+                        if ([object[@"model_id"] integerValue] == self.model.model_id) {
+                            
+                            i = 1;
+                            [weakSelf removeFavoriteCount:kFavoriteInfo];
+                        }
+                    }
+                    if (i == 0) {
+                        [weakSelf addFavoriteCount:kFavoriteInfo];
+                    }
+                }
+            }];
+
+        }
+    }
+    
+}
+
+/**
+ *  收藏
+ */
+- (void)addFavoriteCount:(NSString *)className {
+    
+    self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-yes"];
+    GetUser *user = [GetUser shareGetUser];
+    
+    AVObject *favoriteRecord = [AVObject objectWithClassName:className];
+    favoriteRecord[@"user_id"] = @(user.user_id);
+    favoriteRecord[@"model_id"] = @(self.model.model_id);
+    
+    [favoriteRecord saveInBackground];
+    
+    if ([className isEqualToString:kFavoriteRecord]) {
+        
+        AVQuery *query = [AVQuery queryWithClassName:@"URLRecord"];
+        [query whereKey:@"model_id" equalTo:@(self.model.model_id)];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            AVObject *record = [objects firstObject];
+            NSInteger favorites_count = [record[@"favorites_count"] integerValue];
+            favorites_count += 1;
+            
+            record[@"favorites_count"] = @(favorites_count);
+            [record saveInBackground];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld",favorites_count];
+            });
+            
+        }];
+        
+    } else {
+        
+        AVQuery *query = [AVQuery queryWithClassName:@"TravelRecord"];
+        [query whereKey:@"model_id" equalTo:@(self.model.model_id)];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            AVObject *record = [objects firstObject];
+            NSInteger favorites_count = [record[@"favorites_count"] integerValue];
+            favorites_count += 1;
+            
+            record[@"favorites_count"] = @(favorites_count);
+            [record saveInBackground];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld",favorites_count];
+            });
+            
+        }];
+    }
+}
+
+/**
+ *  取消收藏
+ */
+- (void)removeFavoriteCount:(NSString *)className {
+    
+    self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-no"];
+    
+    GetUser *user = [GetUser shareGetUser];
+    
+    AVQuery *deleteQuery = [AVQuery queryWithClassName:className];
+    [deleteQuery whereKey:@"user_id" equalTo:@(user.user_id)];
+    [deleteQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        for (AVObject *object in objects) {
+            
+            if ([object[@"model_id"] integerValue] == self.model.model_id) {
+                
+                [object deleteInBackground];
+            }
+        }
+    }];
+    
+    if ([className isEqualToString:kFavoriteRecord]) {
+        
+        AVQuery *query = [AVQuery queryWithClassName:@"URLRecord"];
+        [query whereKey:@"model_id" equalTo:@(self.model.model_id)];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            AVObject *record = [objects firstObject];
+            NSInteger favorites_count = [record[@"favorites_count"] integerValue];
+            favorites_count -= 1;
+            
+            record[@"favorites_count"] = @(favorites_count);
+            [record saveInBackground];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld",favorites_count];
+            });
+            
+        }];
+        
+    } else {
+        
+        AVQuery *query = [AVQuery queryWithClassName:@"TravelRecord"];
+        [query whereKey:@"model_id" equalTo:@(self.model.model_id)];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            AVObject *record = [objects firstObject];
+            NSInteger favorites_count = [record[@"favorites_count"] integerValue];
+            favorites_count -= 1;
+            
+            record[@"favorites_count"] = @(favorites_count);
+            [record saveInBackground];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld",favorites_count];
+            });
+            
+        }];
+    }
+}
+
+
 @end

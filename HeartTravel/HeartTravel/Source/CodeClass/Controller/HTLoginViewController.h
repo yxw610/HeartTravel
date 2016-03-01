@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol HTLoginViewControllerDelegate <NSObject>
+
+- (void)changeState;
+
+@end
+
+
 @interface HTLoginViewController : UIViewController
+
+/**
+ *  代理
+ */
+@property(weak,nonatomic)id<HTLoginViewControllerDelegate> delegate;
 /**
  *  用户图
  */

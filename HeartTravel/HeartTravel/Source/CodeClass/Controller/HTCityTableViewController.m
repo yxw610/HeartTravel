@@ -56,7 +56,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"HTiconfont-fanhui"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
     self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     self.navigationItem.title = [NSString stringWithFormat:@"%@热门城市",self.titleName];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(rightButtonAction)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(rightButtonAction)];
 }
 
 - (void)leftButtonAction {
@@ -64,10 +64,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)rightButtonAction {
-    
-    
-}
+//- (void)rightButtonAction {
+//    
+//    
+//}
 
 - (void)loadNewData {
     self.page = 1;

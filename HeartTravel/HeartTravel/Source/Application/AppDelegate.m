@@ -15,6 +15,7 @@
 #import <RESideMenu/UIViewController+RESideMenu.h>
 #import <RESideMenu/RESideMenu.h>
 #import <AVOSCloud.h>
+
 @interface AppDelegate ()
 
 @end
@@ -23,7 +24,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   
+    [AVUser logOut];
     
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -73,6 +74,9 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
+
 }
+
 
 @end
