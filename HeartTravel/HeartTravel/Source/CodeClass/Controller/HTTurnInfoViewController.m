@@ -108,66 +108,28 @@
 - (void)rightAction:(UIBarButtonItem *)sender
 {
     
-//    
-//    NSData *imageData = UIImagePNGRepresentation(_headImg.image);
-//    AVFile *imageFile = [AVFile fileWithName:@"image.png" data:imageData];
-//   
-//    AVObject *userPost = [AVObject objectWithClassName:@"UserInfo"];
-//    [userPost setObject:@"My trip to Dubai!" forKey:@"content"];
-#warning 错误
-//    [userPost setObject:imageFile            forKey:@"avatar"];
-//    [userPost saveInBackground];
-//    
-//    if (_nameText.text.length !=0) {
-//        AVUser *currentuser = [AVUser currentUser];
-//        [currentuser objectForKey:@"user_id"];
-//        AVObject *userInfo = [AVObject objectWithClassName:@"UserInfo"];
-//        [userInfo setObject:@"用户ID" forKey:@"user_id"];
-//        [userInfo setObject:_nameText.text forKey:@"name"];
-//        [userInfo setObject:_genderText.text forKey:@"gender"];
-//         [userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//             [self.navigationController popViewControllerAnimated:YES];
-//
-//         }];
-//        
-//           }else
-//    {
-//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"昵称不能为空" preferredStyle:(UIAlertControllerStyleAlert)];
-//        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleCancel) handler:nil];
-//        [alert addAction:action];
-//        [self presentViewController:alert animated:YES completion:nil];
-//    }
-//  
-//
-    
-   //    AVObject *userInfo = [AVObject objectWithClassName:@"UserInfo"];
-//            [userInfo setObject:_nameText.text forKey:@"name"];
-//            [userInfo setObject:_genderText.text forKey:@"gender"];
-//    [userInfo saveInBackground];
-    
     
     AVQuery * querry = [AVQuery queryWithClassName:@"UserInfo"];
     [querry whereKey:@"username" equalTo:[AVUser currentUser].username];
     [querry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        
-        
-        
+
         
         AVObject *object = [objects firstObject];
         [object setObject:_nameText.text forKey:@"name"];
         [object setObject:_genderText.text forKey:@"gender"];
-        NSLog(@"8888888%@",object);
         
         NSData * data = UIImagePNGRepresentation(_headImg.image);
         AVFile * file =[AVFile fileWithName:@"avatar.png" data:data];
-        [object setObject:file forKey:@"avatar"];
+        if ([file save]) {
+            [object setObject:file.url forKey:@"photo_url"];
+        }
+        
         
         [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
               {
             if (succeeded) {
-                NSLog(@"说出答案");
                 
+                [self showSuccessAlert];
               }
         }];
         
@@ -175,6 +137,18 @@
     }];
 }
 
+- (void)showSuccessAlert {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"修改成功" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 
 - (void)leftAction:(UIBarButtonItem *)sender
 {
@@ -235,16 +209,6 @@
             //打开相册选择照片
             picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             [self presentViewController:picker animated:YES completion:nil];
-            
-            
-//            NSData *imageData = UIImagePNGRepresentation(_headImg.image);
-//            AVFile *imageFile = [AVFile fileWithName:@"image.png" data:imageData];
-//            [imageFile save];
-//            
-//            AVObject *userPost = [AVObject objectWithClassName:@"Post"];
-//            [userPost setObject:@"My trip to Dubai!" forKey:@"content"];
-//            [userPost setObject:imageFile            forKey:@"attached"];
-//            [userPost save];
    
 
 
@@ -274,7 +238,9 @@
     //图片存入相册
     UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     
-    _headImg.image = info[UIImagePickerControllerEditedImage];
+    UIImage *headerImg = info[UIImagePickerControllerEditedImage];
+    headerImg = [self imageCompressForWidth:headerImg targetWidth:100];
+    _headImg.image = headerImg;
     [self dismissViewControllerAnimated:YES completion:nil];
     
     
@@ -290,6 +256,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// 压缩图片
+- (UIImage *)imageCompressForWidth:(UIImage *)sourceImage targetWidth:(CGFloat)defineWidth
+{
+    CGSize imageSize = sourceImage.size;
+    CGFloat width = imageSize.width;
+    CGFloat height = imageSize.height;
+    CGFloat targetWidth = defineWidth;
+    CGFloat targetHeight = (targetWidth / width) * height;
+    UIGraphicsBeginImageContext(CGSizeMake(targetWidth, targetHeight));
+    [sourceImage drawInRect:CGRectMake(0,0,targetWidth, targetHeight)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 /*

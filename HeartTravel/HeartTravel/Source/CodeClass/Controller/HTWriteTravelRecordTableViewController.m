@@ -583,6 +583,7 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
     
 }
 
+// 压缩图片
 - (UIImage *)imageCompressForWidth:(UIImage *)sourceImage targetWidth:(CGFloat)defineWidth
 {
     CGSize imageSize = sourceImage.size;
