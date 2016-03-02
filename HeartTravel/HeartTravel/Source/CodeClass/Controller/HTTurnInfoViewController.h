@@ -9,12 +9,18 @@
 #import <UIKit/UIKit.h>
 
 
+@protocol HTTurnInfoViewControllerDelegate <NSObject>
+
+- (void)changeUserInfo;
+
+@end
+
 @interface HTTurnInfoViewController : UIViewController
 @property(strong,nonatomic)UILabel *nameLabel;
 @property(strong,nonatomic)UILabel *genderLabel;
 @property(strong,nonatomic)UITextField *nameText;
 @property(strong,nonatomic)UITextField *genderText;
-
+@property(weak,nonatomic)id<HTTurnInfoViewControllerDelegate> delegate;
 
 
 

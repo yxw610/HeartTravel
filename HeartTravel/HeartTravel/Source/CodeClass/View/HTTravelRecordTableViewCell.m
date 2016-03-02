@@ -144,9 +144,16 @@
         
         AVQuery *query = [AVQuery queryWithClassName:@"URLRecord"];
         [query whereKey:@"model_id" equalTo:@(model.model_id)];
-        NSArray *array = [query findObjects];
-        AVObject *record = [array firstObject];
-        self.favoriteCountLabel.text = [record[@"favorites_count"] stringValue];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            AVObject *record = [objects firstObject];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                self.favoriteCountLabel.text = [record[@"favorites_count"] stringValue];
+            });
+            
+        }];
+        
         
         AVQuery *favoriteQuery = [AVQuery queryWithClassName:kFavoriteRecord];
         [favoriteQuery whereKey:@"model_id" equalTo:@(model.model_id)];

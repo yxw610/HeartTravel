@@ -32,4 +32,9 @@
  */
 + (instancetype)shareGetUser;
 
+/**
+ *  更新用户信息
+ */
+- (void)updateUserInfo;
+
 @end

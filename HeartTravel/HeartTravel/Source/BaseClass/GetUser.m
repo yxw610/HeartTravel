@@ -19,9 +19,7 @@ static GetUser *currentUser = nil;
  *  @return 返回一个GetDataTools单例对象
  */
 + (instancetype)shareGetUser {
-    
-    
-    
+
     if (currentUser == nil) {
         
         currentUser = [[GetUser alloc] init];
@@ -46,6 +44,23 @@ static GetUser *currentUser = nil;
     }
     
     return currentUser;
+}
+
+- (void)updateUserInfo {
+    
+    AVUser *user = [AVUser currentUser];
+    if (user == nil) {
+        return;
+    }else {
+        AVQuery *query = [AVQuery queryWithClassName:@"UserInfo"];
+        [query whereKey:@"user_id" equalTo:user[@"user_id"]];
+        NSArray *userArray = [query findObjects];
+        AVObject *resultUser = [userArray firstObject];
+        self.name = resultUser[@"name"];
+        self.photo_url = resultUser[@"photo_url"];
+        self.user_id = [resultUser[@"user_id"] integerValue];
+    }
+
 }
 
 #pragma mark --完善单例--
