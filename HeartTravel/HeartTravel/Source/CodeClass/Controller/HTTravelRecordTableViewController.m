@@ -18,6 +18,7 @@
 #import "MJRefresh.h"
 #import "HTUserModel.h"
 #import "HTRecordContentModel.h"
+#import "HTFileService.h"
 
 #define kURL @"http://q.chanyouji.com/api/v1/timelines.json?page=1&per=50"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -67,6 +68,16 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     
 }
 
+
+// 清除缓存
+- (void)clearCache {
+    
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    
+    [HTFileService clearCache:cachesPath];
+    
+}
+
 - (void)showRecordInfo {
     
     __unsafe_unretained typeof(self) weakSelf = self;
@@ -106,6 +117,7 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
 - (void)headerRefreshAction {
     
     self.loadNum = 1;
+    [self clearCache];
     
     __unsafe_unretained typeof(self) weakSelf = self;
 

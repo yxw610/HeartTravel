@@ -72,7 +72,7 @@
         _headImg.image=[UIImage imageNamed:@"iconfont-unie64d"];
     } else {
         
-        [_headImg sd_setImageWithURL:[NSURL URLWithString:userInfo.photo_url] placeholderImage:[UIImage imageNamed:@"HTLeftMenu_Head"]];
+        [_headImg sd_setImageWithURL:[NSURL URLWithString:userInfo.photo_url] placeholderImage:[UIImage imageNamed:@"iconfont-unie64d"]];
     }
     _headImg.layer.cornerRadius = 35;
     _headImg.layer.masksToBounds = YES;
@@ -90,6 +90,7 @@
     
     _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(kGap, kBackH * 1.3 , 5*kGap , 3*kGap)];
     _nameLabel.text = @"昵称:";
+
     [self.view addSubview:_nameLabel];
 
     
@@ -98,6 +99,7 @@
     [self.view addSubview:_genderLabel];
     
     _nameText = [[UITextField alloc]initWithFrame:CGRectMake(2.5 * kGap, kBackH *1.45, 8 * kGap, 1.4 * kGap)];
+    _nameText.text = userInfo.name;
     //_nameText.backgroundColor = [UIColor redColor];
     [self.view addSubview:_nameText];
     

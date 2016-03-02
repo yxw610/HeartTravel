@@ -72,7 +72,7 @@
         _smallView.image=[UIImage imageNamed:@"iconfont-unie64d"];
     } else {
         
-        [_smallView sd_setImageWithURL:[NSURL URLWithString:userInfo.photo_url] placeholderImage:[UIImage imageNamed:@"HTLeftMenu_Head"]];
+        [_smallView sd_setImageWithURL:[NSURL URLWithString:userInfo.photo_url] placeholderImage:[UIImage imageNamed:@"iconfont-unie64d"]];
     }
    
     _smallView.center=CGPointMake(_bigImageView.center.x, _bigImageView.center.y);
