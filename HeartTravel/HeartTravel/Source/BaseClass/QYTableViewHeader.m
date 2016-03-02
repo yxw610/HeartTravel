@@ -41,8 +41,8 @@
     if (scrollView.contentOffset.y<0) {
         CGFloat offset = (scrollView.contentOffset.y + scrollView.contentInset.top) * -1;
        
-        NSLog(@"****%f",scrollView.contentOffset.y);
-        NSLog(@"^^^^^%f",scrollView.contentInset.top);
+        //NSLog(@"****%f",scrollView.contentOffset.y);
+        //NSLog(@"^^^^^%f",scrollView.contentInset.top);
         
         initFrame.origin.x= - offset /2;
         initFrame.origin.y= - offset;
