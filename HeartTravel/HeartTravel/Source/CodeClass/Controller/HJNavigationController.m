@@ -22,7 +22,7 @@
     [super viewDidLoad];
     HJNavigationBar *bar = [[HJNavigationBar alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 44)];
     [self setValue:bar forKey:@"navigationBar"];
-    self.navigationBar.barTintColor = [UIColor purpleColor];
+    self.navigationBar.barTintColor = [UIColor grayColor];
     // 3.设置导航条标题的字体和颜色
     NSDictionary *titleAttr = @{
                                 NSForegroundColorAttributeName:[UIColor whiteColor],
