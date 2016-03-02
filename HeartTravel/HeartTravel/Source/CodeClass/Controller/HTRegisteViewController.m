@@ -16,7 +16,7 @@
 #define kLeftGap kWidth / 6.5
 #define kGap kHeight / 20
 
-@interface HTRegisteViewController ()
+@interface HTRegisteViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -27,7 +27,7 @@
      self.title = @"注册";
    // self.navigationController.navigationBarHidden = YES;
     self.backImg = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.backImg.image = [UIImage imageNamed:@"3.jpg"];
+    self.backImg.image = [UIImage imageNamed:@"HTRegister_BackImage.jpg"];
     self.backImg.userInteractionEnabled = YES;
     [self.view addSubview:self.backImg];
     //加约束
@@ -57,8 +57,9 @@
     self.useField = [[UITextField alloc]init];
     
     //self.useField.backgroundColor = [UIColor blueColor];
-    self.useField.placeholder = @"Username";
+    self.useField.placeholder = @"E-mail";
     self.useField.borderStyle = UITextBorderStyleRoundedRect;
+    self.useField.delegate = self;
     [self.backImg addSubview:self.useField];
     //加约束
     
@@ -82,6 +83,7 @@
     self.pssField.placeholder = @"Password";
     self.pssField.borderStyle = UITextBorderStyleRoundedRect;
     self.pssField.secureTextEntry = YES;
+    self.pssField.delegate = self;
     [self.backImg addSubview:self.pssField];
     //加约束
     UIEdgeInsets  pssTextInsets = UIEdgeInsetsMake(kGap, 2 *kGap  , 0,  2 * kGap );
@@ -105,6 +107,7 @@
     self.againField.placeholder = @"Password+1";
     self.againField.borderStyle =  UITextBorderStyleRoundedRect;
     self.againField.secureTextEntry = YES;
+    self.againField.delegate = self;
     [self.backImg addSubview:self.againField];
     //加约束
     
@@ -143,12 +146,7 @@
     }];
 
     
-   }
-
-       
-
-
-
+}
 
 
 - (void)regButton:(UIButton *)sender
@@ -181,33 +179,21 @@
         if ([self isValidateEmail:user.email]) {
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
-                    
-                        AVObject *object = [[AVObject alloc]initWithClassName:@"UserInfo"];
-                        [object setObject:_useField.text forKey:@"username"];
-                    NSData *imgFile = UIImagePNGRepresentation([UIImage imageNamed:@"iconfont-unie64d"]);
-                    AVFile * file = [AVFile fileWithName:@"avatar.png" data:imgFile];
-                    [object setObject:file forKey:@"avatar"];
-                   
-                        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                            if (succeeded) {
-                                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"注册成功" preferredStyle:UIAlertControllerStyleAlert];
-                                __unsafe_unretained typeof(self) weakSelf = self;
-                                
-                                UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
-                                
-                                [weakSelf.navigationController popViewControllerAnimated:YES];
-                                [alert addAction:defaultAction];
-                                [self presentViewController:alert animated:YES completion:nil];
 
-                            }
-                    }];
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"注册成功" preferredStyle:UIAlertControllerStyleAlert];
+                    __unsafe_unretained typeof(self) weakSelf = self;
                     
+                    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
+                    
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                    [alert addAction:defaultAction];
+                    [self presentViewController:alert animated:YES completion:nil];
+
                 }else
                 {
                     NSLog(@"%@", error);
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"注册失败" preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:nil];
-                    //                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
                     
                     [alert addAction:defaultAction];
                     
@@ -224,8 +210,29 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:email];
 }
+//点击空白处,键盘返回
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 
+//键盘回收
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //取消第一响应者:文本框成为第一响应者,就会弹出键盘,取消第一响应者就会收回键盘
+    if (textField == self.useField ) {
+        [self.pssField  becomeFirstResponder];
+    }else if(textField == self.pssField)
+    {
+        [self.againField becomeFirstResponder];
+    }
+    else
+    {
+        [textField resignFirstResponder];
 
+    }
+    return YES;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

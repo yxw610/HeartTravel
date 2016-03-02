@@ -49,7 +49,6 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     return self;
 }
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -60,11 +59,48 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HTTravelRecordTableViewCell" bundle:nil] forCellReuseIdentifier:HTTravelRecordCellID];
 
+    
+    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshAction)];
     [self.tableView.mj_header beginRefreshing];
-    
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefreshAction)];
     
+}
+
+- (void)showRecordInfo {
+    
+    __unsafe_unretained typeof(self) weakSelf = self;
+    
+    [[GetDataTools shareGetDataTools] getDataWithUrlString:kURL data:^(NSDictionary *dataDict) {
+        
+        NSDictionary *dict = dataDict;
+        weakSelf.array = [NSMutableArray array];
+        weakSelf.cellMarkArray = [NSMutableArray array];
+        weakSelf.cellHeightArray = [NSMutableArray array];
+        
+        for (NSDictionary *tempDict in dict[@"data"]) {
+            
+            HTTravelRecordModel *recordModel = [HTTravelRecordModel new];
+            
+            [recordModel setValuesForKeysWithDictionary:tempDict[@"activity"]];
+            recordModel.groupNum = 0;
+            
+            [self updateURLRecord:recordModel];
+            
+            NSArray *heightArray = [HTTravelRecordTableViewCell caculateHeightForLabelWithModel:recordModel];
+            
+            CGFloat recordContentViewHeight = [heightArray[2] floatValue];
+            
+            [weakSelf.cellHeightArray addObject:@(recordContentViewHeight)];
+            
+            [weakSelf.array addObject:recordModel];
+            [weakSelf.cellMarkArray addObject:@"part"];
+            
+        }
+        
+        [weakSelf getLeanCloudData];
+        
+    }];
 }
 
 - (void)headerRefreshAction {
@@ -108,10 +144,12 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
 - (void)updateURLRecord:(HTTravelRecordModel *)model {
     
     AVQuery *recordQuery = [AVQuery queryWithClassName:@"URLRecord"];
-    [recordQuery whereKey:@"user_id" equalTo:@(model.model_id)];
+    [recordQuery whereKey:@"model_id" equalTo:@(model.model_id)];
     [recordQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
-        if (objects.count == 0) {
+        if (error) {
+            
+        } else if (objects.count == 0) {
             
             AVObject *record = [AVObject objectWithClassName:@"URLRecord"];
             record[@"comments_count"] = @(model.comments_count);

@@ -17,12 +17,13 @@
 #import "GetUser.h"
 #import "UIImageView+WebCache.h"
 #import "HTFavoriteRecordTableViewController.h"
+#import "HTLeftMenuViewController.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
 #define kBackH kWidth/1.5
 
-@interface HTMyViewController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface HTMyViewController ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,HTTurnInfoViewControllerDelegate>
 @property (nonatomic,strong)UITableView *tableView;
 @property (nonatomic,strong)QYTableViewHeader *headView;
 @property (nonatomic,strong)UIImageView *bigImageView;
@@ -122,10 +123,11 @@
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-       if (indexPath.row == 0) {
+    if (indexPath.row == 0) {
         
         
         HTTurnInfoViewController *turnVC = [[HTTurnInfoViewController alloc]init];
+        turnVC.delegate = self;
         [self.navigationController pushViewController:turnVC animated:YES];
         
     } else if(indexPath.row == 1){
@@ -187,6 +189,9 @@
 - (void)leftAction:(UIBarButtonItem *)sender
 {
   
+    GetUser *user = [GetUser shareGetUser];
+    [((HTLeftMenuViewController *)self.sideMenuViewController.leftMenuViewController).headImg sd_setImageWithURL:[NSURL URLWithString:user.photo_url] placeholderImage:[UIImage imageNamed:@"iconfont-unie64d"]];
+    [((HTLeftMenuViewController *)self.sideMenuViewController.leftMenuViewController).nameButton setTitle:user.name forState:(UIControlStateNormal)];
     [self.sideMenuViewController presentLeftMenuViewController];
 
 }
@@ -195,6 +200,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)changeUserInfo {
+    
+    GetUser *user = [GetUser shareGetUser];
+    [self.smallView sd_setImageWithURL:[NSURL URLWithString:user.photo_url] placeholderImage:[UIImage imageNamed:@"iconfont-unie64d"]];
 }
 
 /*

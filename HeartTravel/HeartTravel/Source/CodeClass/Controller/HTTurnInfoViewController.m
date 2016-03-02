@@ -12,6 +12,8 @@
 #import "HTUserModel.h"
 #import "GetUser.h"
 #import "UIImageView+WebCache.h"
+#import <MBProgressHUD.h>
+#import "GetUser.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -24,7 +26,7 @@
 
 
 
-@interface HTTurnInfoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface HTTurnInfoViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,MBProgressHUDDelegate>
 
 
 @property (nonatomic,strong)UIImageView *headImg;
@@ -35,6 +37,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"个人修改";
     
     UIImage * normalImg = [UIImage imageNamed:@"iconfont-iconfanhui-2"];
     normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
@@ -107,34 +111,53 @@
 
 - (void)rightAction:(UIBarButtonItem *)sender
 {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.delegate = self;
+    hud.labelText = @"正在修改...";
     
+    GetUser *user = [GetUser shareGetUser];
     
     AVQuery * querry = [AVQuery queryWithClassName:@"UserInfo"];
-    [querry whereKey:@"username" equalTo:[AVUser currentUser].username];
-    [querry findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [querry whereKey:@"user_id" equalTo:@(user.user_id)];
 
+    AVObject *object = [querry findObjects].firstObject;
+    
+    if ([_nameText.text isEqualToString:@""] || _nameText.text == nil) {
         
-        AVObject *object = [objects firstObject];
+    } else {
         [object setObject:_nameText.text forKey:@"name"];
-        [object setObject:_genderText.text forKey:@"gender"];
-        
-        NSData * data = UIImagePNGRepresentation(_headImg.image);
-        AVFile * file =[AVFile fileWithName:@"avatar.png" data:data];
-        if ([file save]) {
-            [object setObject:file.url forKey:@"photo_url"];
+    }
+
+    if ([_genderLabel.text isEqualToString:@"男"]) {
+        [object setObject:@(1) forKey:@"gender"];
+    } else {
+        [object setObject:@(0) forKey:@"gender"];
+    }
+    
+    
+    NSData * data = UIImagePNGRepresentation(_headImg.image);
+    AVFile * file =[AVFile fileWithName:@"avatar.png" data:data];
+    if ([file save]) {
+        [object setObject:file.url forKey:@"photo_url"];
+    }
+ 
+    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+          {
+              
+        if (succeeded) {
+            
+            [hud hide:YES];
+            GetUser *user = [GetUser shareGetUser];
+            [user updateUserInfo];
+            [self showSuccessAlert];
+            
+        } else {
+            
+            [hud hide:YES];
+            [self showFailAlert];
         }
-        
-        
-        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-              {
-            if (succeeded) {
-                
-                [self showSuccessAlert];
-              }
-        }];
-        
-        
     }];
+
 }
 
 - (void)showSuccessAlert {
@@ -142,12 +165,23 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"修改成功" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
         
-        
+        [self.delegate changeUserInfo];
         [self.navigationController popViewControllerAnimated:YES];
     }];
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
     
+}
+
+- (void)showFailAlert {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"修改失败" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        
+    
+    }];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)leftAction:(UIBarButtonItem *)sender
@@ -176,16 +210,7 @@
             //是否可编辑
             picker.allowsEditing = YES;
             [self presentViewController:picker animated:YES completion:nil];
-            
-            
-            NSData *imageData = UIImagePNGRepresentation(_headImg.image);
-            AVFile *imageFile = [AVFile fileWithName:@"image.png" data:imageData];
-            [imageFile save];
-            
-            AVObject *userPost = [AVObject objectWithClassName:@"Post"];
-            [userPost setObject:@"My trip to Dubai!" forKey:@"content"];
-            [userPost setObject:imageFile            forKey:@"attached"];
-            [userPost save];
+
 
         }else
         {
@@ -273,14 +298,10 @@
     return newImage;
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
+#pragma mark -----------MBProgressHUD代理实现----------------
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+    
+    [hud removeFromSuperview];
+    hud = nil;
+}
 @end

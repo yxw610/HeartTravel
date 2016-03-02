@@ -246,13 +246,23 @@
 - (void)diaryPage:(UIButton *)sender
 {
     
-    HTTravelRecordTableViewController *diaryVC = [[HTTravelRecordTableViewController alloc]init];
-    UINavigationController *diaryNC = [[UINavigationController alloc] initWithRootViewController:diaryVC];
+    if ([self.sideMenuViewController.contentViewController isMemberOfClass:[UINavigationController class]]) {
+        
+        if ([((UINavigationController *)self.sideMenuViewController.contentViewController).childViewControllers.firstObject isMemberOfClass:[HTTravelRecordTableViewController class]]) {
+            
+            [self.sideMenuViewController hideMenuViewController];
+            return;
+        }
+        
+    }
+        HTTravelRecordTableViewController *diaryVC = [[HTTravelRecordTableViewController alloc]init];
+        UINavigationController *diaryNC = [[UINavigationController alloc] initWithRootViewController:diaryVC];
+        
+        //替换当前视图
+        [self.sideMenuViewController setContentViewController:diaryNC];
+        //隐藏菜单视图
+        [self.sideMenuViewController hideMenuViewController];
     
-    //替换当前视图
-    [self.sideMenuViewController setContentViewController:diaryNC];
-    //隐藏菜单视图
-    [self.sideMenuViewController hideMenuViewController];
 
 }
 

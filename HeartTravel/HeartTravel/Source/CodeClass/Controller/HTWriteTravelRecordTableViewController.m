@@ -23,6 +23,7 @@
 #import <RESideMenu/RESideMenu.h>
 #import "HTTravelRecordTableViewController.h"
 #import "GetUser.h"
+#import <MBProgressHUD.h>
 
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -30,7 +31,7 @@
 #define kImgWidth (kScreenWidth - 4 * kGap) / 3
 #define kFontSize 14
 
-@interface HTWriteTravelRecordTableViewController () <IQActionSheetPickerViewDelegate,UzysAssetsPickerControllerDelegate, UITextViewDelegate,UITextFieldDelegate>
+@interface HTWriteTravelRecordTableViewController () <IQActionSheetPickerViewDelegate,UzysAssetsPickerControllerDelegate, UITextViewDelegate,UITextFieldDelegate,MBProgressHUDDelegate>
 
 @property (strong, nonatomic) NSString *travelRecordText;
 
@@ -507,6 +508,12 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
 
 - (void)commitAction:(UIButton *)sender {
     
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.delegate = self;
+    hud.labelText = @"正在上传...";
+    
+    
+    
     AVObject *travelRecord = [AVObject objectWithClassName:@"TravelRecord"];
     
     [travelRecord setObject:self.topicTitle forKey:@"topic"];
@@ -559,10 +566,12 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
     [travelRecord saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         if (succeeded) {
-            
+            [hud hide:YES];
             [self showSuccessAlert];
         }
     }];
+    
+    
    
 }
 
@@ -598,5 +607,11 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
     return newImage;
 }
 
-
+#pragma mark -----------MBProgressHUD代理实现----------------
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+    
+    [hud removeFromSuperview];
+    hud = nil;
+}
 @end
+

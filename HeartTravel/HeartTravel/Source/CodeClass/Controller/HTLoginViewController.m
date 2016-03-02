@@ -26,7 +26,7 @@
 #define kGap kHeight / 20
 
 
-@interface HTLoginViewController ()
+@interface HTLoginViewController ()<UITextFieldDelegate>
 @property (nonatomic,strong)HTLeftMenuViewController *leftMenu;
 @end
 
@@ -34,6 +34,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.title = @"登录";
     
     //背景图
     self.backImg = [[UIImageView alloc]initWithFrame:[UIScreen mainScreen].bounds];
@@ -72,7 +74,7 @@
     
     //用户名图
     self.useImg = [[UIImageView alloc]init];
-    self.useImg.image = [UIImage imageNamed:@"iconfont-denglu"];
+    self.useImg.image = [UIImage imageNamed:@"HTLogin_User"];
     [self.backImg addSubview:self.useImg];
     //加约束
     UIEdgeInsets useImgInsets = UIEdgeInsetsMake(190,  1.5 *kGap, 0, 0);
@@ -92,6 +94,7 @@
     self.UseTextField.placeholder = @"e_mail";
     self.UseTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.UseTextField.font = [UIFont systemFontOfSize:20];
+    self.UseTextField.delegate = self;
     [self.backImg addSubview:self.UseTextField];
     
     //加约束
@@ -110,7 +113,7 @@
 #pragma mark------------------密码------------------
     //密码图
     self.pssImg = [[UIImageView alloc]init];
-    self.pssImg.image = [UIImage imageNamed:@"iconfont-mima-3"];
+    self.pssImg.image = [UIImage imageNamed:@"HTLogin_Password"];
     [self.backImg addSubview:self.pssImg];
     
     //加约束
@@ -132,6 +135,7 @@
     self.pssTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.pssTextField.font = [UIFont systemFontOfSize:20];
     self.pssTextField.secureTextEntry = YES;
+    self.pssTextField.delegate = self;
     [self.backImg addSubview:self.pssTextField];
     
     
@@ -281,6 +285,25 @@
 {
 
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+//点击空白处,键盘返回
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
+
+
+//键盘回收
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //取消第一响应者:文本框成为第一响应者,就会弹出键盘,取消第一响应者就会收回键盘
+    if (textField == self.UseTextField) {
+        [self.pssTextField  becomeFirstResponder];
+    }else
+    {
+        [textField resignFirstResponder];
+    }
+    return YES;
 }
 /*
 #pragma mark - Navigation
