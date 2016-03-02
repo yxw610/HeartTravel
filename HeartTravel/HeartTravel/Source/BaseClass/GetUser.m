@@ -31,12 +31,11 @@ static GetUser *currentUser = nil;
             AVQuery *query = [AVQuery queryWithClassName:@"UserInfo"];
             [query whereKey:@"user_id" equalTo:user[@"user_id"]];
             NSArray *userArray = [query findObjects];
-            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-                NSLog(@"%@",error);
-            }];
             AVObject *resultUser = [userArray firstObject];
             currentUser.name = resultUser[@"name"];
             currentUser.photo_url = resultUser[@"photo_url"];
+            currentUser.gender = resultUser[@"gender"];
+            NSLog(@"%@",currentUser.photo_url);
             currentUser.user_id = [resultUser[@"user_id"] integerValue];
         }
     }else {
@@ -51,6 +50,7 @@ static GetUser *currentUser = nil;
             AVObject *resultUser = [userArray firstObject];
             currentUser.name = resultUser[@"name"];
             currentUser.photo_url = resultUser[@"photo_url"];
+            currentUser.gender = resultUser[@"gender"];
             currentUser.user_id = [resultUser[@"user_id"] integerValue];
         }
     }
@@ -70,6 +70,7 @@ static GetUser *currentUser = nil;
         AVObject *resultUser = [userArray firstObject];
         self.name = resultUser[@"name"];
         self.photo_url = resultUser[@"photo_url"];
+        self.gender = resultUser[@"gender"];
         self.user_id = [resultUser[@"user_id"] integerValue];
     }
 

@@ -45,7 +45,10 @@ static NSString * const favoriteID = @"favoriteCellIdentifier";
     [super viewDidLoad];
     
     self.navigationItem.title = @"个人收藏";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"HTiconfont-fanhui"] style:UIBarButtonItemStylePlain target:self action:@selector(backAction:)];
+    UIImage * normalImg = [UIImage imageNamed:@"HTiconfont-fanhui"];
+    normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
+
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:normalImg style:UIBarButtonItemStylePlain target:self action:@selector(backAction:)];
     
     [self searchUrlArray];
     [self searchLocalArray];
@@ -90,7 +93,10 @@ static NSString * const favoriteID = @"favoriteCellIdentifier";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    
+    if (self.array.count == 0) {
+        
+        return 1;
+    }
     return self.array.count;
 }
 
@@ -98,11 +104,15 @@ static NSString * const favoriteID = @"favoriteCellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:favoriteID forIndexPath:indexPath];
-//    if (cell == nil) {
-//        
-//        cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleSubtitle) reuseIdentifier:favoriteID];
-//    }
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    
+    if (indexPath.row == 0 && self.array.count == 0) {
+        
+        cell.textLabel.text = @"暂无收藏";
+        return cell;
+    }
     
     if (indexPath.row < self.urlArray.count) {
         

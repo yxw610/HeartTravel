@@ -18,6 +18,7 @@
 #import "MJRefresh.h"
 #import "HTUserModel.h"
 #import "HTRecordContentModel.h"
+#import "HTFileService.h"
 
 #define kURL @"http://q.chanyouji.com/api/v1/timelines.json?page=1&per=50"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -53,7 +54,13 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     [super viewDidLoad];
 
     self.navigationItem.title = @"游记";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"HTHome_Menu"] style:UIBarButtonItemStylePlain target:self action:@selector(leftMenuAction:)];
+    
+    
+    
+    UIImage * normalImg = [UIImage imageNamed:@"HTHome_Menu"];
+    normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:normalImg style:UIBarButtonItemStylePlain target:self action:@selector(leftMenuAction:)];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发现" style:UIBarButtonItemStylePlain target:self action:@selector(discoveryHotViewAction:)];
     
@@ -64,6 +71,16 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(headerRefreshAction)];
     [self.tableView.mj_header beginRefreshing];
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(footerRefreshAction)];
+    
+}
+
+
+// 清除缓存
+- (void)clearCache {
+    
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    
+    [HTFileService clearCache:cachesPath];
     
 }
 
@@ -106,6 +123,7 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
 - (void)headerRefreshAction {
     
     self.loadNum = 1;
+    [self clearCache];
     
     __unsafe_unretained typeof(self) weakSelf = self;
 

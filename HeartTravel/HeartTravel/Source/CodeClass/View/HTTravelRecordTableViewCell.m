@@ -81,15 +81,15 @@
     
     // 设置图片信息
     self.topicImgViewHeightConstraint.constant = imgViewHeight;
-    UIProgressView *pv = [[UIProgressView alloc] initWithProgressViewStyle:(UIProgressViewStyleDefault)];
+//    UIProgressView *pv = [[UIProgressView alloc] initWithProgressViewStyle:(UIProgressViewStyleDefault)];
     [self.topicImgView sd_setImageWithURL:[NSURL URLWithString:((HTRecordContentModel *)model.contents[0]).photo_url] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] options:(SDWebImageCacheMemoryOnly) progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
-        pv.frame = CGRectMake(0, 0, CGRectGetWidth(self.topicImgView.frame)/2, 50);
-        pv.center = self.topicImgView.center;
-        [self.topicImgView addSubview:pv];
+//        pv.frame = CGRectMake(0, 0, CGRectGetWidth(self.topicImgView.frame)/2, 50);
+//        pv.center = self.topicImgView.center;
+//        [self.topicImgView addSubview:pv];
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
-        [pv removeFromSuperview];
+//        [pv removeFromSuperview];
     }];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapActionInTopicImageView:)];
@@ -280,15 +280,16 @@
         
         HTRecordContentModel *model = images[i];
 
-        UIProgressView *pv = [[UIProgressView alloc] initWithProgressViewStyle:(UIProgressViewStyleDefault)];
+//        UIProgressView *pv = [[UIProgressView alloc] initWithProgressViewStyle:(UIProgressViewStyleDefault)];
         [imgView sd_setImageWithURL:[NSURL URLWithString:model.photo_url] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] options:(SDWebImageCacheMemoryOnly) progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
-            pv.frame = CGRectMake(0, 0, CGRectGetWidth(imgView.frame)/2, 50);
-            pv.center = imgView.center;
-            [imgView addSubview:pv];
+//            pv.frame = CGRectMake(0, 0, CGRectGetWidth(imgView.frame)/2, 50);
+//            pv.center = imgView.center;
+//            NSLog(@"%d,%lf,%lf,%lf,%lf",i,pv.frame.origin.x,pv.frame.origin.y,pv.frame.size.width,pv.frame.size.height);
+//            [imgView addSubview:pv];
         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             
-            [pv removeFromSuperview];
+//            [pv removeFromSuperview];
         }];
         imgView.userInteractionEnabled = YES;
         imgView.tag = 1000 + i;

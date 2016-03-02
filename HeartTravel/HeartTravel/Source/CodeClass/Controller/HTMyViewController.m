@@ -49,6 +49,8 @@
 
     [self getTableView];
     
+    self.navigationItem.title = @"个人中心";
+    
     UIImage *normalImg = [UIImage imageNamed:@"HTHome_Menu"];
     normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
     
@@ -72,7 +74,7 @@
         _smallView.image=[UIImage imageNamed:@"iconfont-unie64d"];
     } else {
         
-        [_smallView sd_setImageWithURL:[NSURL URLWithString:userInfo.photo_url] placeholderImage:[UIImage imageNamed:@"HTLeftMenu_Head"]];
+        [_smallView sd_setImageWithURL:[NSURL URLWithString:userInfo.photo_url] placeholderImage:[UIImage imageNamed:@"iconfont-unie64d"]];
     }
    
     _smallView.center=CGPointMake(_bigImageView.center.x, _bigImageView.center.y);
@@ -115,6 +117,7 @@
 {
     UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
    NSArray *array = @[@"修改资料",@"我的收藏",@"清除缓存",@"退出账户"];
       cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = array[indexPath.row];
