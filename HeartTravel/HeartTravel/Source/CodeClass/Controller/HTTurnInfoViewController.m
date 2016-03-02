@@ -103,9 +103,17 @@
     //_nameText.backgroundColor = [UIColor redColor];
     [self.view addSubview:_nameText];
     
-    _genderText = [[UITextField alloc]initWithFrame:CGRectMake(2.5 * kGap, kBackH * 1.75, 8 * kGap, 1.4 * kGap)];
-   // _genderText.backgroundColor = [UIColor redColor];
-    [self.view addSubview:_genderText];
+//    _genderText = [[UITextField alloc]initWithFrame:CGRectMake(2.5 * kGap, kBackH * 1.75, 8 * kGap, 1.4 * kGap)];
+//   // _genderText.backgroundColor = [UIColor redColor];
+//    [self.view addSubview:_genderText];
+    
+//  性别button
+    
+    _genderButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_genderButton addTarget:self action:@selector(showSex:) forControlEvents:UIControlEventTouchUpInside];
+    _genderButton.frame = CGRectMake(2.5 * kGap, kBackH * 1.75, 1.5 * kGap, 1.4 * kGap);
+   // _genderButton.backgroundColor = [UIColor redColor];
+    [self.view addSubview:_genderButton];
     
 
     
@@ -132,11 +140,18 @@
         [object setObject:_nameText.text forKey:@"name"];
     }
 
-    if ([_genderLabel.text isEqualToString:@"男"]) {
-        [object setObject:@(1) forKey:@"gender"];
-    } else {
-        [object setObject:@(0) forKey:@"gender"];
-    }
+//    if ([_genderLabel.text isEqualToString:@"男"]) {
+//        [object setObject:@(1) forKey:@"gender"];
+//    } else {
+//        [object setObject:@(0) forKey:@"gender"];
+//    }
+    
+        if ([_genderButton.titleLabel.text isEqualToString:@"👦🏻"]) {
+            [object setObject:@(1) forKey:@"gender"];
+        } else {
+            [object setObject:@(0) forKey:@"gender"];
+        }
+    
     
     
     NSData * data = UIImagePNGRepresentation(_headImg.image);
@@ -308,4 +323,37 @@
     [hud removeFromSuperview];
     hud = nil;
 }
+
+
+//性别选择
+-(void)showSex:(UIButton *)button
+{
+    NSString *title = @"性别";
+    NSString *Lady = @"👧🏻";
+    NSString *Gentleman = @"👦🏻";
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:(UIAlertControllerStyleActionSheet)];
+    UIAlertAction *gentlemanAction = [UIAlertAction actionWithTitle:Gentleman style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        
+        [_genderButton setTitle:Gentleman forState:UIControlStateNormal];
+        
+    }];
+    UIAlertAction *ladyAction = [UIAlertAction actionWithTitle:Lady style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+        
+        [_genderButton setTitle:Lady forState:UIControlStateNormal];
+        
+    }];
+    
+    [alert addAction:gentlemanAction];
+    [alert addAction:ladyAction];
+    
+    
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+    
+}
+
+
 @end
