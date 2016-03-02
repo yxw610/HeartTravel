@@ -113,10 +113,15 @@
     [_genderButton addTarget:self action:@selector(showSex:) forControlEvents:UIControlEventTouchUpInside];
     _genderButton.frame = CGRectMake(2.5 * kGap, kBackH * 1.75, 1.5 * kGap, 1.4 * kGap);
    // _genderButton.backgroundColor = [UIColor redColor];
+    if (userInfo.gender.integerValue == 0) {
+        
+        [_genderButton setTitle:@"👧🏻" forState:(UIControlStateNormal)];
+    } else {
+        
+        [_genderButton setTitle:@"👦🏻" forState:(UIControlStateNormal)];
+    }
     [self.view addSubview:_genderButton];
-    
-
-    
+ 
     
 }
 

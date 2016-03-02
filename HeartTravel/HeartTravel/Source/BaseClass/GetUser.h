@@ -26,6 +26,11 @@
 @property (strong, nonatomic) NSString *photo_url;
 
 /**
+ *  性别
+ */
+@property (strong, nonatomic) NSNumber *gender;
+
+/**
  *  单例方法
  *
  *  @return 返回一个GetUser单例对象

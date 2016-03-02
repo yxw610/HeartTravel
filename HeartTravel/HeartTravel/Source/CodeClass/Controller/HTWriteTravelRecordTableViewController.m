@@ -397,7 +397,7 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    [((HTNavigationBar *)(self.navigationController.navigationBar)) changeColorWithOffset:scrollView.contentOffset.y color:[UIColor greenColor]];
+    [((HTNavigationBar *)(self.navigationController.navigationBar)) changeColorWithOffset:scrollView.contentOffset.y color:[UIColor grayColor]];
 }
 
 #pragma mark --实现日期选择器代理协议--

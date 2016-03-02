@@ -49,6 +49,8 @@
 
     [self getTableView];
     
+    self.navigationItem.title = @"个人中心";
+    
     UIImage *normalImg = [UIImage imageNamed:@"HTHome_Menu"];
     normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
     
@@ -115,6 +117,7 @@
 {
     UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
    NSArray *array = @[@"修改资料",@"我的收藏",@"清除缓存",@"退出账户"];
       cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = array[indexPath.row];

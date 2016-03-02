@@ -54,7 +54,13 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     [super viewDidLoad];
 
     self.navigationItem.title = @"游记";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"HTHome_Menu"] style:UIBarButtonItemStylePlain target:self action:@selector(leftMenuAction:)];
+    
+    
+    
+    UIImage * normalImg = [UIImage imageNamed:@"HTHome_Menu"];
+    normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:normalImg style:UIBarButtonItemStylePlain target:self action:@selector(leftMenuAction:)];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发现" style:UIBarButtonItemStylePlain target:self action:@selector(discoveryHotViewAction:)];
     
