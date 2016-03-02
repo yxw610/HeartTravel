@@ -23,6 +23,8 @@
 		884A570B1C857FF90068F85F /* dianzan-no.png in Resources */ = {isa = PBXBuildFile; fileRef = 884A57091C857FF90068F85F /* dianzan-no.png */; };
 		884A570C1C857FF90068F85F /* dianzan-yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 884A570A1C857FF90068F85F /* dianzan-yes.png */; };
 		884A57121C85BEC40068F85F /* HTFavoriteRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A57111C85BEC40068F85F /* HTFavoriteRecordTableViewController.m */; };
+		884A57161C86E4640068F85F /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 884A57151C86E4640068F85F /* placeholder.jpg */; };
+		884A57191C86E98F0068F85F /* HTFileService.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A57181C86E98F0068F85F /* HTFileService.m */; };
 		886823831C50C60800A72874 /* GetDataTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 886823821C50C60800A72874 /* GetDataTools.m */; };
 		886823881C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886823851C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.m */; };
 		886823891C50C62500A72874 /* HTTravelRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 886823871C50C62500A72874 /* HTTravelRecordTableViewController.m */; };
@@ -138,6 +140,9 @@
 		884A570A1C857FF90068F85F /* dianzan-yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dianzan-yes.png"; sourceTree = "<group>"; };
 		884A57101C85BEC40068F85F /* HTFavoriteRecordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTFavoriteRecordTableViewController.h; sourceTree = "<group>"; };
 		884A57111C85BEC40068F85F /* HTFavoriteRecordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTFavoriteRecordTableViewController.m; sourceTree = "<group>"; };
+		884A57151C86E4640068F85F /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
+		884A57171C86E98F0068F85F /* HTFileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTFileService.h; sourceTree = "<group>"; };
+		884A57181C86E98F0068F85F /* HTFileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTFileService.m; sourceTree = "<group>"; };
 		886823811C50C60800A72874 /* GetDataTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDataTools.h; sourceTree = "<group>"; };
 		886823821C50C60800A72874 /* GetDataTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDataTools.m; sourceTree = "<group>"; };
 		886823841C50C62500A72874 /* HTTravelRecordPhotoCarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTravelRecordPhotoCarouselViewController.h; sourceTree = "<group>"; };
@@ -365,6 +370,7 @@
 		CD4A5BEA1C4CC56500371BC8 /* picture */ = {
 			isa = PBXGroup;
 			children = (
+				884A57151C86E4640068F85F /* placeholder.jpg */,
 				CDC77B8B1C86D305005FBA8C /* 9.jpg */,
 				884A57091C857FF90068F85F /* dianzan-no.png */,
 				884A570A1C857FF90068F85F /* dianzan-yes.png */,
@@ -424,6 +430,8 @@
 				886823821C50C60800A72874 /* GetDataTools.m */,
 				884A57041C8530FF0068F85F /* GetUser.h */,
 				884A57051C8530FF0068F85F /* GetUser.m */,
+				884A57171C86E98F0068F85F /* HTFileService.h */,
+				884A57181C86E98F0068F85F /* HTFileService.m */,
 			);
 			path = BaseClass;
 			sourceTree = "<group>";
@@ -682,6 +690,7 @@
 				C09ED57A1C4DE7A80084C08E /* HTWorldExploreViewController.xib in Resources */,
 				CD8456EA1C852C1C00331469 /* iconfont-unie64d.png in Resources */,
 				C09ED5851C4DE7C10084C08E /* HTCityCell.xib in Resources */,
+				884A57161C86E4640068F85F /* placeholder.jpg in Resources */,
 				CD8635AC1C51D6DC003AFF10 /* HTLogin_User.png in Resources */,
 				886823A01C50C64300A72874 /* HTTravelRecordTableViewCell.xib in Resources */,
 				CD8635A71C51D6DC003AFF10 /* HTHome_Menu.png in Resources */,
@@ -781,6 +790,7 @@
 				886823831C50C60800A72874 /* GetDataTools.m in Sources */,
 				884A57061C8530FF0068F85F /* GetUser.m in Sources */,
 				C09ED5751C4DE79F0084C08E /* HTCityTableViewController.m in Sources */,
+				884A57191C86E98F0068F85F /* HTFileService.m in Sources */,
 				88D5C47A1C8081C700796E3B /* HTStrategyTableViewCell.m in Sources */,
 				C006282A1C521289007B83F9 /* HTCityFieldTableViewController.m in Sources */,
 				C00628331C52129C007B83F9 /* HTPlacesModel.m in Sources */,

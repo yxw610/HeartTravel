@@ -288,9 +288,7 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
                 NSArray *heightArray = [HTTravelRecordTableViewCell caculateHeightForLabelWithModel:model];
                 
                 CGFloat recordContentViewHeight = [heightArray[2] floatValue];
-                
-                
-                
+
                 
                 [cellHeightArray addObject:@(recordContentViewHeight)];
                 [cellMarkArray addObject:@"part"];
