@@ -51,7 +51,7 @@
     
     self.continentArray = [NSArray array];
     self.continentArray = @[ @[@"亚洲",@"欧洲",@"北美洲",@"南美洲",@"非洲",@"大洋洲"]];
-    MXPullDownMenu *menu = [[MXPullDownMenu alloc] initWithArray:self.continentArray selectedColor:[UIColor greenColor]];
+    MXPullDownMenu *menu = [[MXPullDownMenu alloc] initWithArray:self.continentArray selectedColor:[UIColor grayColor]];
     menu.delegate = self;
     menu.frame = CGRectMake(0, 64, menu.frame.size.width, menu.frame.size.height);
     [self.view addSubview:menu];
