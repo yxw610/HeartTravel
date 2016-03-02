@@ -20,6 +20,7 @@
 @property(strong,nonatomic)UILabel *genderLabel;
 @property(strong,nonatomic)UITextField *nameText;
 @property(strong,nonatomic)UITextField *genderText;
+@property(strong,nonatomic)UIButton *genderButton;
 @property(weak,nonatomic)id<HTTurnInfoViewControllerDelegate> delegate;
 
 
