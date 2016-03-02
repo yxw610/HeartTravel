@@ -74,6 +74,7 @@
     self.useImg = [[UIImageView alloc]init];
     self.useImg.image = [UIImage imageNamed:@"iconfont-denglu"];
     [self.backImg addSubview:self.useImg];
+    
     //加约束
     UIEdgeInsets useImgInsets = UIEdgeInsetsMake(190,  1.5 *kGap, 0, 0);
     
