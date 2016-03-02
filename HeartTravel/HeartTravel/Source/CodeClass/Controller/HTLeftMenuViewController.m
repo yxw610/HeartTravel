@@ -202,6 +202,7 @@
 //nameButton 点击事件
 - (void)pageAction:(UIButton *)sender
 {
+    
     HTLoginViewController *loginVC = [[HTLoginViewController alloc]init];
     loginVC.delegate = self;
     UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
