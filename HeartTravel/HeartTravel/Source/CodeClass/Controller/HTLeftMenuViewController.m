@@ -61,7 +61,9 @@
         make.edges.equalTo(weakSelf.backImg).insets(defaultInsets);
     }];
     
+ 
     GetUser *currentUser = [GetUser shareGetUser];
+    NSLog(@"%@",currentUser);
     
 #pragma mark -------------------头像------------------
     self.headImg = [[UIImageView alloc]init];
@@ -202,12 +204,16 @@
 //nameButton 点击事件
 - (void)pageAction:(UIButton *)sender
 {
-    
-    HTLoginViewController *loginVC = [[HTLoginViewController alloc]init];
-    loginVC.delegate = self;
-    UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
-    
-    [self presentViewController:loginNC animated:YES completion:nil];
+    AVUser *currUser = [AVUser currentUser];
+    if (currUser == nil) {
+        HTLoginViewController *loginVC = [[HTLoginViewController alloc]init];
+        loginVC.delegate = self;
+        UINavigationController *loginNC = [[UINavigationController alloc]initWithRootViewController:loginVC];
+        [self presentViewController:loginNC animated:YES completion:nil];
+    } else {
+        
+        [self MyPageAction:nil];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -338,6 +344,11 @@
         
         self.headImg.image = [UIImage imageNamed:@"HTLeftMenu_Head"];
         [self.nameButton setTitle:@"未登录" forState:UIControlStateNormal];
+        
+        HTWorldExploreViewController *worldVC = [[HTWorldExploreViewController alloc]init];
+        //替换当前视图
+        [self.sideMenuViewController setContentViewController:worldVC];
+        
     } else {
         
         if ([currentUser.photo_url isEqualToString:@""] || currentUser.photo_url == nil) {

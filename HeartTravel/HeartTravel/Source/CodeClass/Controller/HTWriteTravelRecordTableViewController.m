@@ -41,6 +41,8 @@
 
 @property (strong, nonatomic) NSMutableArray *titleArray;
 
+@property (strong, nonatomic) NSString *dateString;
+
 @property (strong, nonatomic) HTTravelRecordModel *travelRecordModel;
 
 @property (strong, nonatomic) HTDistrictSearchModel *districtSearchModel;
@@ -407,6 +409,8 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
     
     NSString *dateString = [formatter stringFromDate:date];
     
+    self.dateString = dateString;
+    
     self.titleArray[0] = dateString;
     
     [self.tableView reloadData];
@@ -508,6 +512,34 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
 
 - (void)commitAction:(UIButton *)sender {
     
+    
+    if ([self.topicTitle isEqualToString:@""] || self.topicTitle == nil) {
+        
+        NSString *string = @"标题不能为空!";
+        [self showFailAlert:string];
+        return;
+    } else if ([self.travelRecordText isEqualToString:@""] || self.travelRecordText == nil) {
+        NSString *string = @"游记内容不能为空！";
+        [self showFailAlert:string];
+        return;
+    } else if (self.images.count == 0 || self.images == nil) {
+        
+        NSString *string = @"请选择图片！";
+        [self showFailAlert:string];
+        return;
+    } else if ([self.dateString isEqualToString:@""] || self.dateString == nil) {
+        
+        NSString *string = @"日期不能为空！";
+        [self showFailAlert:string];
+        return;
+    } else if (self.districtSearchModel == nil)  {
+        
+        NSString *string = @"地区不能为空！";
+        [self showFailAlert:string];
+        return;
+    }
+    
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.delegate = self;
     hud.labelText = @"正在上传...";
@@ -573,6 +605,16 @@ static NSString *const HTWriteRecordCellID = @"HTWriteRecordCellIdentifier";
     
     
    
+}
+
+- (void)showFailAlert:(NSString *)failMessage {
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:failMessage preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:nil];
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+
+    
 }
 
 - (void)showSuccessAlert {

@@ -18,6 +18,7 @@
 #import "UIImageView+WebCache.h"
 #import "HTFavoriteRecordTableViewController.h"
 #import "HTLeftMenuViewController.h"
+#import "HTFileService.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -114,7 +115,7 @@
 {
     UITableViewCell* cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
     
-   NSArray *array = @[@"修改资料",@"我的收藏",@"退出账户"];
+   NSArray *array = @[@"修改资料",@"我的收藏",@"清除缓存",@"退出账户"];
       cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.textLabel.text = array[indexPath.row];
     return cell;
@@ -135,6 +136,9 @@
         HTFavoriteRecordTableViewController *favoriteRecordTVC = [[HTFavoriteRecordTableViewController alloc] initWithStyle:(UITableViewStylePlain)];
         [self.navigationController pushViewController:favoriteRecordTVC animated:YES];
     
+    }else if(indexPath.row == 2) {
+        
+        [self clearCache];
     }else
     {
        
@@ -174,6 +178,47 @@
 {
     [_headView resizeView];
 }
+
+#pragma mark ---------------清除缓存------------------
+- (void)clearCache {
+    
+    NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+    
+    
+    CGFloat floatNum = [HTFileService folderSizeAtPath:cachesPath];
+    
+    
+
+    if (floatNum >= 0.01) {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"清除缓存" message:[NSString stringWithFormat:@"缓存大小为%.2fM,确定要清除缓存么？",floatNum] preferredStyle:(UIAlertControllerStyleAlert)];
+        
+        UIAlertAction *defautlAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+            
+            [HTFileService clearCache:cachesPath];
+        }];
+        
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:nil];
+        
+        [alert addAction:defautlAction];
+        [alert addAction:cancelAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"缓存为0M,不需要清除" preferredStyle:(UIAlertControllerStyleAlert)];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"确定" style:(UIAlertActionStyleDefault) handler:nil];
+        
+        [alert addAction:defaultAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+        
+    }
+    
+    
+}
+
+
 
 #pragma mark---------------头像添加手势的触发事件--------------
 - (void)tapAction:(UITapGestureRecognizer *)sender

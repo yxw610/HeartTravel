@@ -23,7 +23,7 @@
         self.viewControllerClasses = @[[HTCityFieldTableViewController class],[HTCityFieldTableViewController class],[HTCityFieldTableViewController class],[HTCityFieldTableViewController class],[HTCityFieldTableViewController class]];
         self.keys=@[@"urlArray",@"urlArray",@"urlArray",@"urlArray",@"urlArray"].mutableCopy;
         self.values=@[@[@0,palceID],@[@1,palceID],@[@2,palceID],@[@3,palceID],@[@4,palceID]].mutableCopy;
-        self.titleColorSelected = [UIColor greenColor];
+        self.titleColorSelected = [UIColor grayColor];
         self.menuViewStyle = WMMenuViewStyleLine;
     }
     return self;

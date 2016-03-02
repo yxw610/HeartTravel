@@ -129,7 +129,16 @@
             UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(self.imgViewWidth * i + self.gap * (i + 1), self.gap, self.imgViewWidth, imgHeight)];
             imgView.center = CGPointMake(imgView.center.x, self.imgViewHeight / 2);
             
-            [imgView sd_setImageWithURL:[NSURL URLWithString:model.photo_url]];
+            UIProgressView *pv = [[UIProgressView alloc] initWithProgressViewStyle:(UIProgressViewStyleDefault)];
+            [imgView sd_setImageWithURL:[NSURL URLWithString:model.photo_url] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"] options:(SDWebImageCacheMemoryOnly) progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                
+                pv.frame = CGRectMake(0, 0, CGRectGetWidth(imgView.frame)/2, 50);
+                pv.center = imgView.center;
+                [imgView addSubview:pv];
+            } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                
+                [pv removeFromSuperview];
+            }];
             imgView.userInteractionEnabled = YES;
             imgView.tag = 1000 + i;
             

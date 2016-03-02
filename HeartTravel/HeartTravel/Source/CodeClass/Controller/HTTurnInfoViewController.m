@@ -14,6 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import <MBProgressHUD.h>
 #import "GetUser.h"
+#import "HTLoginViewController.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -50,9 +51,10 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:norImg style:(UIBarButtonItemStylePlain) target:self action:@selector(rightAction:)];
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self drawView];
 }
-
 
 
 - (void)drawView {

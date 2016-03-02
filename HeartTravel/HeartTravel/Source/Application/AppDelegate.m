@@ -15,6 +15,7 @@
 #import <RESideMenu/UIViewController+RESideMenu.h>
 #import <RESideMenu/RESideMenu.h>
 #import <AVOSCloud.h>
+#import "GetUser.h"
 
 @interface AppDelegate ()
 
@@ -24,8 +25,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [AVUser logOut];
     
+    [AVUser logOut];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
