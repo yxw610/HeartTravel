@@ -55,7 +55,7 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
 
     self.navigationItem.title = @"游记";
     
-    
+    self.navigationController.navigationBar.barTintColor = [UIColor grayColor];
     
     UIImage * normalImg = [UIImage imageNamed:@"HTHome_Menu"];
     normalImg = [normalImg imageWithRenderingMode:(UIImageRenderingModeAlwaysOriginal)];
@@ -63,6 +63,7 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:normalImg style:UIBarButtonItemStylePlain target:self action:@selector(leftMenuAction:)];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发现" style:UIBarButtonItemStylePlain target:self action:@selector(discoveryHotViewAction:)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HTTravelRecordTableViewCell" bundle:nil] forCellReuseIdentifier:HTTravelRecordCellID];
 

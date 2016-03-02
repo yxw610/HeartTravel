@@ -14,7 +14,7 @@
 - (void)setDetail:(HTDestinationStrategy *)detail {
     self.detailNameLabel.text = detail.name;
     self.inspirationLabel.text = [NSString stringWithFormat:@"%lu条旅行灵感",detail.inspiration_activities_count];
-    [self.detailImgView sd_setImageWithURL:[NSURL URLWithString:detail.photo_url]];
+    [self.detailImgView sd_setImageWithURL:[NSURL URLWithString:detail.photo_url] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
 }
 
 - (void)awakeFromNib {

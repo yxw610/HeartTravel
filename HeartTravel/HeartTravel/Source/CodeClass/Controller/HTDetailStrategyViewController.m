@@ -51,7 +51,7 @@
 }
 - (void)drawView {
     _bigImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
-    //[self.bigImageView sd_setImageWithURL:[NSURL URLWithString:@"http://inspiration.chanyouji.cn/InspirationActivity/5/89dfb918a7d68f0b5f9f8b177159070d.jpg"]];
+    
     _bigImageView.clipsToBounds = YES;
     _bigImageView.contentMode = UIViewContentModeScaleAspectFill;
     _headView = [[HJTableViewHeader alloc]init];
@@ -67,7 +67,7 @@
         HTDetailStrategyModel *model = [HTDetailStrategyModel new];
         [model setValuesForKeysWithDictionary:dataDict[@"data"]];
         [self.dataArray addObject:model];
-        [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:model.cropping_url]];
+        [self.bigImageView sd_setImageWithURL:[NSURL URLWithString:model.cropping_url] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
         // 返回主线程刷新
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];

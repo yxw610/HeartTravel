@@ -39,7 +39,7 @@ static NSString *const cellReuseIdentifier = @"cellReuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = self.categaryName;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"HTiconfont-fanhui"] style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"HTiconfont-fanhui"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"HTStrategyTableViewCell" bundle:nil] forCellReuseIdentifier:cellReuseIdentifier];
     self.foldDict = [NSMutableDictionary dictionary];

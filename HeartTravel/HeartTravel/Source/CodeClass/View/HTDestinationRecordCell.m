@@ -57,7 +57,7 @@
     self.userNameLabel.text = model.userInfo.name;
     // 设置图片信息
     self.topicImgViewHeightConstraint.constant = imgViewHeight;
-    [self.recordImageView sd_setImageWithURL:[NSURL URLWithString:((HTRecordContentModel *)model.contents[0]).photo_url]];
+    [self.recordImageView sd_setImageWithURL:[NSURL URLWithString:((HTRecordContentModel *)model.contents[0]).photo_url] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapActionInTopicImageView:)];
     self.recordImageView.userInteractionEnabled = YES;
