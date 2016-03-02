@@ -368,7 +368,11 @@
                 
                 if (objects.count == 0) {
                     
-                    [weakSelf addFavoriteCount:kFavoriteRecord];
+//                    [weakSelf addFavoriteCount:kFavoriteRecord];
+                    @synchronized(weakSelf) {
+                        
+                        [weakSelf addFavoriteCount:kFavoriteRecord];
+                    }
                 } else {
                     
                     NSInteger i = 0;
@@ -378,11 +382,18 @@
                         if ([object[@"model_id"] integerValue] == self.model.model_id) {
                             
                             i = 1;
-                            [weakSelf removeFavoriteCount:kFavoriteRecord];
+//                            [weakSelf removeFavoriteCount:kFavoriteRecord];
+                            @synchronized(weakSelf) {
+                                [weakSelf removeFavoriteCount:kFavoriteRecord];
+                            }
                         }
                     }
                     if (i == 0) {
-                        [weakSelf addFavoriteCount:kFavoriteRecord];
+//                        [weakSelf addFavoriteCount:kFavoriteRecord];
+                        @synchronized(weakSelf) {
+                            
+                            [weakSelf addFavoriteCount:kFavoriteRecord];
+                        }
                     }
                 }
             }];
@@ -396,7 +407,10 @@
                 
                 if (objects.count == 0) {
                     
-                    [weakSelf addFavoriteCount:kFavoriteInfo];
+//                    [weakSelf addFavoriteCount:kFavoriteInfo];
+                    @synchronized(weakSelf) {
+                        [weakSelf addFavoriteCount:kFavoriteInfo];
+                    }
                 } else {
                     
                     NSInteger i = 0;
@@ -406,11 +420,17 @@
                         if ([object[@"model_id"] integerValue] == self.model.model_id) {
                             
                             i = 1;
-                            [weakSelf removeFavoriteCount:kFavoriteInfo];
+//                            [weakSelf removeFavoriteCount:kFavoriteInfo];
+                            @synchronized(weakSelf) {
+                                [weakSelf removeFavoriteCount:kFavoriteInfo];
+                            }
                         }
                     }
                     if (i == 0) {
-                        [weakSelf addFavoriteCount:kFavoriteInfo];
+//                        [weakSelf addFavoriteCount:kFavoriteInfo];
+                        @synchronized(weakSelf) {
+                            [weakSelf addFavoriteCount:kFavoriteInfo];
+                        }
                     }
                 }
             }];
