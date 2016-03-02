@@ -20,7 +20,6 @@
 		884649E01C48CE960031AA86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 884649DF1C48CE960031AA86 /* Assets.xcassets */; };
 		884649E31C48CE960031AA86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 884649E11C48CE960031AA86 /* LaunchScreen.storyboard */; };
 		884A57061C8530FF0068F85F /* GetUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A57051C8530FF0068F85F /* GetUser.m */; };
-		884A57081C8564D20068F85F /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 884A57071C8564D20068F85F /* 9.jpg */; };
 		884A570B1C857FF90068F85F /* dianzan-no.png in Resources */ = {isa = PBXBuildFile; fileRef = 884A57091C857FF90068F85F /* dianzan-no.png */; };
 		884A570C1C857FF90068F85F /* dianzan-yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 884A570A1C857FF90068F85F /* dianzan-yes.png */; };
 		884A57121C85BEC40068F85F /* HTFavoriteRecordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 884A57111C85BEC40068F85F /* HTFavoriteRecordTableViewController.m */; };
@@ -107,6 +106,7 @@
 		CD8635AC1C51D6DC003AFF10 /* HTLogin_User.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8635A51C51D6DC003AFF10 /* HTLogin_User.png */; };
 		CD8635AD1C51D6DC003AFF10 /* HTRegister_BackImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD8635A61C51D6DC003AFF10 /* HTRegister_BackImage.jpg */; };
 		CDAA82691C48E44100899B49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAA825D1C48E44100899B49 /* AppDelegate.m */; };
+		CDC77B8C1C86D305005FBA8C /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDC77B8B1C86D305005FBA8C /* 9.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,7 +134,6 @@
 		884649E41C48CE960031AA86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		884A57041C8530FF0068F85F /* GetUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUser.h; sourceTree = "<group>"; };
 		884A57051C8530FF0068F85F /* GetUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUser.m; sourceTree = "<group>"; };
-		884A57071C8564D20068F85F /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
 		884A57091C857FF90068F85F /* dianzan-no.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dianzan-no.png"; sourceTree = "<group>"; };
 		884A570A1C857FF90068F85F /* dianzan-yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dianzan-yes.png"; sourceTree = "<group>"; };
 		884A57101C85BEC40068F85F /* HTFavoriteRecordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTFavoriteRecordTableViewController.h; sourceTree = "<group>"; };
@@ -281,6 +280,7 @@
 		CDAA82651C48E44100899B49 /* KEYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEYHeader.h; sourceTree = "<group>"; };
 		CDAA82661C48E44100899B49 /* THRHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THRHeader.h; sourceTree = "<group>"; };
 		CDAA82671C48E44100899B49 /* URLHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLHeader.h; sourceTree = "<group>"; };
+		CDC77B8B1C86D305005FBA8C /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,9 +365,9 @@
 		CD4A5BEA1C4CC56500371BC8 /* picture */ = {
 			isa = PBXGroup;
 			children = (
+				CDC77B8B1C86D305005FBA8C /* 9.jpg */,
 				884A57091C857FF90068F85F /* dianzan-no.png */,
 				884A570A1C857FF90068F85F /* dianzan-yes.png */,
-				884A57071C8564D20068F85F /* 9.jpg */,
 				CD8456DE1C852C1C00331469 /* iconfont-iconfanhui-2.png */,
 				CD8456DF1C852C1C00331469 /* iconfont-queren.png */,
 				CD8456E01C852C1C00331469 /* iconfont-unie64d.png */,
@@ -669,7 +669,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				884A57081C8564D20068F85F /* 9.jpg in Resources */,
 				CD8635A91C51D6DC003AFF10 /* HTLeftMenu_Head.png in Resources */,
 				CD8456F11C852C1C00331469 /* writeTravelRecord_Mark1.png in Resources */,
 				C006283B1C5212B5007B83F9 /* HTCityDetailsCell.xib in Resources */,
@@ -693,6 +692,7 @@
 				CD8456EF1C852C1C00331469 /* writeTravelRecord_Map.png in Resources */,
 				CD8456EB1C852C1C00331469 /* writeTravelRecord_Camera.png in Resources */,
 				88D5C4721C8081C000796E3B /* HTDestinationStrategyCell.xib in Resources */,
+				CDC77B8C1C86D305005FBA8C /* 9.jpg in Resources */,
 				CD8456EE1C852C1C00331469 /* writeTravelRecord_Date1.png in Resources */,
 				CD8456EC1C852C1C00331469 /* writeTravelRecord_Camera1.png in Resources */,
 				884A570C1C857FF90068F85F /* dianzan-yes.png in Resources */,
