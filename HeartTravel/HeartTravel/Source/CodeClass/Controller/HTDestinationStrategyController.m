@@ -165,31 +165,12 @@ static NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
         return header;
     }
 }
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (section == 0 && self.dataArray.count != 0) {
-        
-        return nil;
-    }else {
-        UIButton *footer = [UIButton buttonWithType:(UIButtonTypeCustom)];
-        footer.backgroundColor = [UIColor whiteColor];
-        footer.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight/15);
-        [footer setTitle:@"更多氢游记" forState:(UIControlStateNormal)];
-        [footer setTitleColor:[UIColor colorWithWhite:0.400 alpha:1.000] forState:(UIControlStateNormal)];
-        [footer addTarget:self action:@selector(click) forControlEvents:(UIControlEventTouchUpInside)];
-        tableView.delaysContentTouches = NO;
-        
-        return footer;
-    }
-}
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return kScreenHeight/20;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 0 && self.dataArray.count != 0) {
-        return 1;
-    }else {
-        return kScreenHeight/15;
-    }
+    
+    return 1;
 }
 - (void)click {
     NSLog(@"==");

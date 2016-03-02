@@ -56,22 +56,6 @@ static NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
         });
 
     }];
-//    /**
-//     *  使用AFNetWorking进行网络解析
-//     */
-//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    [manager GET:Hot_URL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        self.dataArray = [[NSMutableArray alloc] initWithCapacity:15];
-//        for (NSDictionary *dict in ((NSDictionary *)responseObject)[@"data"][@"destinations"]) {
-//            HTDiscoveryHot *model = [HTDiscoveryHot new];
-//            [model setValuesForKeysWithDictionary:dict];
-//            [self.dataArray addObject:model];
-//        }
-//        // 返回主线程刷新
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self.collectionView reloadData];
-//        });
-//    } failure:nil];
     
 }
 // 返回增补视图
