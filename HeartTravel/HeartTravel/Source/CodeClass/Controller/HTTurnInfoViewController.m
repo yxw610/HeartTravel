@@ -341,9 +341,12 @@
         [_genderButton setTitle:Lady forState:UIControlStateNormal];
         
     }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+
     
     [alert addAction:gentlemanAction];
     [alert addAction:ladyAction];
+    [alert addAction:cancelAction];
     
     
     
