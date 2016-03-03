@@ -63,7 +63,7 @@
     
  
     GetUser *currentUser = [GetUser shareGetUser];
-    NSLog(@"%@",currentUser);
+
     
 #pragma mark -------------------头像------------------
     self.headImg = [[UIImageView alloc]init];
@@ -95,8 +95,16 @@
     if (currentUser == nil) {
         [self.nameButton setTitle:@"未登录" forState:(UIControlStateNormal)];
     } else {
-        [self.nameButton setTitle:currentUser.name forState:(UIControlStateNormal)];
-        [self.headImg sd_setImageWithURL:[NSURL URLWithString:currentUser.photo_url]];
+        
+        if ([currentUser.name isEqualToString:@""] || currentUser.name == nil) {
+            
+            [self.nameButton setTitle:@"尚未设置昵称" forState:(UIControlStateNormal)];
+        } else {
+            
+            [self.nameButton setTitle:currentUser.name forState:(UIControlStateNormal)];
+        }
+        
+        [self.headImg sd_setImageWithURL:[NSURL URLWithString:currentUser.photo_url] placeholderImage:[UIImage imageNamed:@"iconfont-unie64d"]];
     }
     
     
@@ -108,7 +116,7 @@
     [self.nameButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(weakSelf.backImg.mas_left).with.offset(nameInsets.left);
         make.top.equalTo(weakSelf.headImg.mas_bottom).with.offset(nameInsets.top);
-        make.width.equalTo(@100);
+        make.width.equalTo(@200);
         make.height.equalTo(@40);
     }];
     
@@ -333,7 +341,13 @@
             
             [self.headImg sd_setImageWithURL:[NSURL URLWithString:currentUser.photo_url] placeholderImage:[UIImage imageNamed:@"iconfont-unie64d"]];
         }
+    
+    if ([currentUser.name isEqualToString:@""] || currentUser.name == nil) {
+        
+        [self.nameButton setTitle:@"尚未设置昵称" forState:UIControlStateNormal];
+    } else {
         [self.nameButton setTitle:currentUser.name forState:UIControlStateNormal];
+    }
 }
 
 - (void)changeLoginState {

@@ -26,7 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [AVUser logOut];
+    [self setLeanCloudID];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -41,7 +41,7 @@
     
     self.window.rootViewController = sideMenuViewController;
     
-    [self setLeanCloudID];
+   
 
     return YES;
 }
