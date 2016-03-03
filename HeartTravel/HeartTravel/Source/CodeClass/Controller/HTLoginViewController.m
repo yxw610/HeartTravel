@@ -234,6 +234,7 @@
             
             if (user != nil) {
                 
+                
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"登陆成功" preferredStyle:UIAlertControllerStyleAlert];
                   //__unsafe_unretained typeof(self) weakSelf = self;
                 
