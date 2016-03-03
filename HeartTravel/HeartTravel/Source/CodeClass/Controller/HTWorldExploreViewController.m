@@ -57,7 +57,7 @@
     [self.view addSubview:menu];
     
     //滑动图片样式
-    self.carousel.type = iCarouselTypeTimeMachine;
+    self.carousel.type = iCarouselTypeRotary;
     self.carousel.delegate = self;
     self.carousel.dataSource = self;
     self.wrap = YES;
@@ -66,6 +66,7 @@
 }
 //功能按钮的实现.
 - (IBAction)changeLeft:(id)sender {
+    self.carousel.type = iCarouselTypeTimeMachine;
     [self.sideMenuViewController presentLeftMenuViewController];
 }
 

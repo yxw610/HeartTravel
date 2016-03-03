@@ -26,7 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [AVUser logOut];
+    [self setLeanCloudID];
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -41,9 +41,9 @@
     
     self.window.rootViewController = sideMenuViewController;
     
-    [self setLeanCloudID];
-      //设置启动页面时间
-     [NSThread sleepForTimeInterval:1];
+    [NSThread sleepForTimeInterval:1];
+
+
     return YES;
 }
 
