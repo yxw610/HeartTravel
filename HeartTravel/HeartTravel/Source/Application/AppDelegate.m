@@ -41,7 +41,8 @@
     
     self.window.rootViewController = sideMenuViewController;
     
-   
+    [NSThread sleepForTimeInterval:1];
+
 
     return YES;
 }
