@@ -42,7 +42,8 @@
     self.window.rootViewController = sideMenuViewController;
     
     [self setLeanCloudID];
-
+      //设置启动页面时间
+     [NSThread sleepForTimeInterval:1];
     return YES;
 }
 

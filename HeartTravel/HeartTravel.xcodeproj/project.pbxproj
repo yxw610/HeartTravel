@@ -108,6 +108,7 @@
 		CD8635AC1C51D6DC003AFF10 /* HTLogin_User.png in Resources */ = {isa = PBXBuildFile; fileRef = CD8635A51C51D6DC003AFF10 /* HTLogin_User.png */; };
 		CD8635AD1C51D6DC003AFF10 /* HTRegister_BackImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CD8635A61C51D6DC003AFF10 /* HTRegister_BackImage.jpg */; };
 		CDAA82691C48E44100899B49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAA825D1C48E44100899B49 /* AppDelegate.m */; };
+		CDC54A3D1C87E40400533175 /* HTactive.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDC54A3C1C87E40400533175 /* HTactive.jpg */; };
 		CDC77B8C1C86D305005FBA8C /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CDC77B8B1C86D305005FBA8C /* 9.jpg */; };
 /* End PBXBuildFile section */
 
@@ -285,6 +286,7 @@
 		CDAA82651C48E44100899B49 /* KEYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KEYHeader.h; sourceTree = "<group>"; };
 		CDAA82661C48E44100899B49 /* THRHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THRHeader.h; sourceTree = "<group>"; };
 		CDAA82671C48E44100899B49 /* URLHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLHeader.h; sourceTree = "<group>"; };
+		CDC54A3C1C87E40400533175 /* HTactive.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = HTactive.jpg; sourceTree = "<group>"; };
 		CDC77B8B1C86D305005FBA8C /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -370,6 +372,7 @@
 		CD4A5BEA1C4CC56500371BC8 /* picture */ = {
 			isa = PBXGroup;
 			children = (
+				CDC54A3C1C87E40400533175 /* HTactive.jpg */,
 				884A57151C86E4640068F85F /* placeholder.jpg */,
 				CDC77B8B1C86D305005FBA8C /* 9.jpg */,
 				884A57091C857FF90068F85F /* dianzan-no.png */,
@@ -685,6 +688,7 @@
 				C006283D1C521376007B83F9 /* HTiconfont-fanhui.png in Resources */,
 				C0F40D9C1C59C21100155DEC /* HTPlacesCell.xib in Resources */,
 				CD8456E81C852C1C00331469 /* iconfont-iconfanhui-2.png in Resources */,
+				CDC54A3D1C87E40400533175 /* HTactive.jpg in Resources */,
 				CD8635AB1C51D6DC003AFF10 /* HTLogin_Password.png in Resources */,
 				88D5C4741C8081C000796E3B /* HTDetailStrategyCell.xib in Resources */,
 				C09ED57A1C4DE7A80084C08E /* HTWorldExploreViewController.xib in Resources */,
