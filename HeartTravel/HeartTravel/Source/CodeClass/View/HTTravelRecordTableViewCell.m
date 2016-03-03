@@ -164,7 +164,7 @@ typedef NS_ENUM(NSInteger, HTFavoriteStyle) {
         self.districts.text = districtString;
     }
     
-    if (model.groupNum == 0) {
+    if (model.groupNum == 0 && user != nil) {
         
         AVQuery *query = [AVQuery queryWithClassName:@"URLRecord"];
         [query whereKey:@"model_id" equalTo:@(model.model_id)];
@@ -197,7 +197,7 @@ typedef NS_ENUM(NSInteger, HTFavoriteStyle) {
             }
         }];
         
-    } else {
+    } else if(model.groupNum == 0 && user != nil){
         
         AVQuery *query = [AVQuery queryWithClassName:@"TravelRecord"];
         [query whereKey:@"model_id" equalTo:@(model.model_id)];
@@ -222,6 +222,25 @@ typedef NS_ENUM(NSInteger, HTFavoriteStyle) {
                 }
             }
         }];
+    }
+    else if (model.groupNum == 1 && user == nil) {
+        
+        AVQuery *query = [AVQuery queryWithClassName:@"TravelRecord"];
+        [query whereKey:@"model_id" equalTo:@(model.model_id)];
+        NSArray *array = [query findObjects];
+        AVObject *record = [array firstObject];
+        self.favoriteCount = [record[@"favorites_count"] integerValue];
+        self.favoriteCountLabel.text = [record[@"favorites_count"] stringValue];
+        self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-no"];
+    } else  {
+        
+        AVQuery *query = [AVQuery queryWithClassName:@"URLRecord"];
+        [query whereKey:@"model_id" equalTo:@(model.model_id)];
+        NSArray *array = [query findObjects];
+        AVObject *record = [array firstObject];
+        self.favoriteCount = [record[@"favorites_count"] integerValue];
+        self.favoriteCountLabel.text = [record[@"favorites_count"] stringValue];
+        self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-no"];
     }
    
 }
