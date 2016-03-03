@@ -17,7 +17,7 @@
     
     self.inspirationCountLabel.text = [NSString stringWithFormat:@"-%lu条旅行灵感-",model.inspiration_activities_count];
     
-    [self.topicImageView sd_setImageWithURL:[NSURL URLWithString:model.photo_url]];
+    [self.topicImageView sd_setImageWithURL:[NSURL URLWithString:model.photo_url] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
 }
 
 - (void)awakeFromNib {

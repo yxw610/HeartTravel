@@ -19,7 +19,7 @@
 - (void)setDiscoveryHot:(HTDiscoveryHot *)discoveryHot {
     self.nameLabel.text = discoveryHot.name;
     self.englishNameLabel.text = discoveryHot.name_en;
-    [self.imgView sd_setImageWithURL:[NSURL URLWithString:discoveryHot.photo_url]];
+    [self.imgView sd_setImageWithURL:[NSURL URLWithString:discoveryHot.photo_url] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
 }
 
 @end

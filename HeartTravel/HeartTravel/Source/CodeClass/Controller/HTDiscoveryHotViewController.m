@@ -34,6 +34,8 @@ static NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
     [super viewDidLoad];
     self.collectionView.backgroundColor = [UIColor whiteColor];
     
+    self.navigationItem.title = @"发现";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"HTiconfont-fanhui"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
     // 注册cell
     [self.collectionView registerNib:[UINib nibWithNibName:@"HTDiscoveryHotCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     // 注册增补视图
@@ -128,6 +130,10 @@ static NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
 // 返回collectionView相关路径是否可以被点击
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
+}
+- (void)leftButtonAction {
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 #pragma mark <UICollectionViewDelegate>
 

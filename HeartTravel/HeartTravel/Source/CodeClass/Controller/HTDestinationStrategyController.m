@@ -40,7 +40,8 @@ static NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"HTiconfont-fanhui"] style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
+    self.navigationItem.title = self.string;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"HTiconfont-fanhui"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
     [self.tableView registerNib:[UINib nibWithNibName:@"HTDestinationStrategyCell" bundle:nil] forCellReuseIdentifier:cellReuseID];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HTDestinationRecordCell" bundle:nil] forCellReuseIdentifier:cellReuseIdentifier];
