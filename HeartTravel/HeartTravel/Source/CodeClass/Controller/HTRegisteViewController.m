@@ -128,6 +128,7 @@
     self.regButton.backgroundColor = [UIColor grayColor];
     self.regButton.layer.cornerRadius = 10;
     [self.regButton setTitle:@"Register" forState:UIControlStateNormal];
+    [self.regButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     self.regButton.layer.masksToBounds = YES;
     [self.regButton addTarget:self action:@selector(regButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.backImg addSubview:self.regButton];
