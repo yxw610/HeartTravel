@@ -26,6 +26,12 @@
 #define kFavoriteRecord @"FavoriteRecord"
 #define kFavoriteInfo @"FavoriteInfo"
 
+typedef NS_ENUM(NSInteger, HTFavoriteStyle) {
+    HTFavoriteStyleURL,
+    HTFavoriteStyleLocation,
+};
+
+
 @interface HTTravelRecordTableViewCell ()
 
 /**
@@ -53,6 +59,13 @@
  */
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *recordContentLabelConstraintToRecordContentViewBottom;
 
+@property (assign, nonatomic) NSInteger favoriteCount;
+
+@property (assign, nonatomic) BOOL addORNo;
+
+@property (assign, nonatomic) HTFavoriteStyle favoriteStyle;
+
+
 @end
 
 @implementation HTTravelRecordTableViewCell
@@ -72,6 +85,8 @@
  *  @param model model对象
  */
 - (void)setCellValueWithModel:(HTTravelRecordModel *)model imgViewHeight:(CGFloat)imgViewHeight recordContentViewHeight:(CGFloat)recordContentViewHeight{
+    
+    self.addORNo = YES;
     
     self.model = model;
     
@@ -158,6 +173,7 @@
             AVObject *record = [objects firstObject];
             dispatch_async(dispatch_get_main_queue(), ^{
                 
+                self.favoriteCount = [record[@"favorites_count"] integerValue];
                 self.favoriteCountLabel.text = [record[@"favorites_count"] stringValue];
             });
             
@@ -174,6 +190,7 @@
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
                         
+                        self.addORNo = NO;
                         self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-yes"];
                     });
                 }
@@ -186,6 +203,7 @@
         [query whereKey:@"model_id" equalTo:@(model.model_id)];
         NSArray *array = [query findObjects];
         AVObject *record = [array firstObject];
+        self.favoriteCount = [record[@"favorites_count"] integerValue];
         self.favoriteCountLabel.text = [record[@"favorites_count"] stringValue];
         
         AVQuery *favoriteQuery = [AVQuery queryWithClassName:kFavoriteInfo];
@@ -198,6 +216,7 @@
                     
                     dispatch_async(dispatch_get_main_queue(), ^{
                         
+                        self.addORNo = NO;
                         self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-yes"];
                     });
                 }
@@ -347,6 +366,57 @@
  *
  *  @param tap tap手势
  */
+
+- (void)favoriteOrNoAction:(UITapGestureRecognizer *)tap {
+    NSLog(@"favoriteOrNoAction");
+    
+    AVUser *user = [AVUser currentUser];
+    if (user == nil) {
+        
+        
+    } else {
+        
+        GetUser *user = [GetUser shareGetUser];
+        
+        if (self.model.groupNum == 0) {
+            self.favoriteStyle = HTFavoriteStyleURL;
+            if (self.addORNo == YES) {
+                
+                self.addORNo = NO;
+                self.favoriteCount += 1;
+                self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld",self.favoriteCount];
+                self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-yes"];
+                
+                self.favoriteCountBlock(self.favoriteCount,0,self.model.model_id,YES);
+            } else {
+                self.addORNo = YES;
+                self.favoriteCount -= 1;
+                self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld",self.favoriteCount];
+                self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-no"];
+                self.favoriteCountBlock(self.favoriteCount,0,self.model.model_id,NO);
+            }
+            
+        } else {
+            self.favoriteStyle = HTFavoriteStyleLocation;
+            if (self.addORNo == YES) {
+                self.addORNo = NO;
+                self.favoriteCount += 1;
+                self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld",self.favoriteCount];
+                self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-yes"];
+                self.favoriteCountBlock(self.favoriteCount,1,self.model.model_id,YES);
+            } else {
+                self.addORNo = YES;
+                self.favoriteCount -= 1;
+                self.favoriteCountLabel.text = [NSString stringWithFormat:@"%ld",self.favoriteCount];
+                self.favoriteImgView.image = [UIImage imageNamed:@"dianzan-no"];
+                self.favoriteCountBlock(self.favoriteCount,1,self.model.model_id,NO);
+            }
+        }
+        
+    }
+}
+
+/*
 - (void)favoriteOrNoAction:(UITapGestureRecognizer *)tap {
 
     NSLog(@"favoriteOrNoAction");
@@ -358,21 +428,20 @@
     } else {
         
         GetUser *user = [GetUser shareGetUser];
+   
         if (self.model.groupNum == 0) {
             
             AVQuery *query = [AVQuery queryWithClassName:kFavoriteRecord];
             [query whereKey:@"user_id" equalTo:@(user.user_id)];
             
             __unsafe_unretained typeof(self) weakSelf = self;
+            
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 
                 if (objects.count == 0) {
                     
-//                    [weakSelf addFavoriteCount:kFavoriteRecord];
-                    @synchronized(weakSelf) {
-                        
-                        [weakSelf addFavoriteCount:kFavoriteRecord];
-                    }
+                    [weakSelf addFavoriteCount:kFavoriteRecord];
+
                 } else {
                     
                     NSInteger i = 0;
@@ -382,18 +451,12 @@
                         if ([object[@"model_id"] integerValue] == self.model.model_id) {
                             
                             i = 1;
-//                            [weakSelf removeFavoriteCount:kFavoriteRecord];
-                            @synchronized(weakSelf) {
-                                [weakSelf removeFavoriteCount:kFavoriteRecord];
-                            }
+                            [weakSelf removeFavoriteCount:kFavoriteRecord];
+
                         }
                     }
                     if (i == 0) {
-//                        [weakSelf addFavoriteCount:kFavoriteRecord];
-                        @synchronized(weakSelf) {
-                            
-                            [weakSelf addFavoriteCount:kFavoriteRecord];
-                        }
+                        [weakSelf addFavoriteCount:kFavoriteRecord];
                     }
                 }
             }];
@@ -407,10 +470,8 @@
                 
                 if (objects.count == 0) {
                     
-//                    [weakSelf addFavoriteCount:kFavoriteInfo];
-                    @synchronized(weakSelf) {
-                        [weakSelf addFavoriteCount:kFavoriteInfo];
-                    }
+                    [weakSelf addFavoriteCount:kFavoriteInfo];
+
                 } else {
                     
                     NSInteger i = 0;
@@ -420,17 +481,13 @@
                         if ([object[@"model_id"] integerValue] == self.model.model_id) {
                             
                             i = 1;
-//                            [weakSelf removeFavoriteCount:kFavoriteInfo];
-                            @synchronized(weakSelf) {
-                                [weakSelf removeFavoriteCount:kFavoriteInfo];
-                            }
+                            [weakSelf removeFavoriteCount:kFavoriteInfo];
+
                         }
                     }
                     if (i == 0) {
-//                        [weakSelf addFavoriteCount:kFavoriteInfo];
-                        @synchronized(weakSelf) {
-                            [weakSelf addFavoriteCount:kFavoriteInfo];
-                        }
+                        [weakSelf addFavoriteCount:kFavoriteInfo];
+
                     }
                 }
             }];
@@ -439,6 +496,7 @@
     }
     
 }
+ */
 
 /**
  *  收藏
@@ -526,7 +584,11 @@
             
             AVObject *record = [objects firstObject];
             NSInteger favorites_count = [record[@"favorites_count"] integerValue];
-            favorites_count -= 1;
+            if (favorites_count > 0) {
+                
+                favorites_count -= 1;
+            }
+            
             
             record[@"favorites_count"] = @(favorites_count);
             [record saveInBackground];

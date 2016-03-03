@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @class HTTravelRecordModel;
+
+
+typedef void(^favoriteCountBlock)(NSInteger, NSInteger, NSInteger, BOOL);
 
 @interface HTTravelRecordTableViewCell : UITableViewCell
 
@@ -76,6 +80,11 @@
  *  喜爱人数
  */
 @property (weak, nonatomic) IBOutlet UILabel *favoriteCountLabel;
+
+/**
+ *  设置block
+ */
+@property (copy, nonatomic) favoriteCountBlock favoriteCountBlock;
 
 /**
  *  计算文本的高度

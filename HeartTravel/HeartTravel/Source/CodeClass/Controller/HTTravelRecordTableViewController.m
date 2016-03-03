@@ -19,6 +19,7 @@
 #import "HTUserModel.h"
 #import "HTRecordContentModel.h"
 #import "HTFileService.h"
+#import "GetUser.h"
 
 #define kURL @"http://q.chanyouji.com/api/v1/timelines.json?page=1&per=50"
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
@@ -32,6 +33,7 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
 @property (strong, nonatomic) NSMutableArray *cellMarkArray;
 @property (strong, nonatomic) NSMutableArray *cellHeightArray;
 @property (assign, nonatomic) NSInteger loadNum;
+@property (strong, nonatomic) NSMutableSet *favoriteSet;
 
 @end
 
@@ -42,7 +44,7 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     
     self = [super initWithStyle:style];
     if (self) {
-        
+        self.favoriteSet = [NSMutableSet set];
         self.cellHeightArray = [NSMutableArray array];
         self.loadNum = 1;
     }
@@ -374,6 +376,25 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
         
     };
     
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    cell.favoriteCountBlock = ^(NSInteger favoriteCount, NSInteger style, NSInteger model_id, BOOL isAdd) {
+
+
+        
+        [dict setValue:@(favoriteCount) forKey:@"favoriteCount"];
+        if (style == 0) {
+            [dict setValue:@"FavoriteRecord" forKey:@"style"];
+        } else {
+            [dict setValue:@"FavoriteInfo" forKey:@"style"];
+        }
+        [dict setValue:@(model_id) forKey:@"model_id"];
+        [dict setValue:@(isAdd) forKey:@"isAdd"];
+        
+        [self.favoriteSet addObject:dict];
+        
+    };
+    
     return cell;
 
 }
@@ -405,6 +426,91 @@ static NSString * const HTTravelRecordCellID = @"HTTravelRecordCellIdentifier";
     HTDiscoveryHotViewController *discoryHotVC = [[HTDiscoveryHotViewController alloc] initWithCollectionViewLayout:flowLayout];
 
     [self.navigationController pushViewController:discoryHotVC animated:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    AVUser *currentUser = [AVUser currentUser];
+    if (currentUser == nil) {
+        return;
+    } else if (self.favoriteSet.count == 0) {
+        return;
+    }
+    GetUser *user = [GetUser shareGetUser];
+    
+    for (NSDictionary *dict in self.favoriteSet) {
+        
+        if ([dict[@"isAdd"] boolValue] == YES) {
+            
+            NSString *className = dict[@"style"];
+            NSInteger modelId = [dict[@"model_id"] integerValue];
+            AVObject *object = [AVObject objectWithClassName:className];
+            object[@"model_id"] = @(modelId);
+            object[@"user_id"] = @(user.user_id);
+            [object saveInBackground];
+            
+            NSInteger favoriteCount = [dict[@"favoriteCount"] integerValue];
+            if ([className isEqualToString:@"FavoriteRecord"]) {
+                AVQuery *query = [AVQuery queryWithClassName:@"URLRecord"];
+                [query whereKey:@"model_id" equalTo:@(modelId)];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    
+                    AVObject *object = [objects firstObject];
+                    object[@"favorites_count"] = @(favoriteCount);
+                    [object saveInBackground];
+                }];
+            } else {
+                
+                AVQuery *query = [AVQuery queryWithClassName:@"TravelRecord"];
+                [query whereKey:@"model_id" equalTo:@(modelId)];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    
+                    AVObject *object = [objects firstObject];
+                    object[@"favorites_count"] = @(favoriteCount);
+                    [object saveInBackground];
+                }];
+            }
+            
+        } else {
+            
+            NSString *className = dict[@"style"];
+            NSInteger modelId = [dict[@"model_id"] integerValue];
+            
+            AVQuery *query = [AVQuery queryWithClassName:className];
+            [query whereKey:@"user_id" equalTo:@(user.user_id)];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                
+                for (AVObject *object in objects) {
+                    
+                    if ([object[@"model_id"] integerValue] == modelId) {
+                        
+                        [object deleteInBackground];
+                    }
+                }
+            }];
+            
+            NSInteger favoriteCount = [dict[@"favoriteCount"] integerValue];
+            if ([className isEqualToString:@"FavoriteRecord"]) {
+                AVQuery *query = [AVQuery queryWithClassName:@"URLRecord"];
+                [query whereKey:@"model_id" equalTo:@(modelId)];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    
+                    AVObject *object = [objects firstObject];
+                    object[@"favorites_count"] = @(favoriteCount);
+                    [object saveInBackground];
+                }];
+            } else {
+                
+                AVQuery *query = [AVQuery queryWithClassName:@"TravelRecord"];
+                [query whereKey:@"model_id" equalTo:@(modelId)];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    
+                    AVObject *object = [objects firstObject];
+                    object[@"favorites_count"] = @(favoriteCount);
+                    [object saveInBackground];
+                }];
+            }
+        }
+    }
 }
 
 @end
