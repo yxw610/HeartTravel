@@ -239,7 +239,15 @@
   
     GetUser *user = [GetUser shareGetUser];
     [((HTLeftMenuViewController *)self.sideMenuViewController.leftMenuViewController).headImg sd_setImageWithURL:[NSURL URLWithString:user.photo_url] placeholderImage:[UIImage imageNamed:@"iconfont-unie64d"]];
-    [((HTLeftMenuViewController *)self.sideMenuViewController.leftMenuViewController).nameButton setTitle:user.name forState:(UIControlStateNormal)];
+    if ([user.name isEqualToString:@""] || user.name == nil) {
+        
+        [((HTLeftMenuViewController *)self.sideMenuViewController.leftMenuViewController).nameButton setTitle:@"尚未设置昵称" forState:(UIControlStateNormal)];
+        
+    } else {
+        
+        [((HTLeftMenuViewController *)self.sideMenuViewController.leftMenuViewController).nameButton setTitle:user.name forState:(UIControlStateNormal)];
+    }
+    
     [self.sideMenuViewController presentLeftMenuViewController];
 
 }
