@@ -161,7 +161,7 @@ static NSString * const cellReuseIdentifier = @"cellReuseIdentifier";
         return header;
     }else {
         UILabel *header = [[UILabel alloc] initWithFrame:CGRectMake(30, 0, kScreenWidth, kScreenHeight/20)];
-        header.text = @"   相关氢游记";
+        header.text = @"   相关游记";
         header.font = [UIFont systemFontOfSize:15];
         return header;
     }
