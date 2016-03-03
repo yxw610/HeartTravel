@@ -36,7 +36,7 @@
                             <constraint firstAttribute="height" constant="20" id="ZJ9-NE-c65"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAB-8n-4Wy">
@@ -60,7 +60,9 @@
                                     <constraint firstAttribute="height" constant="20" id="8g9-er-nan"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="...展开全文"/>
+                                <state key="normal" title="...展开全文">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="showWholeRecordAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="kte-XX-k51"/>
                                 </connections>
