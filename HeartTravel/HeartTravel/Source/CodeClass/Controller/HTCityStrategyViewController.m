@@ -25,7 +25,7 @@ static NSString *const cellReuseID = @"cellReuseIdentifier";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = [NSString stringWithFormat:@"%@攻略",self.nameString];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"HTiconfont-fanhui"] style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"HTiconfont-fanhui"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(leftButtonAction)];
     // 注册cell
     [self.tableView registerNib:[UINib nibWithNibName:@"HTCityStrategyCell" bundle:nil] forCellReuseIdentifier:cellReuseID];
     

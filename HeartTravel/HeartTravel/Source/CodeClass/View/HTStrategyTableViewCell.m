@@ -36,7 +36,7 @@
     
     //设置图片信息
     self.strategyImgViewHeightConstraints.constant = imgViewHeight;
-    [self.strategyImgView sd_setImageWithURL:[NSURL URLWithString:model.photo.photo_url]];
+    [self.strategyImgView sd_setImageWithURL:[NSURL URLWithString:model.photo.photo_url] placeholderImage:[UIImage imageNamed:@"placeholder.jpg"]];
     //设置内容
     
     self.contentLabelHeightConstraints.constant = contentLabelHeight+10;

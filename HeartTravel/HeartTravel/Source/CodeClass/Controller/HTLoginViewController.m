@@ -161,7 +161,8 @@
     self.loginButton.layer.cornerRadius = 10;
     self.loginButton.layer.masksToBounds = YES;
     [self.loginButton setTitle:@"Login" forState:UIControlStateNormal];
-    self.loginButton.alpha = 0.3;
+    [self.loginButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
+    self.loginButton.alpha = 0.35;
     [self.loginButton addTarget:self action:@selector(backRoot:) forControlEvents:(UIControlEventTouchUpInside)];
     
     [self.backImg addSubview:self.loginButton];
@@ -186,6 +187,7 @@
     self.registerButton.layer.cornerRadius = 10;
     self.registerButton.layer.masksToBounds = YES;
     [self.registerButton setTitle:@"Register" forState:UIControlStateNormal];
+    [self.registerButton setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
     [self.view addSubview:self.registerButton];
     [self.registerButton addTarget:self action:@selector(registerAction:) forControlEvents:UIControlEventTouchUpInside];
     
